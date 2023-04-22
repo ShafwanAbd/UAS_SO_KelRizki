@@ -28,20 +28,20 @@ Route::get('/FAQ',      [CommonController::class, 'FAQ_index'])     ->name('home
 Route::get('/blog',     [CommonController::class, 'blog_index'])    ->name('home.blog');
 
 // MAIN ========================================= <>
-Route::get('/dashboard', [CommonController::class, 'dashboard_index']);
+Route::get('/dashboard', [CommonController::class, 'dashboard_index'])->name('main.dashboard');;
 
 // SIDEBAR ======================================= <>
-Route::get('/ringkasan',        [CommonController::class, 'ringkasan_index']);
-Route::get('/penarikan',        [CommonController::class, 'penarikan_index']);
-Route::get('/investasi',        [CommonController::class, 'investasi_index']);          // HAS DROPDOWN a <>
-    Route::get('/semua_bisnis', [CommonController::class, 'semua_bisnis_index']);   // a 1
-    Route::get('/aktivitas',    [CommonController::class, 'aktivitas_index']);      // a 2
-Route::get('/pertanyaan',       [CommonController::class, 'pertanyaan_index']);
-Route::get('/pengaturan',       [CommonController::class, 'pengaturan_index']);     // HAS DROPDOWN b <>
-    Route::get('/profil',       [CommonController::class, 'profil_index']);     // b 1
-    Route::get('/log_audit',    [CommonController::class, 'log_audit_index']);  // b 2
-    Route::get('/kata_sandi',   [CommonController::class, 'kata_sandi_index']); // b 3
-Route::get('/verifikasi_identitas', [CommonController::class, 'verifikasi_identitas_index']); // b 4
+Route::get('/ringkasan',        [CommonController::class, 'ringkasan_index'])   ->name('sidebar.ringkasan');;
+Route::get('/penarikan',        [CommonController::class, 'penarikan_index'])   ->name('sidebar.penarikan');;
+Route::get('/investasi',        [CommonController::class, 'investasi_index'])   ->name('sidebar.investasi');;    // HAS DROPDOWN a <>
+    Route::get('/semua_bisnis', [CommonController::class, 'semua_bisnis_index'])->name('sidebar.semua_bisnis');; // a 1
+    Route::get('/aktivitas',    [CommonController::class, 'aktivitas_index'])   ->name('sidebar.aktivitas');;    // a 2
+Route::get('/pertanyaan',       [CommonController::class, 'pertanyaan_index'])  ->name('sidebar.pertanyaan');;
+Route::get('/pengaturan',       [CommonController::class, 'pengaturan_index'])  ->name('sidebar.pengaturan');; // HAS DROPDOWN b <>
+    Route::get('/profil',       [CommonController::class, 'profil_index'])      ->name('sidebar.profil');;     // b 1
+    Route::get('/log_audit',    [CommonController::class, 'log_audit_index'])   ->name('sidebar.log_audit');;  // b 2
+    Route::get('/kata_sandi',   [CommonController::class, 'kata_sandi_index'])  ->name('sidebar.kata_sandi');; // b 3
+Route::get('/verifikasi_identitas', [CommonController::class, 'verifikasi_identitas_index'])->name('sidebar.verifikasi_identitas');; // b 4
 
 Route::middleware(['auth'])->group(function(){
 });

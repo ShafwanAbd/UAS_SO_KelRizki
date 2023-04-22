@@ -14,6 +14,8 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
+            $table->string('role')->nullable();
+            $table->string('status')->nullable();
             $table->string('firstName');
             $table->string('lastName');
             $table->string('username')->unique(); 
@@ -27,6 +29,8 @@ return new class extends Migration
         DB::table('users')->insert(
             array(
                 [
+                    'role' => '1',
+                    'status' => '1',
                     'firstName' => 'ADMIN',
                     'lastName'  => 'ADMIN',
                     'username'  => 'ADMIN',
