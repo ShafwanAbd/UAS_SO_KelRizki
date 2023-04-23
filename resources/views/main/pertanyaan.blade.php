@@ -42,7 +42,7 @@
                             <th scope="row">1</th>
                             <td>{{ $val->prioritas }}</td>
                             <td>{{ $val->subjek }}</td> 
-                            <td>{{ Auth::user()->username }}</td>
+                            <td>{{ $val->owner }}</td>
                             <td>
                                 <div class="container_button flex">
                                     <a href="{{ url('/pertanyaan/'.$val->id) }}" class="btn btn-primary">Lihat</a>
