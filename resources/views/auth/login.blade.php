@@ -45,7 +45,7 @@
             @endif
             </div>
 
-            <button type="submit" class="btn my-3 btn-success w-100 rounded-pill">
+            <button type="submit" class="btn my-3 btn-primary w-100 rounded-pill">
                 {{ __('Login') }}
             </button>
 
