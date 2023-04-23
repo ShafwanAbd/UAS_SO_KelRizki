@@ -7,8 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
 
   <!-- Google Fonts (Poppins) -->
   <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
@@ -19,9 +18,9 @@
   <title>Deposit</title>
 
   <style>
-  body {
-    font-family: 'Poppins';
-  }
+    body {
+      font-family: 'Poppins';
+    }
   </style>
 </head>
 
@@ -46,8 +45,7 @@
             <div class="form-group row pb-2 px-3">
               <label class="col-form-label col-lg-3">Detail Transfer</label>
               <div class="col-lg-9">
-                <textarea class="form-control" name="detil-transaksi" id="detil-transaksi" rows="5"
-                  placeholder="Detil Transaksi" required style="height: 137px"></textarea>
+                <textarea class="form-control" name="detil-transaksi" id="detil-transaksi" rows="5" placeholder="Detil Transaksi" required style="height: 137px"></textarea>
               </div>
             </div>
             <div class="form-group row pb-2 px-3">
@@ -60,7 +58,7 @@
             <div class="row text-center pt-3 pb-4">
               <div class="col-md-12">
                 <div class="form-group">
-                  <button class="btn btn-primary px-5">Lanjutkan</button>
+                  <button class="btn px-5 rounded-pill" style="background-color: #769FCD; color: white;">Lanjutkan</button>
                 </div>
               </div>
             </div>
@@ -125,14 +123,13 @@
 
 
   <!-- JS Bootstrap -->
-  <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
+  <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
   </script>
 
   <script>
-  $(document).ready(function() {
-    $('#riwayat-deposit').DataTable();
-  });
+    $(document).ready(function() {
+      $('#riwayat-deposit').DataTable();
+    });
   </script>
 </body>
 

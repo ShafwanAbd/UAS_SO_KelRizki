@@ -7,8 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
 
   <!-- Google Fonts (Poppins) -->
   <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
@@ -20,9 +19,9 @@
 </head>
 
 <style>
-body {
-  font-family: 'Poppins';
-}
+  body {
+    font-family: 'Poppins';
+  }
 </style>
 
 <body>
@@ -42,7 +41,9 @@ body {
           </div>
         </div>
         <div class="col-md-4 ps-3 py-2">
-          <a href="/deposit" class="btn btn-primary px-4"> <span>+ Isi Saldo</span></a>
+          <a href="/deposit" class="btn px-4 rounded-pill" style="background-color: #769FCD; color: white;"> <span>Isi
+              Saldo
+              +</span></a>
         </div>
 
       </div>
@@ -84,8 +85,7 @@ body {
           </div>
           <div class="card-body px-3">
             <small style="color:grey">5000 / 10000 Lembar Terjual</small>
-            <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="50" aria-valuemin="0"
-              aria-valuemax="100">
+            <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
               <div class="progress-bar" style="width: 50%"></div>
             </div>
             <div class="pt-3">
@@ -116,8 +116,7 @@ body {
           </div>
           <div class="card-body px-3">
             <small style="color:grey">3000 / 10000 Lembar Terjual</small>
-            <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="30" aria-valuemin="0"
-              aria-valuemax="100">
+            <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">
               <div class="progress-bar" style="width: 30%"></div>
             </div>
             <div class="pt-3">
@@ -148,8 +147,7 @@ body {
           </div>
           <div class="card-body px-3">
             <small style="color:grey">4000 / 10000 Lembar Terjual</small>
-            <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="40" aria-valuemin="0"
-              aria-valuemax="100">
+            <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">
               <div class="progress-bar" style="width: 40%"></div>
             </div>
             <div class="pt-3">
@@ -182,8 +180,7 @@ body {
 
 
   <!-- JS Bootstrap -->
-  <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
+  <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
   </script>
 
 </body>
