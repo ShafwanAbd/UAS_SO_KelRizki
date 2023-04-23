@@ -31,16 +31,32 @@
                     newPwValue = newPwField.value;
                     confirmPwValue = confirmPwField.value;
 
-                    if (newPwValue.length < 8) {    
-                        newPwField.setCustomValidity('Password minimal berjumlah 8 karakter!');
-                    } else if (!/[A-Z]/.test(newPwValue)) {
-                        newPwField.setCustomValidity('Password minimal mempunyai satu huruf besar!');
-                    } else if (!/[!@#$%^&*]/.test(newPwValue)) {
-                        newPwField.setCustomValidity('Password minimal mempunyai satu spesial simbol!');
-                    } else if (newPwValue !== confirmPwValue) {
+                    if (newPwValue !== confirmPwValue) {
                         confirmPwField.setCustomValidity('Passowrd Tidak Sesuai!');
-                    } else {
-                        newPwField.setCustomValidity('');
+                    } else if (newPwValue.length < 8) {    
+                        confirmPwField.setCustomValidity('Password minimal berjumlah 8 karakter!');
+                    } else if (!/[A-Z]/.test(confirmPwValue)) {
+                        confirmPwField.setCustomValidity('Password minimal mempunyai satu huruf besar!');
+                    } else if (!/[!@#$%^&*]/.test(confirmPwValue)) {
+                        confirmPwField.setCustomValidity('Password minimal mempunyai satu spesial simbol!');
+                    } else { 
+                        confirmPwField.setCustomValidity('');
+                    }
+                });
+
+                newPwField.addEventListener('input', () => {
+                    newPwValue = newPwField.value;
+                    confirmPwValue = confirmPwField.value;
+
+                    if (newPwValue !== confirmPwValue) {
+                        confirmPwField.setCustomValidity('Passowrd Tidak Sesuai!');
+                    } else if (newPwValue.length < 8) {    
+                        confirmPwField.setCustomValidity('Password minimal berjumlah 8 karakter!');
+                    } else if (!/[A-Z]/.test(confirmPwValue)) {
+                        confirmPwField.setCustomValidity('Password minimal mempunyai satu huruf besar!');
+                    } else if (!/[!@#$%^&*]/.test(confirmPwValue)) {
+                        confirmPwField.setCustomValidity('Password minimal mempunyai satu spesial simbol!');
+                    } else { 
                         confirmPwField.setCustomValidity('');
                     }
                 });
