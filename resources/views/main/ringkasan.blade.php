@@ -41,7 +41,9 @@
           </div>
         </div>
         <div class="col-md-4 ps-3 py-2">
-          <a class="btn btn-primary px-4"> <span>+ Isi Saldo</span></a>
+          <a href="/deposit" class="btn px-4 rounded-pill" style="background-color: #769FCD; color: white;"> <span>Isi
+              Saldo
+              +</span></a>
         </div>
 
       </div>

@@ -23,9 +23,9 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md shadow-sm navbar-light">
+        <nav class="navbar navbar-expand-md shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand text-light" href="{{ url('/') }}">
                     <!-- {{ config('app.name', 'Laravel') }} -->
                     ternakConnect
                 </a>
@@ -37,13 +37,13 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="">About Us</a>
+                            <a class="nav-link text-light" href="">About Us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="">FAQ</a>
+                            <a class="nav-link text-light" href="">FAQ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="">Blog</a>
+                            <a class="nav-link text-light" href="">Blog</a>
                         </li>
                     </ul>
 
@@ -53,13 +53,13 @@
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <button class="button2 rounded-pill px-3 mx-2 "><a class="nav-link btn" href="{{ route('login') }}">{{ __('Login') }}</a></button>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <button class="rounded-pill px-3 button1"><a class="nav-link btn" href="{{ route('register') }}">{{ __('Register') }}</a></button>
                                 </li>
                             @endif
                         @else

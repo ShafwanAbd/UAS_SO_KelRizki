@@ -34,6 +34,7 @@ Route::get('/dashboard', [CommonController::class, 'dashboard_index'])->name('ma
 
 // SIDEBAR ======================================= <>
 Route::get('/dashboard',            [CommonController::class, 'ringkasan_index'])       ->name('sidebar.ringkasan');
+Route::get('/deposit',              [CommonController::class, 'deposit_index'])         ->name('deposit');
 Route::get('/penarikan',            [CommonController::class, 'penarikan_index'])       ->name('sidebar.penarikan');
 Route::get('/investasi',            [CommonController::class, 'investasi_index'])       ->name('sidebar.investasi');    // HAS DROPDOWN a <>
 Route::get('/semua_bisnis',         [CommonController::class, 'semua_bisnis_index'])    ->name('sidebar.semua_bisnis'); // a 1
