@@ -14,7 +14,8 @@
             <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Buat Topik Diskusi</a>
         </div>
         <div class="container_isi">
-            <div class="isi">
+            @if ($datas1->count() == 0)
+            <div class="isi_kosong">
                 <div class="container_image">
                     <img src="{{ asset('./image/helper/stairways.png') }}">
                 </div>
@@ -22,9 +23,41 @@
                 <p>Silahkan menambahkan pertanyaan ...</p>
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Membuat forum diskusi</button>
                 <!-- Button trigger modal -->
+            </div>
+            @else
+            <div class="isi_ada">
+                <table class="table">
+                    <thead>
+                        <tr>
+                        <th scope="col"></th>
+                        <th scope="col">Prioritas</th> 
+                        <th scope="col">Subjek</th>  
+                        <th scope="col">Owner</th>
+                        <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($datas1 as $key=>$val)
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>{{ $val->prioritas }}</td>
+                            <td>{{ $val->subjek }}</td> 
+                            <td>{{ Auth::user()->username }}</td>
+                            <td>
+                                <div class="container_button flex">
+                                    <a href="{{ url('/pertanyaan/'.$val->id) }}" class="btn btn-primary">Lihat</a>
+                                    <a href="{{ url('/pertanyaan/delete/'.$val->id) }}" class="btn btn-primary">Hapus</a>
+                                </div>
+                            </td>
+                        </tr>
+                        @endforeach 
+                    </tbody>
+                </table>
+            </div>
+            @endif
 
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <form method="POST" action="{{ url('/pertanyaan/create') }}">
@@ -35,19 +68,19 @@
                                 </div>
                                 <div class="modal-body">
                                     <div class="form-floating mb-3">
-                                        <input type="text" name="subjek" class="form-control" id="floatingInput" placeholder="Subjek">
+                                        <input type="text" name="subjek" class="form-control" id="floatingInput" placeholder="Subjek" required>
                                         <label for="floatingInput">Subjek</label>
                                     </div> 
-                                    <div class="form-floating mb-3"> 
+                                    <div class="form-floating mb-3" required> 
                                         <select id="floatingInput" name="prioritas" class="form-control">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
+                                            <option value="Sangat Penting">Sangat Penting</option>
+                                            <option value="Penting">Penting</option>
+                                            <option value="Biasa">Biasa</option>
                                         </select>
                                         <label for="floatingInput">Prioritas</label>
                                     </div> 
                                     <div class="form-floating mb-3">
-                                        <textarea type="text" name="deskripsi" class="form-control" id="floatingInput" placeholder="Tulis Deskripsi Disini ..."></textarea>
+                                        <textarea type="text" name="deskripsi" class="form-control" id="floatingInput" placeholder="Tulis Deskripsi Disini ..." required></textarea>
                                         <label for="floatingInput">Deskripsi</label>
                                     </div> 
                                 </div>
@@ -57,8 +90,7 @@
                             </form>
                         </div>
                     </div>
-                </div>
-            </div>
+                </div> 
         </div>
     </div>
 @endsection
