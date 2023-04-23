@@ -31,5 +31,6 @@
 </head>
 <body>
     @yield('content')
+    <h1>tes</h1>
 </body>
 </html>
