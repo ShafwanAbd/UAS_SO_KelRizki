@@ -35,7 +35,9 @@
         <div class="sidebar">
 
         </div>
-        @yield('content')
+        <div class="container_content"> 
+            @yield('content')
+        </div>
     </div>
 </body>
 </html>
