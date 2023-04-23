@@ -18,6 +18,7 @@
 
     <!-- Private External -->
     <link rel="stylesheet" href="{{ asset('css/css.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/cssShafwan.css') }}">
 
     <!-- animate.css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
@@ -30,7 +31,11 @@
     <title>Document</title>
 </head>
 <body>
-    @yield('content')
-    <h1>tes</h1>
+    <div class="container_body flex">
+        <div class="sidebar">
+
+        </div>
+        @yield('content')
+    </div>
 </body>
 </html>
