@@ -57,11 +57,6 @@ class CommonController extends Controller
         return view('main.aktivitas');
     } 
     
-    public function pertanyaan_index()
-    {
-        return view('main.pertanyaan');
-    } 
-    
     public function pengaturan_index()
     {
         return view('main.pengaturan');

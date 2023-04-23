@@ -2,23 +2,7 @@
 
 @section('content')
 <div class="container">
-    <!-- <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
-                </div>
-            </div>
-        </div>
-    </div> -->
     <div class="row mb-5">
         <div class="col-8">
             <div class="w-75 px-5">        
@@ -29,11 +13,11 @@
                     secara bersama-sama, karena sudah 
                     berizin serta diawasi oleh OJK.
                 </p>
-                <button type="button" class="btn btn-success w-100 rounded-pill ">Mulai Investasi</button>
+                <a class="text-decoration-none btn btn-primary w-100 rounded-pill" href="{{ route('login') }}">Mulai Investasi</a>
             </div>
         </div>
-        <div class="col-4">
-        <img src=".." alt="isi foto">
+        <div class="col-4 d-flex align-items-center">
+            <img class="img-thumbnail " src="{{ asset('./image/img1.jpg')}}" alt="isi foto">
         </div>
     </div>
 
@@ -44,34 +28,34 @@
         </div>
         <div class="row">
             <div class="col-3">
-            <img src="" class="rounded-circle" alt="ini gambar">
+            <img src="{{ asset('./image/img1.jpg')}}" class="rounded-circle img-fluid" alt="ini gambar">
             <p class="mt-4">Waktu Pendanaan Tercepat</p>
             </div>
             <div class="col-3">
-            <img src="" class="rounded-circle" alt="ini gambar">
+            <img src="{{ asset('./image/img1.jpg')}}" class="rounded-circle img-fluid" alt="ini gambar">
             <p class="mt-4">Total Investasi</p>
             </div>
             <div class="col-3">
-            <img src="" class="rounded-circle" alt="ini gambar">
+            <img src="{{ asset('./image/img1.jpg')}}" class="rounded-circle img-fluid" alt="ini gambar">
             <p class="mt-4">Investor Terdaftar</p>
             </div>
             <div class="col-3">
-            <img src="" class="rounded-circle" alt="ini gambar">
+            <img src="{{ asset('./image/img1.jpg')}}" class="rounded-circle img-fluid" alt="ini gambar">
             <p class="mt-4">Total Jumlah Penerbit</p>
             </div>
         </div>
     </div>
 </div>
 <div class="row py-5">
-    <div class="col bg-success rounded-top py-5">
+    <div class="col bg-primary rounded-top py-5 text-light">
         <div class="w-50 container py-5">
             <p class="h3">Semakin mudah & aman berinvestasi dalam satu genggaman melalui aplikasi Ternak Connect </p>
             <p class="my-4">Daftarkan diri anda di aplikasi Ternak Connect sekarang juga dan rasakan kemudahannya!</p>
-            <button type="button" class="btn btn-dark w-100 rounded-pill ">Daftar Sekarang</button>
+            <a class="btn btn-light w-100 rounded-pill" href="{{ route('register') }}">Daftar Sekarang</a>
         </div>    
     </div>
-    <div class="col bg-danger rounded-top">
-        <img src="..." alt="ini foto">
+    <div class="col bg-primary rounded-top d-flex align-items-center">
+        <img class="img-thumbnail align-middle" src="{{ asset('./image/img1.jpg')}}" alt="isi foto">
     </div>
 </div>
 @endsection
