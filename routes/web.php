@@ -31,7 +31,7 @@ Route::get('/blog',     [CommonController::class, 'blog_index']);
 Route::get('/dashboard', [CommonController::class, 'dashboard_index']);
 
 // SIDEBAR ======================================= <>
-Route::get('/ringkasan',    [CommonController::class, 'ringkasan_index']);
+Route::get('/dashboard',    [CommonController::class, 'ringkasan_index']);
 Route::get('/penarikan',    [CommonController::class, 'penarikan_index']);
 Route::get('/investasi',    [CommonController::class, 'investasi_index']);      // HAS DROPDOWN a <>
 Route::get('/semua_bisnis', [CommonController::class, 'semua_bisnis_index']);   // a 1
@@ -43,5 +43,5 @@ Route::get('/log_audit',    [CommonController::class, 'log_audit_index']);      
 Route::get('/kata_sandi',   [CommonController::class, 'kata_sandi_index']);     // b 3
 Route::get('/verifikasi_identitas', [CommonController::class, 'verifikasi_identitas_index']); // b 4
 
-Route::middleware(['auth'])->group(function(){
+Route::middleware(['auth'])->group(function () {
 });
