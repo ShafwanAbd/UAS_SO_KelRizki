@@ -11,7 +11,8 @@
                 <p>Kembali</p>
              </a>
             </div>
-             <a href="{{ route('logout') }}">
+             <a href="{{ route('logout') }}" class="flex"> 
+                <p>Log Out</p>
                 <div class="container_image">
                     <img src="{{ asset('./image/helper/stairways.png') }}">
                 </div>
