@@ -1,1 +1,43 @@
+* {
+    font-family: "Poppins", sans-serif;
+}
 
+/* navbar */
+nav {
+    background-color: #769fcd;
+}
+
+.button1 {
+    background-color: #769fcd;
+    border: none;
+    color: #fff;
+}
+
+.button1 a {
+    color: #fff;
+}
+
+.button2 {
+    background-color: #fff;
+    border: none;
+}
+
+li .button1 {
+    border: 2px solid white;
+}
+
+.button2 a {
+    color: #769fcd;
+}
+
+.color1 {
+    background-color: #769fcd;
+}
+
+.fontColor1 {
+    color: #769fcd;
+}
+
+#app {
+    color: #557153;
+}

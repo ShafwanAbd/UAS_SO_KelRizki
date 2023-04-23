@@ -28,10 +28,10 @@
     padding: 3vh;
 }
 
-
 /** Pertanyaan **/
 
-.container_pertanyaan {}
+.container_pertanyaan {
+}
 
 .container_pertanyaan img {
     width: 100%;
@@ -85,7 +85,6 @@
     width: fit-content;
     gap: 1vh;
 }
-
 
 /* DETAIL */
 
