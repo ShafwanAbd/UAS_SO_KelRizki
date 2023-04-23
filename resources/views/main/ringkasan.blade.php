@@ -1,4 +1,3 @@
-@extends('layouts.sidebar')
 <!DOCTYPE html>
 <html lang="en">
 
