@@ -11,8 +11,21 @@
 }
 
 .container_body .container_content {
+    width: 100%;
+    height: 100%;
     padding: 3vh;
 }
 
 
 /** Pertanyaan **/
+
+.container_pertanyaan {
+    width: 100%;
+    height: 100%;
+}
+
+.container_pertanyaan .container_isi {
+    width: 100%;
+    height: 100%;
+    background-color: red;
+}
