@@ -2,12 +2,15 @@
 
 @section('content') 
     <div class="container_pertanyaan detail">
-        <div class="navbar1 flex">
-             <a href="{{ route('logout') }}">
+        <div class="navbar1">
+            <div class="flex">
+             <a href="{{ url('/pertanyaan') }}" class="flex">
                 <div class="container_image">
                     <img src="{{ asset('./image/helper/stairways.png') }}">
                 </div>
+                <p>Kembali</p>
              </a>
+            </div>
              <a href="{{ route('logout') }}">
                 <div class="container_image">
                     <img src="{{ asset('./image/helper/stairways.png') }}">
@@ -42,7 +45,9 @@
             <div class="isi_ada replyDetail">
                 <div class="header flex">  
                     <div class="subjek">
-                        <h5>Replying to {{ $val->owner }}</h5>
+                        @if (isset($val->replyTo))
+                            <h5>Replying to {{ $val->replyTo }}</h5> 
+                        @endif
                     </div>
                     <div class="info">
                         <h5>{{ $val->owner }}</h5>
