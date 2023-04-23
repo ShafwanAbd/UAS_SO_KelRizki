@@ -62,11 +62,6 @@ class CommonController extends Controller
         return view('main.pengaturan');
     } 
     
-    public function profil_index()
-    {
-        return view('main.profil');
-    } 
-    
     public function log_audit_index()
     {
         return view('main.log_audit');

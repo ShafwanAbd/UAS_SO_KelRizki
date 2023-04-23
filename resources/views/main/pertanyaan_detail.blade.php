@@ -23,8 +23,9 @@
         <div class="container_isi"> 
             <div class="isi_ada">
                 <div class="header flex">
-                    <div class="subjek">
+                    <div class="subjek flex">
                         <h2 class="title">{{ $model1->subjek }}</h2>
+                        <h6 class="pt-2">({{ $model1->prioritas }})</h6>
                     </div>
                     <div class="info">
                         <h5>{{ $model1->owner }}</h5>
