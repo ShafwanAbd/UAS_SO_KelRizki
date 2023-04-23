@@ -75,7 +75,7 @@
           <div class="card-body">
             <div class="d-flex flex-row">
               <div class="bank-logo m-2">
-                <img sclass="rounded-circle" src="{{asset('img/permata.png')}}" alt="" height="60px" width="60px">
+                <img class="rounded-circle" src="{{asset('img/permata.png')}}" alt="" height="60px" width="60px">
               </div>
               <div class="bank-name pt-4 px-2">
                 <p>Bank Permata</p>
@@ -94,12 +94,45 @@
         </div>
       </div>
     </div>
+    <div class="row pt-5">
+      <div class="col-md-12">
+        <h5>Riwayat Deposit</h5>
+        <div class="card border-0 shadow py-3">
+          <table id="riwayat-deposit" class="table table-responsive py-4 text-center">
+            <thead>
+              <tr>
+                <th>ID Referensi</th>
+                <th>Jumlah</th>
+                <th>Biaya Transfer</th>
+                <th>Status</th>
+                <th>Dibuat</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>9988753</th>
+                <th>Rp. 1,000,000</th>
+                <th>Rp. 1,250</th>
+                <th>Pending</th>
+                <th>12/04/2023</th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   </div>
 
 
   <!-- JS Bootstrap -->
   <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
+  </script>
+
+  <script>
+  $(document).ready(function() {
+    $('#riwayat-deposit').DataTable();
+  });
   </script>
 </body>
 

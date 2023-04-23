@@ -37,9 +37,9 @@ class CommonController extends Controller
         return view('main.ringkasan');
     }
 
-    public function topup_index()
+    public function deposit_index()
     {
-        return view('main.topup');
+        return view('main.deposit');
     }
 
     public function penarikan_index()
