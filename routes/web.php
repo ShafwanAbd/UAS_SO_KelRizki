@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CommonController;
+use App\Http\Controllers\PertanyaanController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -36,7 +37,8 @@ Route::get('/penarikan',        [CommonController::class, 'penarikan_index'])   
 Route::get('/investasi',        [CommonController::class, 'investasi_index'])   ->name('sidebar.investasi');;    // HAS DROPDOWN a <>
     Route::get('/semua_bisnis', [CommonController::class, 'semua_bisnis_index'])->name('sidebar.semua_bisnis');; // a 1
     Route::get('/aktivitas',    [CommonController::class, 'aktivitas_index'])   ->name('sidebar.aktivitas');;    // a 2
-Route::get('/pertanyaan',       [CommonController::class, 'pertanyaan_index'])  ->name('sidebar.pertanyaan');;
+Route::get('/pertanyaan',       [PertanyaanController::class, 'pertanyaan_index'])  ->name('sidebar.pertanyaan');;
+    Route::post('/pertanyaan/create', [PertanyaanController::class, 'create'])  ->name('sidebar.pertanyaan.create');
 Route::get('/pengaturan',       [CommonController::class, 'pengaturan_index'])  ->name('sidebar.pengaturan');; // HAS DROPDOWN b <>
     Route::get('/profil',       [CommonController::class, 'profil_index'])      ->name('sidebar.profil');;     // b 1
     Route::get('/log_audit',    [CommonController::class, 'log_audit_index'])   ->name('sidebar.log_audit');;  // b 2
