@@ -1,13 +1,14 @@
-@extends('layouts.sidebar')
+@extends('layouts.sidebarclean')
 
 @section('content') 
+<div class="container_content">
     <div class="container_pertanyaan">
         <div class="navbar1">
-             <a href="{{ route('logout') }}">
+            <a href="{{ route('logout') }}">
                 <div class="container_image">
                     <img src="{{ asset('./image/helper/stairways.png') }}">
                 </div>
-             </a>
+            </a>
         </div>
         <div class="navbar2 flex">
             <h4>Pertanyaan</h4>
@@ -93,4 +94,5 @@
                 </div> 
         </div>
     </div>
+</div>
 @endsection

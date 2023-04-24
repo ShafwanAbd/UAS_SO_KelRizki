@@ -14,7 +14,10 @@ return new class extends Migration
         Schema::create('deposit', function (Blueprint $table) {
             $table->id();
             $table->string('id_user');
-            $table->string('deposit_sum');
+            $table->string('amount');
+            $table->string('admin_fee');
+            $table->string('detil_transaksi')->nullable();
+            $table->string('bukti_pembayaran'); 
             $table->string('status');
             $table->timestamps();
         });

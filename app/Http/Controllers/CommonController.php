@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AdminBank;
 use Illuminate\Http\Request;
 
 class CommonController extends Controller
@@ -39,7 +40,9 @@ class CommonController extends Controller
 
     public function deposit_index()
     {
-        return view('main.deposit');
+        $adminbank = AdminBank::first();
+
+        return view('main.deposit', compact('adminbank'));
     }
 
     public function penarikan_index()

@@ -39,22 +39,6 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="sidebar">
-        <nav>
-            <p class="dudu">ternakConnect</p>
-            <ul>
-                <li>ringkasan</li>
-                <li>penarikan</li>
-                <li>investasi</li>
-                <li>pertanyaan</li>
-                <li>sistem afiliasi</li>
-                <li>pengaturan</li>
-                <li>keluar</li>
-            </ul>
-        </nav>
-    </div>
-
-
     @yield('content')
 </body>
 </html>

@@ -1,6 +1,7 @@
-@extends('layouts.sidebar')
+@extends('layouts.sidebarclean')
 
 @section('content') 
+<div class="container_content">
     <div class="container_profil">
         <div class="container_isi flex"> 
             <div class="container1">
@@ -46,4 +47,6 @@
             </div>
         </div> 
     </div>
+</div>
+    
 @endsection

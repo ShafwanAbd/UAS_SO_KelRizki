@@ -1,22 +1,23 @@
-@extends('layouts.sidebar')
+@extends('layouts.sidebarclean')
 
 @section('content') 
+<div class="container_content">
     <div class="container_pertanyaan detail">
         <div class="navbar1">
             <div class="flex">
-             <a href="{{ url('/pertanyaan') }}" class="flex">
+            <a href="{{ url('/pertanyaan') }}" class="flex">
                 <div class="container_image">
                     <img src="{{ asset('./image/helper/stairways.png') }}">
                 </div>
                 <p>Kembali</p>
-             </a>
+            </a>
             </div>
-             <a href="{{ route('logout') }}" class="flex"> 
+            <a href="{{ route('logout') }}" class="flex"> 
                 <p>Log Out</p>
                 <div class="container_image">
                     <img src="{{ asset('./image/helper/stairways.png') }}">
                 </div>
-             </a>
+            </a>
         </div>
         <div class="navbar2 flex">
         </div>
@@ -98,4 +99,5 @@
             </script>
         </div>
     </div>
+</div>
 @endsection
