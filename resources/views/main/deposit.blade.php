@@ -1,4 +1,5 @@
 @extends('layouts.sidebar')
+
 @section('content') 
 <div class="container py-5">
     <div class="row">
@@ -51,15 +52,15 @@
                 <img class="rounded-circle" src="{{asset('img/permata.png')}}" alt="" height="60px" width="60px">
               </div>
               <div class="bank-name pt-4 px-2">
-                <p>Bank Permata</p>
+                <p>{{ $adminbank->bankName }}</p>
               </div>
             </div>
             <div class="row px-2 pt-2">
               <div class="d-flex flex-row">
-                <p class="fw-bold">99857402193</p>
+                <p class="fw-bold">{{ $adminbank->acct_no }}</p>
                 <p class="ms-auto">Salin</p>
               </div>
-              <small>Rizki Pratama</small>
+              <small>{{ $adminbank->name }}</small>
             </div>
 
           </div>
