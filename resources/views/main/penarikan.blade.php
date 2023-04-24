@@ -1,32 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.sidebar')
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
-
-  <!-- Google Fonts (Poppins) -->
-  <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-
-  <!-- Bootstrap Icon -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
-
-  <title>Penarikan</title>
-
-  <style>
-  body {
-    font-family: 'Poppins';
-  }
-  </style>
-</head>
-
-<body>
-  <div class="container py-5">
+@section('content') 
+<div class="container py-5">
     <div class="row">
       <div class="d-flex flex-row">
         <h5>Penarikan</h5>
@@ -98,19 +73,13 @@
       </div>
     </div>
 
-  </div>
-
-
-  <!-- JS Bootstrap -->
-  <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
-  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 
   <script>
   $(document).ready(function() {
     $('#riwayat-deposit').DataTable();
   });
   </script>
-</body>
-
-</html>
+  </div>
+@endsection
+  
