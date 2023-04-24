@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CommonController;
+use App\Http\Controllers\KataSandiController;
 use App\Http\Controllers\PertanyaanController;
 use App\Http\Controllers\ProfilController;
 use Illuminate\Support\Facades\Auth;
@@ -47,9 +48,10 @@ Route::get('/pertanyaan/delete/{id}', [PertanyaanController::class, 'delete'])  
 Route::get('/pengaturan',           [CommonController::class, 'pengaturan_index'])      ->name('sidebar.pengaturan'); // HAS DROPDOWN b <>
 Route::get('/profil',               [ProfilController::class, 'profil_index'])          ->name('sidebar.profil');     // b 1
 Route::post('/profil/update/{id}',  [ProfilController::class, 'profil_update'])                ->name('sidebar.profil.update');     
-Route::get('/profil/delete/{id}',  [ProfilController::class, 'profil_delete'])                ->name('sidebar.profil.delete');     
-Route::get('/log_audit',            [CommonController::class, 'log_audit_index'])       ->name('sidebar.log_audit');  // b 2
-Route::get('/kata_sandi',           [CommonController::class, 'kata_sandi_index'])      ->name('sidebar.kata_sandi'); // b 3
+Route::get('/profil/delete/{id}',   [ProfilController::class, 'profil_delete'])                ->name('sidebar.profil.delete');     
+Route::get('/log_audit',            [CommonController::class, 'log_audit_index'])           ->name('sidebar.log_audit');  // b 2
+Route::get('/kata_sandi',           [KataSandiController::class, 'kata_sandi_index'])       ->name('sidebar.kata_sandi'); // b 3
+Route::post('/kata_sandi/update',    [KataSandiController::class, 'kata_sandi_update'])      ->name('sidebar.kata_sandi.update');
 Route::get('/verifikasi_identitas', [CommonController::class, 'verifikasi_identitas_index'])->name('sidebar.verifikasi_identitas'); // b 4
 
 Route::middleware(['auth'])->group(function () {

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- JQuery -->
-    <script src="{{ asset('js/jquery-3.6.4.min.js')}}"></script>
+    <script src="{{ asset('js/jquery-3.6.4.min.js')}}"></script> 
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,6 +24,7 @@
     <!-- Private External -->
     <link rel="stylesheet" href="{{ asset('css/css.css') }}">
     <link rel="stylesheet" href="{{ asset('css/cssShafwan.css') }}">
+    <script src="{{ asset('js/js.js') }}"></script>
 
     <!-- animate.css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>

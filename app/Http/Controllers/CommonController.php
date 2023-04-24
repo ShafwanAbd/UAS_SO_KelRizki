@@ -72,11 +72,6 @@ class CommonController extends Controller
         return view('main.log_audit');
     }
 
-    public function kata_sandi_index()
-    {
-        return view('main.kata_sandi');
-    }
-
     public function verifikasi_identitas_index()
     {
         return view('main.verifikasi_identitas');
