@@ -24,6 +24,8 @@
     <!-- Private External -->
     <link rel="stylesheet" href="{{ asset('css/css.css') }}">
     <link rel="stylesheet" href="{{ asset('css/cssShafwan.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/zulfan.css') }}">
+
 
     <!-- animate.css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
@@ -36,13 +38,22 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="container_body flex">
-        <div class="sidebar">
-
-        </div>
-        <div class="container_content"> 
-            @yield('content')
-        </div>
+    <div class="sidebar">
+        <nav>
+            <p class="dudu">ternakConnect</p>
+            <ul>
+                <li>ringkasan</li>
+                <li>penarikan</li>
+                <li>investasi</li>
+                <li>pertanyaan</li>
+                <li>sistem afiliasi</li>
+                <li>pengaturan</li>
+                <li>keluar</li>
+            </ul>
+        </nav>
     </div>
+
+
+            @yield('content')
 </body>
 </html>

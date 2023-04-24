@@ -41,3 +41,17 @@ li .button1 {
 #app {
     color: #557153;
 }
+
+/* sidebar */
+.dudu {
+    color: red;
+}
+
+.sidebar nav {
+    position: fixed;
+    width: 20%;
+}
+
+.sidebar nav ul li {
+    list-style: none;
+}

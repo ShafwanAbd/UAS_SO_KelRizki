@@ -1,31 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
-
-  <!-- Google Fonts (Poppins) -->
-  <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-
-  <!-- Bootstrap Icon -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
-
-  <title>Deposit</title>
-
-  <style>
-    body {
-      font-family: 'Poppins';
-    }
-  </style>
-</head>
-
-<body>
-  <div class="container py-5">
+@extends('layouts.sidebar')
+@section('content') 
+<div class="container py-5">
     <div class="row">
       <h5>Transfer Bank</h5>
       <div class="col-md-8">
@@ -131,6 +106,5 @@
       $('#riwayat-deposit').DataTable();
     });
   </script>
-</body>
+@endsection
 
-</html>
