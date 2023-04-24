@@ -3,28 +3,26 @@
 namespace App\Http\Controllers;
 
 use App\Models\AdminBank;
-use App\Models\Deposit;
-use App\Models\Setting;
+use App\Models\Penarikan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class DepositController extends Controller
-{
-
-    public function deposit_index()
+class PenarikanController extends Controller
+{  
+    public function penarikan_index()
     {
         $adminbank = AdminBank::first();
-        $datas1 = Deposit::all();
-        $setting = Setting::first();
+        $datas1 = Penarikan::all();
 
-        return view('main.deposit', compact('adminbank', 'datas1', 'setting'));
+        return view('main.penarikan', compact('adminbank', 'datas1'));
     }
 
     public function depositIn(Request $request) {
-        $model1 = new Deposit;
+        $model1 = new Penarikan();
 
         $model1->id_user = Auth::user()->id;
-        $model1->amount = $request->amount; 
+        $model1->amount = $request->amount;
+        $model1->admin_fee = '1250';
         $model1->detil_transaksi = $request->detil_transaksi; 
         $model1->bukti_pembayaran = '';
         $model1->status = 0; 
@@ -36,11 +34,11 @@ class DepositController extends Controller
             $namaFile = "buktiPembayaran_".Auth::user()->id.$model1->created_at->format('YmdHis').".png";
 
             $model1->bukti_pembayaran = $namaFile;
-            $file->move('buktiPembayaran/deposit', $namaFile);
+            $file->move('buktiPembayaran/penarikan', $namaFile);
         }
 
         $model1->save();
 
-        return back()->with('success', 'Berhasil Melakukan Deposit!');
+        return back()->with('success', 'Berhasil Melakukan Penarikan!');
     }
 }

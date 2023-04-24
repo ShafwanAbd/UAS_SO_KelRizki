@@ -38,11 +38,6 @@ class CommonController extends Controller
         return view('main.ringkasan');
     }
 
-    public function penarikan_index()
-    {
-        return view('main.penarikan');
-    }
-
     public function investasi_index()
     {
         return view('main.investasi');

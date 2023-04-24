@@ -3,6 +3,7 @@
 use App\Http\Controllers\CommonController;
 use App\Http\Controllers\DepositController;
 use App\Http\Controllers\KataSandiController;
+use App\Http\Controllers\PenarikanController;
 use App\Http\Controllers\PertanyaanController;
 use App\Http\Controllers\ProfilController;
 use Illuminate\Support\Facades\Auth;
@@ -36,9 +37,9 @@ Route::get('/dashboard', [CommonController::class, 'dashboard_index'])->name('ma
 
 // SIDEBAR ======================================= <>
 Route::get('/dashboard',            [CommonController::class, 'ringkasan_index'])       ->name('sidebar.ringkasan');
-Route::get('/deposit',              [DepositController::class, 'deposit_index'])         ->name('deposit');
-Route::post('/deposit/in',          [DepositController::class, 'depositIn'])             ->name('depositIn');
-Route::get('/penarikan',            [CommonController::class, 'penarikan_index'])       ->name('sidebar.penarikan');
+Route::get('/deposit',              [DepositController::class, 'deposit_index'])        ->name('deposit');
+Route::post('/deposit/in',          [DepositController::class, 'depositIn'])            ->name('depositIn');
+Route::get('/penarikan',            [PenarikanController::class, 'penarikan_index'])    ->name('sidebar.penarikan');
 Route::get('/investasi',            [CommonController::class, 'investasi_index'])       ->name('sidebar.investasi');    // HAS DROPDOWN a <>
 Route::get('/semua_bisnis',         [CommonController::class, 'semua_bisnis_index'])    ->name('sidebar.semua_bisnis'); // a 1
 Route::get('/aktivitas',            [CommonController::class, 'aktivitas_index'])       ->name('sidebar.aktivitas');    // a 2

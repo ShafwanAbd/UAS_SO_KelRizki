@@ -11,8 +11,8 @@
               <img class="rounded-circle m-2" src="{{asset('img/profile-icon.jpg')}}" alt="" height="60px" width="60px">
             </div>
             <div class="profile-name pt-2 px-2">
-              <h5>Rizki Pratama</h5>
-              <p>Halo Rizki Pratama, Selamat Datang di Dashboard Kamu.</p>
+              <h5>{{ Auth::user()->username }}</h5>
+              <p>Halo {{ Auth::user()->username }}, Selamat Datang di Dashboard Kamu.</p>
             </div>
           </div>
         </div>
@@ -27,25 +27,25 @@
       <div class="col-md-3 pt-3">
         <div class="card pt-3 px-3 border-0 bg-white shadow">
           <h6 class="bold">Saldo</h6>
-          <p>Rp. 12,000,000</p>
+          <p>{{ @money(isset(Auth::user()->balance) ? Auth::user()->balance : '0') }}</p>
         </div>
       </div>
       <div class="col-md-3 pt-3">
         <div class="card pt-3 px-3 border-0 bg-white shadow">
           <h6 class="bold">Saldo yang Diinvestasikan</h6>
-          <p>Rp. 12,000,000</p>
+          <p>{{ @money(isset(Auth::user()->balance_to_invest) ? Auth::user()->balance_to_invest : '0') }}</p>
         </div>
       </div>
       <div class="col-md-3 pt-3">
         <div class="card pt-3 px-3 border-0 bg-white shadow">
           <h6 class="bold">Profit</h6>
-          <p>Rp. 12,000,000</p>
+          <p>{{ @money(isset(Auth::user()->profit) ? Auth::user()->profit : '0') }}</p>
         </div>
       </div>
       <div class="col-md-3 pt-3">
         <div class="card pt-3 px-3 border-0 bg-white shadow">
           <h6 class="bold">Jumlah Peternakan</h6>
-          <p>3</p>
+          <p>{{ isset(Auth::user()->investing) ? Auth::user()->investing : '0' }}</p>
         </div>
       </div>
     </div>

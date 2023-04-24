@@ -22,13 +22,13 @@
             <div class="form-group row pb-2 px-3">
               <label class="col-form-label col-lg-3">Detail Transfer</label>
               <div class="col-lg-9">
-                <textarea class="form-control" name="detil_transaksi" id="detil-transaksi" rows="5" placeholder="Detil Transaksi" required style="height: 137px"></textarea>
+                <textarea class="form-control" name="detil_transaksi" id="detil-transaksi" rows="5" placeholder="Detil Transaksi" style="height: 137px"></textarea>
               </div>
             </div>
             <div class="form-group row pb-2 px-3">
               <label class="col-form-label col-lg-3">Bukti Pembayaran</label>
               <div class="col-lg-9">
-                <input type="file" class="custom-file-input" id="customFileLang" name="bukti_pembayaran">
+                <input type="file" class="custom-file-input" id="customFileLang" name="bukti_pembayaran" required>
                 <label class="custom-file-label" for="customFileLang">Pilih Tangkapan Layar</label>
               </div>
             </div>
@@ -88,7 +88,7 @@
               <tr>
                 <th>{{ $val->id_user }}</th> 
                 <th>{{ @money($val->amount) }}</th>
-                <th>{{ $val->admin_fee }}</th>
+                <th>{{ $setting->admin_fee }}</th>
                 <th>{{ $val->status === 1 ? 'Accepted' : 'Pending' }}</th>
                 <th>{{ $val->created_at->DiffForHumans() }}</th>
               </tr>
