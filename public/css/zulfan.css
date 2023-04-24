@@ -1,5 +1,6 @@
 * {
     font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
 }
 
 /* navbar */
@@ -45,11 +46,12 @@ li .button1 {
 /* sidebar */
 .dudu {
     color: red;
+    position: fixed;
 }
 
 .sidebar nav {
-    position: fixed;
-    width: 20%;
+    position: sticky;
+    width: 10%;
 }
 
 .sidebar nav ul li {

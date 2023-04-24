@@ -39,22 +39,51 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="sidebar">
-        <nav>
-            <p class="dudu">ternakConnect</p>
-            <ul>
-                <li>ringkasan</li>
-                <li>penarikan</li>
-                <li>investasi</li>
-                <li>pertanyaan</li>
-                <li>sistem afiliasi</li>
-                <li>pengaturan</li>
-                <li>keluar</li>
-            </ul>
-        </nav>
+    <div class="row">
+        <div class="sidebar col-2 color1 min-vh-100">
+            <nav class="text-light sticky-top">
+                <p class="mx-3 my-5 h5 fw-bold">ternakConnect</p>
+                <ul class="text-capitalize">
+                    <li class="my-5"><a class="text-light nav-link" href="{{ url('/dashboard') }}">ringkasan</a></li>
+                    <li class="my-5"><a class="text-light nav-link" href="{{ url('/penarikan') }}">penarikan</a></li>
+                    <li class="my-5">
+                        <div class="dropdown">
+                            <a class="dropdown-toggle text-light nav-link" href="{{ url('/investasi') }}" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                Investasi
+                            </a>
+
+                            <ul class="dropdown-menu dropdown-menu-dark color1" aria-labelledby="dropdownMenuLink">
+                                <li><a class="dropdown-item text-light" href="{{ url('/semua_bisnis') }}">Semua Bisnis</a></li>
+                                <li><a class="dropdown-item text-light" href="{{ url('/aktivitas') }}">Aktivitas</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="my-5"><a class="text-light nav-link" href="{{ url('/pertanyaan') }}">Pertanyaan</a></li>
+                    <li class="my-5">
+                        <div class="dropdown">
+                            <a class="dropdown-toggle text-light nav-link" href="{{ url('/investasi') }}" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                Pengaturan
+                            </a>
+
+                            <ul class="dropdown-menu dropdown-menu-dark color1" aria-labelledby="dropdownMenuLink">
+                                <li><a class="dropdown-item text-light" href="{{ url('/profil') }}">Profile</a></li>
+                                <li><a class="dropdown-item text-light" href="{{ url('/log_audit') }}">Log Audit</a></li>
+                                <li><a class="dropdown-item text-light" href="{{ url('/kata_sandi') }}">Kata Sandi</a></li>
+                                <li><a class="dropdown-item text-light" href="{{ url('/verifikasi_identitas') }}">verifikasi identitas</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="my-5"><a class="text-light nav-link" href="">keluar</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="col">
+            @yield('content')
+        </div>
     </div>
 
 
-    @yield('content')
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
 </html>
