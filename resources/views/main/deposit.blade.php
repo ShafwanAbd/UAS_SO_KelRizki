@@ -6,7 +6,8 @@
       <h5>Transfer Bank</h5>
       <div class="col-md-8">
         <div class="card border-0 rounded shadow">
-          <form action="" method="post">
+          <form action="{{ url('/deposit/in') }}" method="post" enctype="multipart/form-data">
+          @csrf
             <div class="form-group row pt-4 pb-2 px-3">
               <label class="col-form-label col-lg-3">Jumlah Transfer</label>
               <div class="col-lg-9">
@@ -14,27 +15,27 @@
                   <span class="input-group-prepend ">
                     <span class="input-group-text rounded-0">Rp</span>
                   </span>
-                  <input type="number" step="any" name="total-deposit" maxlength="10" class="form-control">
+                  <input type="number" step="any" name="amount" maxlength="10" class="form-control" required>
                 </div>
               </div>
             </div>
             <div class="form-group row pb-2 px-3">
               <label class="col-form-label col-lg-3">Detail Transfer</label>
               <div class="col-lg-9">
-                <textarea class="form-control" name="detil-transaksi" id="detil-transaksi" rows="5" placeholder="Detil Transaksi" required style="height: 137px"></textarea>
+                <textarea class="form-control" name="detil_transaksi" id="detil-transaksi" rows="5" placeholder="Detil Transaksi" required style="height: 137px"></textarea>
               </div>
             </div>
             <div class="form-group row pb-2 px-3">
               <label class="col-form-label col-lg-3">Bukti Pembayaran</label>
               <div class="col-lg-9">
-                <input type="file" class="custom-file-input" id="customFileLang" name="bukti-deposit">
+                <input type="file" class="custom-file-input" id="customFileLang" name="bukti_pembayaran">
                 <label class="custom-file-label" for="customFileLang">Pilih Tangkapan Layar</label>
               </div>
             </div>
             <div class="row text-center pt-3 pb-4">
               <div class="col-md-12">
                 <div class="form-group">
-                  <button class="btn px-5 rounded-pill" style="background-color: #769FCD; color: white;">Lanjutkan</button>
+                  <button type="submit" class="btn px-5 rounded-pill" style="background-color: #769FCD; color: white;">Lanjutkan</button>
                 </div>
               </div>
             </div>
@@ -83,13 +84,15 @@
               </tr>
             </thead>
             <tbody>
+              @foreach($datas1 as $key=>$val)
               <tr>
-                <th>9988753</th>
-                <th>Rp. 1,000,000</th>
-                <th>Rp. 1,250</th>
-                <th>Pending</th>
-                <th>12/04/2023</th>
+                <th>{{ $val->id_user }}</th> 
+                <th>{{ @money($val->amount) }}</th>
+                <th>{{ $val->admin_fee }}</th>
+                <th>{{ $val->status === 1 ? 'Accepted' : 'Pending' }}</th>
+                <th>{{ $val->created_at->DiffForHumans() }}</th>
               </tr>
+              @endforeach
             </tbody>
           </table>
         </div>

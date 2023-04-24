@@ -38,13 +38,6 @@ class CommonController extends Controller
         return view('main.ringkasan');
     }
 
-    public function deposit_index()
-    {
-        $adminbank = AdminBank::first();
-
-        return view('main.deposit', compact('adminbank'));
-    }
-
     public function penarikan_index()
     {
         return view('main.penarikan');
