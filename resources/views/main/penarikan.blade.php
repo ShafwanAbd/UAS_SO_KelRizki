@@ -120,6 +120,7 @@
               <p class="fw-bold mb-0">Withdrawal</p>
               <p>{{ $val->debit_from }}</p>
               <p>{{ $val->created_at }}</p>
+              <p>{{ $val->status == 1 ? 'Accepted' : 'Pending' }}</p>
             </div>
             <div class="tanggal-penarikan ms-auto px-3">
               <p class="ms-auto">{{ $val->metode_penarikan }}</p>
