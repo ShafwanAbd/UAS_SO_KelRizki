@@ -32,30 +32,27 @@ Route::get('/about_us', [CommonController::class, 'about_us_index'])->name('home
 Route::get('/FAQ',      [CommonController::class, 'FAQ_index'])     ->name('home.FAQ');
 Route::get('/blog',     [CommonController::class, 'blog_index'])    ->name('home.blog');
 
-// MAIN ========================================= <>
-Route::get('/dashboard', [CommonController::class, 'dashboard_index'])->name('main.dashboard');;
-
-// SIDEBAR ======================================= <>
-Route::get('/dashboard',            [CommonController::class, 'ringkasan_index'])       ->name('sidebar.ringkasan');
-Route::get('/deposit',              [DepositController::class, 'deposit_index'])        ->name('deposit');
-Route::post('/deposit/in',          [DepositController::class, 'depositIn'])            ->name('depositIn');
-Route::get('/penarikan',            [PenarikanController::class, 'penarikan_index'])    ->name('sidebar.penarikan');
-Route::get('/investasi',            [CommonController::class, 'investasi_index'])       ->name('sidebar.investasi');    // HAS DROPDOWN a <>
-Route::get('/semua_bisnis',         [CommonController::class, 'semua_bisnis_index'])    ->name('sidebar.semua_bisnis'); // a 1
-Route::get('/aktivitas',            [CommonController::class, 'aktivitas_index'])       ->name('sidebar.aktivitas');    // a 2
-Route::get('/pertanyaan',           [PertanyaanController::class, 'pertanyaan_index'])  ->name('sidebar.pertanyaan');
-Route::post('/pertanyaan/create',   [PertanyaanController::class, 'create'])            ->name('sidebar.pertanyaan.create');
-Route::post('/pertanyaan/createReply/{id}', [PertanyaanController::class, 'createReply'])->name('sidebar.pertanyaan.createReply');
-Route::get('/pertanyaan/{id}',      [PertanyaanController::class, 'detail'])            ->name('sidebar.pertanyaan.detail');
-Route::get('/pertanyaan/delete/{id}', [PertanyaanController::class, 'delete'])          ->name('sidebar.pertanyaan.detail');
-Route::get('/pengaturan',           [CommonController::class, 'pengaturan_index'])      ->name('sidebar.pengaturan'); // HAS DROPDOWN b <>
-Route::get('/profil',               [ProfilController::class, 'profil_index'])          ->name('sidebar.profil');     // b 1
-Route::post('/profil/update/{id}',  [ProfilController::class, 'profil_update'])                ->name('sidebar.profil.update');     
-Route::get('/profil/delete/{id}',   [ProfilController::class, 'profil_delete'])                ->name('sidebar.profil.delete');     
-Route::get('/log_audit',            [CommonController::class, 'log_audit_index'])           ->name('sidebar.log_audit');  // b 2
-Route::get('/kata_sandi',           [KataSandiController::class, 'kata_sandi_index'])       ->name('sidebar.kata_sandi'); // b 3
-Route::post('/kata_sandi/update',    [KataSandiController::class, 'kata_sandi_update'])      ->name('sidebar.kata_sandi.update');
-Route::get('/verifikasi_identitas', [CommonController::class, 'verifikasi_identitas_index'])->name('sidebar.verifikasi_identitas'); // b 4
+// MAIN ========================================= <>  
 
 Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard',            [CommonController::class, 'ringkasan_index'])->name('sidebar.ringkasan');   // FRONTEND:✘ BACKEND:✘
+    Route::get('/deposit',              [DepositController::class, 'deposit_index'])->name('deposit');              // FRONTEND:✘ BACKEND:✘
+    Route::post('/deposit/in',          [DepositController::class, 'depositIn'])->name('depositIn');                // FRONTEND:✘ BACKEND:✘
+    Route::get('/penarikan',            [PenarikanController::class, 'penarikan_index'])->name('sidebar.penarikan');// FRONTEND:✘ BACKEND:✘
+    Route::get('/investasi',            [CommonController::class, 'investasi_index'])->name('sidebar.investasi');   // FRONTEND:✘ BACKEND:✘
+    Route::get('/semua_bisnis',         [CommonController::class, 'semua_bisnis_index'])->name('sidebar.semua_bisnis'); // FRONTEND:✘ BACKEND:✘
+    Route::get('/aktivitas',            [CommonController::class, 'aktivitas_index'])->name('sidebar.aktivitas');       // FRONTEND:✘ BACKEND:✘
+    Route::get('/pertanyaan',           [PertanyaanController::class, 'pertanyaan_index'])->name('sidebar.pertanyaan'); // FRONTEND:✘ BACKEND:✘
+    Route::post('/pertanyaan/create',   [PertanyaanController::class, 'create'])->name('sidebar.pertanyaan.create');    // FRONTEND:✘ BACKEND:✘
+    Route::post('/pertanyaan/createReply/{id}', [PertanyaanController::class, 'createReply'])->name('sidebar.createReply'); // FRONTEND:✘ BACKEND:✘
+    Route::get('/pertanyaan/{id}',      [PertanyaanController::class, 'detail'])->name('sidebar.pertanyaan.detail');    // FRONTEND:✘ BACKEND:✘
+    Route::get('/pertanyaan/delete/{id}', [PertanyaanController::class, 'delete'])->name('sidebar.pertanyaan.detail');  // FRONTEND:✘ BACKEND:✘
+    Route::get('/pengaturan',           [CommonController::class, 'pengaturan_index'])->name('sidebar.pengaturan');     // FRONTEND:✘ BACKEND:✘
+    Route::get('/profil',               [ProfilController::class, 'profil_index'])->name('sidebar.profil');             // FRONTEND:✘ BACKEND:✘
+    Route::post('/profil/update/{id}',  [ProfilController::class, 'profil_update'])->name('sidebar.profil.update');     // FRONTEND:✘ BACKEND:✘   
+    Route::get('/profil/delete/{id}',   [ProfilController::class, 'profil_delete'])->name('sidebar.profil.delete');     // FRONTEND:✘ BACKEND:✘    
+    Route::get('/log_audit',            [CommonController::class, 'log_audit_index'])->name('sidebar.log_audit');       // FRONTEND:✘ BACKEND:✘
+    Route::get('/kata_sandi',           [KataSandiController::class, 'kata_sandi_index'])->name('sidebar.kata_sandi');  // FRONTEND:✘ BACKEND:✘
+    Route::post('/kata_sandi/update',    [KataSandiController::class, 'kata_sandi_update'])->name('sidebar.kata_sandi.update');         // FRONTEND:✘ BACKEND:✘
+    Route::get('/verifikasi_identitas', [CommonController::class, 'verifikasi_identitas_index'])->name('sidebar.verifikasi_identitas'); // FRONTEND:✘ BACKEND:✘
 });
