@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\AdminBank;
 use App\Models\Penarikan;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,8 +14,9 @@ class PenarikanController extends Controller
     {
         $adminbank = AdminBank::first();
         $datas1 = Penarikan::all();
+        $setting = Setting::first();
 
-        return view('main.penarikan', compact('adminbank', 'datas1'));
+        return view('main.penarikan', compact('adminbank', 'datas1', 'setting'));
     }
 
     public function depositIn(Request $request) {

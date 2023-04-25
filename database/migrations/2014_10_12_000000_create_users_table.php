@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string('balance_to_invest')->nullable();
             $table->string('profit')->nullable();
             $table->string('investing')->nullable();
+            $table->string('dividen')->nullable();
 
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
@@ -44,6 +45,7 @@ return new class extends Migration
                     'username'  => 'ADMIN',
                     'balance'   => '999999',
                     'profit'    => '999999',
+                    'dividen'   => '150000',
                     'email'     => 'ADMIN@gmail.com',
                     'password'  => bcrypt('ADMIN'), 
                 ]

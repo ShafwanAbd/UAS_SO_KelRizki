@@ -15,12 +15,22 @@ return new class extends Migration
         Schema::create('setting', function (Blueprint $table) {
             $table->id();
             $table->string('admin_fee');
+            $table->string('charge');
+            $table->string('limit_first')->nullable();
+            $table->string('limit_last')->nullable(); 
+            $table->string('day_estimation')->nullable(); 
             $table->timestamps();
         });
 
         DB::table('setting')->insert(
             array(
-                ['admin_fee' => '1250'],
+                [
+                    'admin_fee' => '1250',
+                    'charge' => '0.25',
+                    'limit_first' => '10000',
+                    'limit_last' => '1000000000',
+                    'day_estimation' => '1',
+                ],
             )
         );
     }

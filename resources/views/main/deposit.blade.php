@@ -72,7 +72,7 @@
     <div class="row pt-5">
       <div class="col-md-12">
         <h5>Riwayat Deposit</h5>
-        <div class="card border-0 shadow py-3">
+        <div class="card border-0 shadow py-3"> 
           <table id="riwayat-deposit" class="table table-responsive py-4 text-center">
             <thead>
               <tr>
@@ -88,13 +88,13 @@
               <tr>
                 <th>{{ $val->id_user }}</th> 
                 <th>{{ @money($val->amount) }}</th>
-                <th>{{ $setting->admin_fee }}</th>
+                <th>{{ @money($setting->admin_fee) }}</th>
                 <th>{{ $val->status === 1 ? 'Accepted' : 'Pending' }}</th>
                 <th>{{ $val->created_at->DiffForHumans() }}</th>
               </tr>
               @endforeach
             </tbody>
-          </table>
+          </table> 
         </div>
       </div>
     </div>
