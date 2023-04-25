@@ -17,6 +17,10 @@
     font-family: "Poppins", sans-serif;
 }
 
+.w100 {
+    width: 100%;
+}
+
 .flex {
     display: flex;
 }
