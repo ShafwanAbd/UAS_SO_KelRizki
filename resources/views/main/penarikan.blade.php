@@ -120,10 +120,13 @@
         <div class="row pt-2">
           <div class="d-flex flex-row">
             <div class="jenis-transaksi px-3">
-              <p class="fw-bold mb-0">Withdrawal <span class="badge bg-warning">processing</span></p>
+              @if( $val->status == 1 )
+              <p class="fw-bold mb-0">Withdrawal <span class="badge bg-success">Accepted</span></p>
+              @elseif ( $val->status == 0 )
+              <p class="fw-bold mb-0">Withdrawal <span class="badge bg-warning">Processing</span></p>
+              @endif
               <p>{{ $val->debit_from }}</p>
-              <p>{{ $val->created_at }}</p>
-              <p>{{ $val->status == 1 ? 'Accepted' : 'Pending' }}</p>
+              <p>{{ $val->created_at }}</p> 
             </div>
             <div class="tanggal-penarikan ms-auto px-3">
               <p class="ms-auto">{{ $val->metode_penarikan }}</p>
