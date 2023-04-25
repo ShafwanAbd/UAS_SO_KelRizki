@@ -19,26 +19,16 @@ class PenarikanController extends Controller
         return view('main.penarikan', compact('adminbank', 'datas1', 'setting'));
     }
 
-    public function depositIn(Request $request) {
+    public function create(Request $request) {
         $model1 = new Penarikan();
 
-        $model1->id_user = Auth::user()->id;
-        $model1->amount = $request->amount;
-        $model1->admin_fee = '1250';
+        $model1->id_user = Auth::user()->id; 
+        $model1->metode_penarikan = $request->metode_penarikan; 
+        $model1->amount = $request->amount; 
+        $model1->debit_from = $request->debit_from; 
         $model1->detil_transaksi = $request->detil_transaksi; 
-        $model1->bukti_pembayaran = '';
-        $model1->status = 0; 
-
-        $model1->save();
-
-        if ($request->file('bukti_pembayaran')){
-            $file = $request->file('bukti_pembayaran'); 
-            $namaFile = "buktiPembayaran_".Auth::user()->id.$model1->created_at->format('YmdHis').".png";
-
-            $model1->bukti_pembayaran = $namaFile;
-            $file->move('buktiPembayaran/penarikan', $namaFile);
-        }
-
+        $model1->status = 0;   
+ 
         $model1->save();
 
         return back()->with('success', 'Berhasil Melakukan Penarikan!');

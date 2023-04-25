@@ -1,5 +1,14 @@
 /** GENERAL **/
 
+.btn {
+    background-color: #769FCD;
+    border: none;
+}
+
+.bg-red {
+    background-color: #cd7676 !important;
+}
+
 .hidden {
     display: none;
 }
@@ -10,6 +19,15 @@
     border-radius: 10px;
     color: #FFF;
     font-weight: 800;
+    text-align: center;
+}
+
+.alert_small {
+    background-color: #769FCD;
+    width: 100%;
+    border-radius: 5px;
+    color: #FFF;
+    padding: 0.5vh;
     text-align: center;
 }
 
@@ -161,11 +179,26 @@
 }
 
 .container_profil .container_isi .container1 .container_form_label {
+    width: 100%;
+}
+
+.container_profil .container_isi .container_form_label .item {
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 3vh;
+}
+
+.container_profil .container_isi .container_form_label .item p {
     width: 30%;
 }
 
-.container_profil .container_isi .container1 .container_form_input {
+.container_profil .container_isi .container_form_label .input-group {
     width: 100%;
+}
+
+.container_profil .container_isi .container_form_label .input-group .container_name {
+    width: 100%;
+    gap: 1vw;
 }
 
 .container_profil .container_isi .container1 .container_delete {

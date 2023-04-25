@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('owner');
             $table->string('subjek');
             $table->string('prioritas');
-            $table->text('deskripsi');
+            $table->text('deskripsi')->nullable();
             $table->timestamps();
         });
     }

@@ -74,7 +74,8 @@
                                     <label for="floatingInput">Subjek</label>
                                 </div>
                                 <div class="form-floating mb-3" required>
-                                    <select id="floatingInput" name="prioritas" class="form-control">
+                                    <select id="floatingInput" name="prioritas" class="form-control" required>
+                                        <option value="" disabled selected>-- Select --</option>
                                         <option value="Sangat Penting">Sangat Penting</option>
                                         <option value="Penting">Penting</option>
                                         <option value="Biasa">Biasa</option>
@@ -82,7 +83,7 @@
                                     <label for="floatingInput">Prioritas</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <textarea type="text" name="deskripsi" class="form-control" id="floatingInput" placeholder="Tulis Deskripsi Disini ..." required></textarea>
+                                    <textarea type="text" name="deskripsi" class="form-control" id="floatingInput" placeholder="Tulis Deskripsi Disini ..."></textarea>
                                     <label for="floatingInput">Deskripsi</label>
                                 </div>
                             </div>

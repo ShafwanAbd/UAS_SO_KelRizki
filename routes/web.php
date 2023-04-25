@@ -38,7 +38,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard',            [CommonController::class, 'ringkasan_index'])->name('sidebar.ringkasan');   // FRONTEND:✘ BACKEND:✘
     Route::get('/deposit',              [DepositController::class, 'deposit_index'])->name('deposit');              // FRONTEND:✘ BACKEND:✘
     Route::post('/deposit/in',          [DepositController::class, 'depositIn'])->name('depositIn');                // FRONTEND:✘ BACKEND:✘
-    Route::get('/penarikan',            [PenarikanController::class, 'penarikan_index'])->name('sidebar.penarikan'); // FRONTEND:✘ BACKEND:✘
+    Route::get('/penarikan',            [PenarikanController::class, 'penarikan_index'])->name('sidebar.penarikan');// FRONTEND:✘ BACKEND:✘
+    Route::post('/penarikan/create',    [PenarikanController::class, 'create'])->name('sidebar.penarikan.create');// FRONTEND:✘ BACKEND:✘
     Route::get('/investasi',            [CommonController::class, 'investasi_index'])->name('sidebar.investasi');   // FRONTEND:✘ BACKEND:✘
     Route::get('/semua_bisnis',         [CommonController::class, 'semua_bisnis_index'])->name('sidebar.semua_bisnis'); // FRONTEND:✘ BACKEND:✘
     Route::get('/investasi-segera',         [CommonController::class, 'investasi_segera_index'])->name('sidebar.investasi_segera'); // FRONTEND:✘ BACKEND:✘
