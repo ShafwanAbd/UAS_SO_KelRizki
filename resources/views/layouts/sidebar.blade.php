@@ -51,30 +51,29 @@
                     <li class="my-5"><a class="text-light nav-link" href="{{ url('/dashboard') }}">ringkasan</a></li>
                     <li class="my-5"><a class="text-light nav-link" href="{{ url('/penarikan') }}">penarikan</a></li>
                     <li class="my-5">
-                        <div class="dropdown">
-                            <a class="dropdown-toggle text-light nav-link" href="{{ url('/investasi') }}" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                        <div class="accordion" id="accordionExample1">
+                            <a class="dropdown-toggle text-light nav-link" href="{{ url('/investasi') }}" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                                 Investasi
                             </a>
 
-                            <ul class="dropdown-menu dropdown-menu-dark color1" aria-labelledby="dropdownMenuLink">
-                                <li><a class="dropdown-item text-light" href="{{ url('/semua_bisnis') }}">Semua Bisnis</a></li>
-                                <li><a class="dropdown-item text-light" href="{{ url('/aktivitas') }}">Aktivitas</a></li>
+                            <ul id="collapseOne" class="accordion-collapse collapse show color1" data-bs-parent="#accordionExample1">
+                                <li><a class="dropdown-item text-light my-4" href="{{ url('/semua_bisnis') }}">Semua Bisnis</a></li>
+                                <li><a class="dropdown-item text-light my-4" href="{{ url('/aktivitas') }}">Aktivitas</a></li>
                             </ul>
                         </div>
                     </li>
                     <li class="my-5"><a class="text-light nav-link" href="{{ url('/pertanyaan') }}">Pertanyaan</a></li>
                     <li class="my-5">
-                        <div class="dropdown">
-                            <a class="dropdown-toggle text-light nav-link" href="{{ url('/investasi') }}" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                        <div class="accordion" id="accordionExample2">
+                            <a class="text-light nav-link dropdown-toggle" href="{{ url('/investasi') }}" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                 Pengaturan
                             </a>
 
-                            <ul class="dropdown-menu dropdown-menu-dark color1" aria-labelledby="dropdownMenuLink">
-                                <li><a class="dropdown-item text-light" href="{{ url('/profil') }}">Profile</a></li>
-                                <li><a class="dropdown-item text-light" href="{{ url('/log_audit') }}">Log Audit</a></li>
-                                <li><a class="dropdown-item text-light" href="{{ url('/kata_sandi') }}">Kata Sandi</a></li>
-                                <li><a class="dropdown-item text-light" href="{{ url('/verifikasi_identitas') }}">verifikasi
-                                        identitas</a></li>
+                            <ul id="collapseTwo" class="accordion-collapse collapse show color1" data-bs-parent="#accordionExample2">
+                                <li><a class="dropdown-item text-light my-4 " href="{{ url('/profil') }}">Profile</a></li>
+                                <li><a class="dropdown-item text-light my-4 " href="{{ url('/log_audit') }}">Log Audit</a></li>
+                                <li><a class="dropdown-item text-light my-4 " href="{{ url('/kata_sandi') }}">Kata Sandi</a></li>
+                                <li><a class="dropdown-item text-light my-4 " href="{{ url('/verifikasi_identitas') }}">verifikasi identitas</a></li>
                             </ul>
                         </div>
                     </li>
