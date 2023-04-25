@@ -125,12 +125,14 @@
               @elseif ( $val->status == 0 )
               <p class="fw-bold mb-0">Withdrawal <span class="badge bg-warning">Processing</span></p>
               @endif
+              <!-- rapetin -->
               <p>{{ $val->debit_from }}</p>
-              <p>{{ $val->created_at }}</p> 
+              <p>{{ $val->metode_penarikan }}</p> 
             </div>
             <div class="tanggal-penarikan ms-auto px-3">
-              <p class="ms-auto">{{ $val->metode_penarikan }}</p>
-              <p class="ms-auto">{{ @money($val->amount) }}</p>
+              <!-- mentokin kanan? -->
+              <p class="ms-auto">{{ @money($val->amount) }}</p> 
+              <p class="ms-auto">{{ $val->created_at }}</p>
             </div>
           </div>
         </div>
