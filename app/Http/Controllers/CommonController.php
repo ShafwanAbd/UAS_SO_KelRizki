@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AdminBank;
 use Illuminate\Http\Request;
 
 class CommonController extends Controller
@@ -35,16 +36,6 @@ class CommonController extends Controller
     public function ringkasan_index()
     {
         return view('main.ringkasan');
-    }
-
-    public function deposit_index()
-    {
-        return view('main.deposit');
-    }
-
-    public function penarikan_index()
-    {
-        return view('main.penarikan');
     }
 
     public function investasi_index()

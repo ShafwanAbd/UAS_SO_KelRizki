@@ -23,6 +23,11 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('alamat')->nullable();
 
+            $table->string('balance')->nullable();
+            $table->string('balance_to_invest')->nullable();
+            $table->string('profit')->nullable();
+            $table->string('investing')->nullable();
+
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
@@ -37,6 +42,8 @@ return new class extends Migration
                     'firstName' => 'ADMIN',
                     'lastName'  => 'ADMIN',
                     'username'  => 'ADMIN',
+                    'balance'   => '999999',
+                    'profit'    => '999999',
                     'email'     => 'ADMIN@gmail.com',
                     'password'  => bcrypt('ADMIN'), 
                 ]

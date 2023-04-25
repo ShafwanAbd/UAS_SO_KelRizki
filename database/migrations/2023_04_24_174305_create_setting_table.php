@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -11,15 +12,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('deposit', function (Blueprint $table) {
+        Schema::create('setting', function (Blueprint $table) {
             $table->id();
-            $table->string('id_user');
-            $table->string('amount'); 
-            $table->string('detil_transaksi')->nullable();
-            $table->string('bukti_pembayaran'); 
-            $table->string('status');
+            $table->string('admin_fee');
             $table->timestamps();
         });
+
+        DB::table('setting')->insert(
+            array(
+                ['admin_fee' => '1250'],
+            )
+        );
     }
 
     /**
@@ -27,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('deposit');
+        Schema::dropIfExists('setting');
     }
 };
