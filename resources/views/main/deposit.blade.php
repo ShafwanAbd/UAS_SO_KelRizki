@@ -90,7 +90,7 @@
             <tr>
               <th>{{ $val->id_user }}</th>
               <th>{{ @money($val->amount) }}</th>
-              <th>{{ $setting->admin_fee }}</th>
+              <th>{{ @money($setting->admin_fee) }}</th>
               <th>{{ $val->status === 1 ? 'Accepted' : 'Pending' }}</th>
               <th>{{ $val->created_at->DiffForHumans() }}</th>
             </tr>
