@@ -1,4 +1,6 @@
 @extends('layouts.sidebar')
 
-@section('content') 
+@section('content')
+
+
 @endsection

@@ -48,6 +48,21 @@ class CommonController extends Controller
         return view('main.semua_bisnis');
     }
 
+    public function investasi_segera_index()
+    {
+        return view('main.investasi-segera');
+    }
+
+    public function investasi_selesai_index()
+    {
+        return view('main.investasi-selesai');
+    }
+
+    public function investasi_diikuti_index()
+    {
+        return view('main.investasi-diikuti');
+    }
+
     public function aktivitas_index()
     {
         return view('main.aktivitas');
@@ -56,8 +71,8 @@ class CommonController extends Controller
     public function pengaturan_index()
     {
         return view('main.pengaturan');
-    } 
-    
+    }
+
     public function log_audit_index()
     {
         return view('main.log_audit');

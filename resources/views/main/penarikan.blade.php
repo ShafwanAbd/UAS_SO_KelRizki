@@ -5,7 +5,7 @@
   <div class="row">
     <div class="d-flex flex-row">
       <h5>Penarikan</h5>
-      <button class="btn rounded-pill ms-auto" style="background-color: #B9D7EA; color:white;">Buat Penarikan
+      <button class="btn rounded-pill ms-auto" style="background-color: #769FCD; color:white;">Buat Penarikan
         +</button>
     </div>
 
