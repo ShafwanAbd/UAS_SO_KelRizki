@@ -13,9 +13,11 @@ return new class extends Migration
     {
         Schema::create('penarikan', function (Blueprint $table) {
             $table->id();
-            $table->string('id_user');
+            $table->string('id_user'); 
+            $table->string('metode_penarikan');  
             $table->string('amount');  
-            $table->string('detil_transaksi')->nullable(); 
+            $table->string('debit_from');
+            $table->text('detil_transaksi')->nullable(); 
             $table->string('status'); 
             $table->timestamps();
         });
