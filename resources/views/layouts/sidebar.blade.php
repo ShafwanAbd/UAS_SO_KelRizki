@@ -56,7 +56,7 @@
                                 Investasi
                             </a>
 
-                            <ul id="collapseOne" class="accordion-collapse collapse show color1" data-bs-parent="#accordionExample1">
+                            <ul id="collapseOne" class="accordion-collapse collapse color1" data-bs-parent="#accordionExample1">
                                 <li><a class="dropdown-item text-light my-4" href="{{ url('/semua_bisnis') }}">Semua Bisnis</a></li>
                                 <li><a class="dropdown-item text-light my-4" href="{{ url('/aktivitas') }}">Aktivitas</a></li>
                             </ul>
@@ -69,7 +69,7 @@
                                 Pengaturan
                             </a>
 
-                            <ul id="collapseTwo" class="accordion-collapse collapse show color1" data-bs-parent="#accordionExample2">
+                            <ul id="collapseTwo" class="accordion-collapse collapse  color1" data-bs-parent="#accordionExample2">
                                 <li><a class="dropdown-item text-light my-4 " href="{{ url('/profil') }}">Profile</a></li>
                                 <li><a class="dropdown-item text-light my-4 " href="{{ url('/log_audit') }}">Log Audit</a></li>
                                 <li><a class="dropdown-item text-light my-4 " href="{{ url('/kata_sandi') }}">Kata Sandi</a></li>
