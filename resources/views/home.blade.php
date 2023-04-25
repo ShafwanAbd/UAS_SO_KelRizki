@@ -17,7 +17,7 @@
             </div>
         </div>
         <div class="col-4 d-flex align-items-center">
-            <img class="img-thumbnail " src="{{ asset('./image/img1.jpg')}}" alt="isi foto">
+            <img class="img-fluid " src="{{ asset('./image/img1.jpg')}}" alt="isi foto">
         </div>
     </div>
 
@@ -46,7 +46,7 @@
         </div>
     </div>
 </div>
-<div class="row py-5">
+<div class="row py-5 mx-0">
     <div class="col color1 py-5">
         <div class="w-50 container py-5">
             <p class="h3">Semakin mudah & aman berinvestasi dalam satu genggaman melalui aplikasi Ternak Connect </p>
