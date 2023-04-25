@@ -23,12 +23,12 @@
             </a>
           </div>
           <div class="Selesai ms-auto p-3">
-            <a href="{{ url('/semua_bisnis') }}" style="color:black" class="text-decoration-none">
+            <a href="{{ url('/investasi-selesai') }}" style="color:black" class="text-decoration-none">
               <h6><i class="bi bi-calendar2-check"></i> Selesai</h6>
             </a>
           </div>
           <div class="Diikuti ms-auto p-3 me-5">
-            <a href="{{ url('/semua_bisnis') }}" style="color:black" class="text-decoration-none">
+            <a href="{{ url('/investasi-diikuti') }}" style="color:black" class="text-decoration-none">
               <h6><i class="bi bi-bookmark-check"></i> Diikuti</h6>
             </a>
           </div>
