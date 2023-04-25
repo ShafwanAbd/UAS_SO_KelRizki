@@ -75,7 +75,7 @@
                         @endif
                         @else
                         <li class="nav-item">
-                            <button class="button2 rounded-pill px-3 mx-2 "><a class="nav-link btn" href="{{ url('/') }}">Dashboard</a></button>
+                            <button class="button2 rounded-pill px-3 mx-2 "><a class="nav-link btn" href="{{ url('/dashboard') }}">Dashboard</a></button>
                         </li>
 
                         <li class="nav-item dropdown">
