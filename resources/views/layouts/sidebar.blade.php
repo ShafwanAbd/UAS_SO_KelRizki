@@ -42,7 +42,7 @@
     <div class="row">
         <div class="sidebar col-2 color1 min-vh-100">
             <nav class="text-light sticky-top">
-                <p class="mx-3 my-5 h5 fw-bold">ternakConnect</p>
+                <a href="{{ url('/') }}"><p class="mx-3 my-5 h5 fw-bold">ternakConnect</p></a>
                 <ul class="text-capitalize">
                     <li class="my-5"><a class="text-light nav-link" href="{{ url('/dashboard') }}">ringkasan</a></li>
                     <li class="my-5"><a class="text-light nav-link" href="{{ url('/penarikan') }}">penarikan</a></li>
