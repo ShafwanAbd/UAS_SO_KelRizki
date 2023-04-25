@@ -14,7 +14,7 @@ class DepositController extends Controller
     public function deposit_index()
     {
         $adminbank = AdminBank::first();
-        $datas1 = Deposit::all();
+        $datas1 = Deposit::where('id_user', Auth::user()->id)->get();
         $setting = Setting::first();
 
         return view('main.deposit', compact('adminbank', 'datas1', 'setting'));

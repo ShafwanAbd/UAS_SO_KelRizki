@@ -20,21 +20,21 @@
                         <div class="item flex">
                             <p>Kata Sandi Sekarang</p>
                             <div class="input-group">
-                                <span id="hideButton1" class="input-group-text"><img src="{{ asset('./image/icon/view_grey.png') }}"></span>
+                                <span id="hideButton1" class="input-group-text"><img class="animate__animated animate__flipInX" id="hideImage1" src="{{ asset('./image/icon/view_grey.png') }}"></span>
                                 <input id="currentPassword" class="form-control" name="current_pw" placeholder="Password Aktif" type="password" required> 
                             </div>
                         </div>
                         <div class="item flex">
                             <p>Kata Sandi Baru</p>
                             <div class="input-group">
-                                <span id="hideButton2" class="input-group-text"><img src="{{ asset('./image/icon/view_grey.png') }}"></span>
+                                <span id="hideButton2" class="input-group-text"><img class="animate__animated animate__flipInX" id="hideImage2" src="{{ asset('./image/icon/view_grey.png') }}"></span>
                                 <input id="newPassword" class="form-control" name="new_pw" placeholder="Password Baru" type="password" required> 
                             </div>
                         </div>
                         <div class="item flex">
                             <p>Konfirmasi Kata Sandi</p>
                             <div class="input-group">
-                                <span id="hideButton3" class="input-group-text"><img src="{{ asset('./image/icon/view_grey.png') }}"></span>
+                                <span id="hideButton3" class="input-group-text"><img class="animate__animated animate__flipInX" id="hideImage3" src="{{ asset('./image/icon/view_grey.png') }}"></span>
                                 <input id="newPasswordConfirm" class="form-control" name="new_pw_confirm" placeholder="Password Baru" type="password" required> 
                             </div> 
                         </div>
@@ -43,34 +43,59 @@
                     <script>
                         $(document).ready(function() {
                             $('#hideButton1').click(function() {
+                                var imageElement = $('#hideImage1');
                                 var passwordField = $('#currentPassword');
                                 var passwordFieldType = passwordField.attr('type');
                                 
                                 if (passwordFieldType === 'password') {
                                 passwordField.attr('type', 'text');
+                                imageElement.attr('src', '{{asset("./image/icon/view_grey_closed.png")}}')
                                 } else {
                                 passwordField.attr('type', 'password');
-                                }
+                                imageElement.attr('src', "{{asset('./image/icon/view_grey.png')}}")
+                                }  
+
+                                imageElement.toggleClass('animate__animated animate__flipInX');  
+                                setTimeout(function() {
+                                    imageElement.toggleClass('animate__animated animate__flipInX');  
+                                }, 0);
+                                
                             });
                             $('#hideButton2').click(function() {
+                                var imageElement = $('#hideImage2');
                                 var passwordField = $('#newPassword');
                                 var passwordFieldType = passwordField.attr('type');
                                 
                                 if (passwordFieldType === 'password') {
-                                passwordField.attr('type', 'text');
+                                passwordField.attr('type', 'text'); 
+                                imageElement.attr('src', '{{asset("./image/icon/view_grey_closed.png")}}')
                                 } else {
                                 passwordField.attr('type', 'password');
+                                imageElement.attr('src', "{{asset('./image/icon/view_grey.png')}}")
                                 }
+
+                                imageElement.toggleClass('animate__animated animate__flipInX');  
+                                setTimeout(function() {
+                                    imageElement.toggleClass('animate__animated animate__flipInX');  
+                                }, 0);
                             });
                             $('#hideButton3').click(function() {
+                                var imageElement = $('#hideImage3');
                                 var passwordField = $('#newPasswordConfirm');
                                 var passwordFieldType = passwordField.attr('type');
                                 
                                 if (passwordFieldType === 'password') {
                                 passwordField.attr('type', 'text');
+                                imageElement.attr('src', '{{asset("./image/icon/view_grey_closed.png")}}')
                                 } else {
                                 passwordField.attr('type', 'password');
+                                imageElement.attr('src', "{{asset('./image/icon/view_grey.png')}}")
                                 }
+
+                                imageElement.toggleClass('animate__animated animate__flipInX');  
+                                setTimeout(function() {
+                                    imageElement.toggleClass('animate__animated animate__flipInX');  
+                                }, 0);
                             });
                         });
                     </script> 

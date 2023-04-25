@@ -47,6 +47,10 @@
     height: 100vh;
 }
 
+.anim_d025 {
+    transition: 0.25;
+}
+
 
 /** Pertanyaan **/
 
@@ -218,10 +222,31 @@
 }
 
 .container_profil .container_isi .container3 {
-    padding: 4vh;
+    padding: 8vh;
     border: 2px solid #ddd;
     height: 50%;
     border-radius: 10px;
+}
+
+.container_profil .container_isi .container3 .container_isi {
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+}
+
+.container_profil .container_isi .container3 .container_isi .container_img {
+    background-color: blue;
+    height: 100%;
+}
+
+.container_profil .container_isi .container3 .container_isi .container_img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 50%;
 }
 
 

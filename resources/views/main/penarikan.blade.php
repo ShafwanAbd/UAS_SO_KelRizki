@@ -115,7 +115,7 @@
     <div class="col-md-8">
       <div class="card border-0 rounded shadow pt-5 pb-3">
 
-        @if ($datas1->count() > 0)
+        @if ($datas1->count() > 0) 
         @foreach($datas1 as $key=>$val)
         <div class="row pt-2">
           <div class="d-flex flex-row">
@@ -135,12 +135,12 @@
           </div>
         </div>
         @endforeach
-        @else
+        @else 
         <div class="row pt-2">
           <div class="d-flex flex-row">
             <div class="jenis-transaksi px-3">
               <!-- Gatau ini div div nya, ama mnh aja ya -->
-              <p class="fw-bold mb-0">Riwayat Penarikan Masih Kosong Nih...</p>
+              <p class="fw-bold mb-0">{{$datas1->count()}}Riwayat Penarikan Masih Kosong Nih...</p>
             </div>
           </div>
         </div>

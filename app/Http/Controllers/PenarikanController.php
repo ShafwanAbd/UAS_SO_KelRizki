@@ -13,8 +13,8 @@ class PenarikanController extends Controller
     public function penarikan_index()
     {
         $adminbank = AdminBank::first();
-        $datas1 = Penarikan::all();
-        $setting = Setting::first();
+        $datas1 = Penarikan::where('id_user', Auth::user()->id)->get();
+        $setting = Setting::first(); 
 
         return view('main.penarikan', compact('adminbank', 'datas1', 'setting'));
     }

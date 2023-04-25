@@ -57,7 +57,13 @@
             </div>
             <div class="container2"> 
                 <div class="container3">
-                    <p>2</p>    
+                    <div class="container_isi">
+                        <div class="container_img">
+                            <img src="{{ asset('./image/img1.jpg') }}">
+                        </div>
+                        <input type="file">
+                        <a href="#"><h4>Ubah Photo</h4></a>
+                    </div>   
                 </div>
                 <div class="container3">
                     <p>3</p>    
