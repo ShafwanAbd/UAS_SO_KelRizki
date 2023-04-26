@@ -29,6 +29,8 @@ return new class extends Migration
             $table->string('investing')->nullable();
             $table->string('dividen')->nullable();
 
+            $table->string('poto_profil')->nullable();
+
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

@@ -54,6 +54,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/pengaturan',           [CommonController::class, 'pengaturan_index'])->name('sidebar.pengaturan');     // FRONTEND:✘ BACKEND:✘
     Route::get('/profil',               [ProfilController::class, 'profil_index'])->name('sidebar.profil');             // FRONTEND:✘ BACKEND:✘
     Route::post('/profil/update/{id}',  [ProfilController::class, 'profil_update'])->name('sidebar.profil.update');     // FRONTEND:✘ BACKEND:✘   
+    Route::post('/profil/update/photo/{id}',  [ProfilController::class, 'profil_update_photo'])->name('sidebar.profil.update');     // FRONTEND:✘ BACKEND:✘   
     Route::get('/profil/delete/{id}',   [ProfilController::class, 'profil_delete'])->name('sidebar.profil.delete');     // FRONTEND:✘ BACKEND:✘    
     Route::get('/log_audit',            [CommonController::class, 'log_audit_index'])->name('sidebar.log_audit');       // FRONTEND:✘ BACKEND:✘
     Route::get('/kata_sandi',           [KataSandiController::class, 'kata_sandi_index'])->name('sidebar.kata_sandi');  // FRONTEND:✘ BACKEND:✘

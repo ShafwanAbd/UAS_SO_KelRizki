@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProfilController extends Controller
 { 
@@ -23,9 +24,26 @@ class ProfilController extends Controller
         $model1->email = $request->email;
         $model1->alamat = $request->alamat;
 
-        $model1->save();
+        $model1->save(); 
 
         return back()->with('success', 'Berhasil Memperbaharui Profil');
+    } 
+    
+    public function profil_update_photo(string $id, Request $request)
+    {
+        $model1 = User::find($id);  
+
+        if ($request->file('poto_profil')){
+            $file = $request->file('poto_profil');
+            $namaFile = "poto_profil_".Auth::user()->id.".png";
+
+            $model1->poto_profil = $namaFile;
+            $file->move('image/poto_profil', $namaFile);
+        }
+
+        $model1->save();
+
+        return back()->with('success', 'Berhasil Memperbaharui Poto Profil');
     } 
     
     public function profil_delete(string $id)

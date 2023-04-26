@@ -52,22 +52,46 @@
                 <div class="container_delete">
                     <h4>Hapus Akun</h4>
                     <p>!!! AKUN YANG SUDAH DIHAPUS TIDAK BISA DIKEMBALIKAN !!!</p>
-                    <a href="{{ url('/profil/delete/'.Auth::user()->id) }}" class="btn btn-primary w100 bg-red">Delete</a>
+                    <button type="button" class="btn btn-primary w100 bg-red" data-bs-toggle="modal" data-bs-target="#modalDelete1">Delete</button>
+                </div>
+
+                <div class="modal fade" id="modalDelete1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">WARNING !!!</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Apakah Anda yakin ingin menghapus profile? Profil yang sudah dihapus tidak bisa dikembalikan lagi loh ...</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <a href="{{ url('/profil/delete/'.Auth::user()->id) }}" class="btn btn-primary bg-red">Hapus</a>
+                        </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="container2"> 
                 <div class="container3">
-                    <div class="container_isi">
+                    <form method="post" action="{{ url('/profil/update/photo/'.Auth::user()->id) }}" enctype="multipart/form-data"> 
+                    @csrf
+                    <div class="container_isi_inner">
+                        <input id="inputFiles1" name="poto_profil" type="file" class="hidden">
                         <div class="container_img">
-                            <img src="{{ asset('./image/img1.jpg') }}">
+                            <label for="inputFiles1">
+                                @if (isset(Auth::user()->poto_profil))
+                                    <img src="{{ asset('./image/poto_profil/'.Auth::user()->poto_profil) }}">
+                                @else
+                                    <img src="{{ asset('./image/img1.jpg') }}">
+                                @endif
+                            </label>
                         </div>
-                        <input type="file">
-                        <a href="#"><h4>Ubah Photo</h4></a>
+                        <button type="submit" class="btn btn-primary w100">Ubah Poto</button>
                     </div>   
-                </div>
-                <div class="container3">
-                    <p>3</p>    
-                </div>
+                    </form>
+                </div> 
             </div>
         </div> 
     </div>

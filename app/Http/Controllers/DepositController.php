@@ -36,7 +36,7 @@ class DepositController extends Controller
             $namaFile = "buktiPembayaran_".Auth::user()->id.$model1->created_at->format('YmdHis').".png";
 
             $model1->bukti_pembayaran = $namaFile;
-            $file->move('buktiPembayaran/deposit', $namaFile);
+            $file->move('image/buktiPembayaran/deposit', $namaFile);
         }
 
         $model1->save();
