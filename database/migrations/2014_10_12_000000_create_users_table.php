@@ -16,6 +16,7 @@ return new class extends Migration
             $table->id();
             $table->string('role')->nullable();
             $table->string('status')->nullable();
+            
             $table->string('firstName');
             $table->string('lastName');
             $table->string('username')->unique(); 
@@ -40,7 +41,7 @@ return new class extends Migration
         DB::table('users')->insert(
             array(
                 [
-                    'role' => '1',
+                    'role' => 'admin',
                     'status' => '1',
                     'firstName' => 'ADMIN',
                     'lastName'  => 'ADMIN',

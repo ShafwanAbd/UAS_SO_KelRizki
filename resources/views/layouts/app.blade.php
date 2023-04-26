@@ -10,6 +10,8 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <link rel="stylesheet" href="{{ asset('css/cssShafwan.css') }}">
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
@@ -30,6 +32,7 @@
             font-family: 'Poppins';
         }
     </style>
+
 </head>
 
 <body>
@@ -77,6 +80,14 @@
                         <li class="nav-item">
                             <button class="button2 rounded-pill px-3 mx-2 "><a class="nav-link btn" href="{{ url('/dashboard') }}">Dashboard</a></button>
                         </li>
+
+                        @if (Auth::user()->username == 'ADMIN')
+                        <li class="nav-item">
+                            <button class="button2 rounded-pill px-3 mx-2 dashboardAdmin">
+                                <a class="nav-link btn" href="{{ url('/dashboardAdmin') }}">Admin Dash</a>
+                            </button>
+                        </li>
+                        @endif
 
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

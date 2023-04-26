@@ -52,6 +52,24 @@
 }
 
 
+/** NAV **/
+
+.dashboardAdmin {
+    background-color: gold !important;
+    border: 2px solid #FFF !important;
+}
+
+.dashboardAdmin:hover {
+    background-color: rgb(255, 227, 68) !important;
+    border: 2px solid #FFF !important;
+}
+
+.dashboardAdmin a {
+    color: #FFF !important;
+    font-weight: 800;
+}
+
+
 /** Pertanyaan **/
 
 .container_pertanyaan {}

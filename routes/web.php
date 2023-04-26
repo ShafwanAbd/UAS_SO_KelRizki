@@ -60,4 +60,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/kata_sandi',           [KataSandiController::class, 'kata_sandi_index'])->name('sidebar.kata_sandi');  // FRONTEND:✘ BACKEND:✘
     Route::post('/kata_sandi/update',    [KataSandiController::class, 'kata_sandi_update'])->name('sidebar.kata_sandi.update');         // FRONTEND:✘ BACKEND:✘
     Route::get('/verifikasi_identitas', [CommonController::class, 'verifikasi_identitas_index'])->name('sidebar.verifikasi_identitas'); // FRONTEND:✘ BACKEND:✘
-});
+});     
+
+
+Route::middleware(['admin'])->group(function () {
+    Route::get('/dashboardAdmin',       [CommonController::class, 'ringkasan_index'])->name('sidebarADM.ringkasan');   // FRONTEND:✘ BACKEND:✘
+}); 
