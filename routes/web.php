@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\CommonController;
 use App\Http\Controllers\DepositController;
 use App\Http\Controllers\KataSandiController;
@@ -39,12 +40,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/deposit',              [DepositController::class, 'deposit_index'])->name('deposit');              // FRONTEND:✘ BACKEND:✘
     Route::post('/deposit/in',          [DepositController::class, 'depositIn'])->name('depositIn');                // FRONTEND:✘ BACKEND:✘
     Route::get('/penarikan',            [PenarikanController::class, 'penarikan_index'])->name('sidebar.penarikan');// FRONTEND:✘ BACKEND:✘
-    Route::post('/penarikan/create',    [PenarikanController::class, 'create'])->name('sidebar.penarikan.create');// FRONTEND:✘ BACKEND:✘
+    Route::post('/penarikan/create',    [PenarikanController::class, 'create'])->name('sidebar.penarikan.create');  // FRONTEND:✘ BACKEND:✘
     Route::get('/investasi',            [CommonController::class, 'investasi_index'])->name('sidebar.investasi');   // FRONTEND:✘ BACKEND:✘
     Route::get('/semua_bisnis',         [CommonController::class, 'semua_bisnis_index'])->name('sidebar.semua_bisnis'); // FRONTEND:✘ BACKEND:✘
-    Route::get('/investasi-segera',         [CommonController::class, 'investasi_segera_index'])->name('sidebar.investasi_segera'); // FRONTEND:✘ BACKEND:✘
-    Route::get('/investasi-selesai',         [CommonController::class, 'investasi_selesai_index'])->name('sidebar.investasi_selesai'); // FRONTEND:✘ BACKEND:✘
-    Route::get('/investasi-diikuti',         [CommonController::class, 'investasi_diikuti_index'])->name('sidebar.investasi_diikuti'); // FRONTEND:✘ BACKEND:✘
+    Route::get('/investasi-segera',         [CommonController::class, 'investasi_segera_index'])->name('sidebar.investasi_segera');     // FRONTEND:✘ BACKEND:✘
+    Route::get('/investasi-selesai',         [CommonController::class, 'investasi_selesai_index'])->name('sidebar.investasi_selesai');  // FRONTEND:✘ BACKEND:✘
+    Route::get('/investasi-diikuti',         [CommonController::class, 'investasi_diikuti_index'])->name('sidebar.investasi_diikuti');  // FRONTEND:✘ BACKEND:✘
     Route::get('/aktivitas',            [CommonController::class, 'aktivitas_index'])->name('sidebar.aktivitas');       // FRONTEND:✘ BACKEND:✘
     Route::get('/pertanyaan',           [PertanyaanController::class, 'pertanyaan_index'])->name('sidebar.pertanyaan'); // FRONTEND:✘ BACKEND:✘
     Route::post('/pertanyaan/create',   [PertanyaanController::class, 'create'])->name('sidebar.pertanyaan.create');    // FRONTEND:✘ BACKEND:✘
@@ -63,6 +64,13 @@ Route::middleware(['auth'])->group(function () {
 });     
 
 
-Route::middleware(['admin'])->group(function () {
-    Route::get('/dashboardAdmin',       [CommonController::class, 'ringkasan_index'])->name('sidebarADM.ringkasan');   // FRONTEND:✘ BACKEND:✘
+Route::middleware(['admin'])->group(function () { 
+    Route::get('/dashboardAdmin',       [AdminController::class, 'ringkasan_index'])->name('sidebarADM.ringkasan');     // FRONTEND:✘ BACKEND:✘
+    Route::get('/penggunaAdmin',        [AdminController::class, 'pengguna_index'])->name('sidebarADM.pengguna');       // FRONTEND:✘ BACKEND:✘
+    Route::get('/broadcastEmailAdmin',  [AdminController::class, 'broadcastEmail_index'])->name('sidebarADM.broadcastEmail');   // FRONTEND:✘ BACKEND:✘
+    Route::get('/pesanAdmin',           [AdminController::class, 'pesan_index'])->name('sidebarADM.pesan');             // FRONTEND:✘ BACKEND:✘
+    Route::get('/depositAdmin',         [AdminController::class, 'deposit_index'])->name('sidebarADM.deposit');         // FRONTEND:✘ BACKEND:✘
+    Route::get('/penarikanAdmin',       [AdminController::class, 'penarikan_index'])->name('sidebarADM.penarikan');     // FRONTEND:✘ BACKEND:✘
+    Route::get('/investasiAdmin',       [AdminController::class, 'investasi_index'])->name('sidebarADM.investasi');     // FRONTEND:✘ BACKEND:✘
+    Route::get('/blogAdmin',            [AdminController::class, 'blog_index'])->name('sidebarADM.blog');               // FRONTEND:✘ BACKEND:✘
 }); 
