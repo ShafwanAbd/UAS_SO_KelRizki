@@ -46,7 +46,7 @@
 </head>
 
 <body>
-  <div class="row w100">
+  <div class="row mx-0">
     <div class="sidebar col-2 color1 min-vh-100">
       <nav class="text-light sticky-top">
         <a class="title" href="{{ url('/') }}">

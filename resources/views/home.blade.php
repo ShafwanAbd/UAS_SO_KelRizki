@@ -28,7 +28,7 @@
       <p>Mulai dari Rp 1 juta, miliki bisnis Waralaba, Restoran, Jasa, Proyek dan banyak lainnya secara bersama-sama dan
         nikmati profit bisnis atau imbal hasil secara berkala.</p>
     </div>
-    <div class="row">
+    <div class="row mx-0">
       <div class="col-3">
         <img src="{{ asset('./image/img1.jpg')}}" class="rounded-circle img-fluid" alt="ini gambar">
         <p class="mt-4">Waktu Pendanaan Tercepat</p>
