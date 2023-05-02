@@ -6,16 +6,16 @@
         <div class="navbar1">
             <div class="flex">
             <a href="{{ url('/pertanyaan') }}" class="flex">
-                <div class="container_image">
+                <div class="container_image hidden">
                     <img src="{{ asset('./image/helper/stairways.png') }}">
                 </div>
-                <p>Kembali</p>
+                <p style="font-weight: 800;">Kembali</p>
             </a>
             </div>
             <a href="{{ route('logout') }}" class="flex"> 
-                <p>Log Out</p>
+                <p style="font-weight: 800; padding-right: 0.5vw;">Log Out</p>
                 <div class="container_image">
-                    <img src="{{ asset('./image/helper/stairways.png') }}">
+                    <img src="{{ asset('./image/icon/signout.jpg') }}">
                 </div>
             </a>
         </div>

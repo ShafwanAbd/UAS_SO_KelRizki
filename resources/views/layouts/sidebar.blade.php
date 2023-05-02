@@ -46,10 +46,10 @@
 </head>
 
 <body>
-  <div class="row">
+  <div class="row w100">
     <div class="sidebar col-2 color1 min-vh-100">
       <nav class="text-light sticky-top">
-        <a href="{{ url('/') }}">
+        <a class="title" href="{{ url('/') }}">
           <p class="mx-3 my-5 h5 fw-bold">ternakConnect</p>
         </a>
         <ul class="text-capitalize">
@@ -87,7 +87,7 @@
         </ul>
       </nav>
     </div>
-    <div class="col">
+    <div class="col w100">
       @yield('content')
     </div>
   </div>

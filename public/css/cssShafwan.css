@@ -31,6 +31,11 @@
     text-align: center;
 }
 
+a {
+    text-decoration: none;
+    color: #769FCD;
+}
+
 * {
     font-family: "Poppins", sans-serif;
 }
@@ -70,9 +75,39 @@
 }
 
 
+/** SIDEBAR **/
+
+.sidebar {
+    padding-left: 2vw;
+}
+
+.sidebar .title {
+    color: #FFF;
+    text-decoration: none;
+}
+
+.sidebar .container_img {
+    width: 100%;
+    background-color: red;
+}
+
+.sidebar .container_img img {}
+
+
+/*** ADMIN =========================================================================================================***/
+
+.container_penggunaAdmin {
+    width: 100%;
+    height: 100%;
+    background-color: red;
+}
+
+
 /** Pertanyaan **/
 
-.container_pertanyaan {}
+.container_pertanyaan {
+    padding: 2.5vh;
+}
 
 .container_pertanyaan img {
     width: 100%;
@@ -135,6 +170,7 @@
     display: block;
     justify-content: left;
     margin-bottom: 30vh;
+    padding: 2.5vh;
 }
 
 .container_pertanyaan.detail .navbar1 {

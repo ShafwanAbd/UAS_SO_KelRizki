@@ -6,7 +6,7 @@
         <div class="navbar1">
             <a href="{{ route('logout') }}">
                 <div class="container_image">
-                    <img src="{{ asset('./image/helper/stairways.png') }}">
+                    <img src="{{ asset('./image/icon/signout.jpg') }}">
                 </div>
             </a>
         </div>
@@ -17,7 +17,7 @@
         <div class="container_isi">
             @if ($datas1->count() == 0)
             <div class="isi_kosong border-0">
-                <div class="container_image">
+                <div class="container_image hidden">
                     <img src="{{ asset('./image/helper/stairways.png') }}">
                 </div>
                 <h4>Pertanyaan Masih Kosong</h4>
