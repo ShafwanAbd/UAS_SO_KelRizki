@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\AdminBank;
+use App\Models\LogAudit;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CommonController extends Controller
 {
@@ -75,7 +77,11 @@ class CommonController extends Controller
 
     public function log_audit_index()
     {
-        return view('main.log_audit');
+        $datas1 = LogAudit::where('id_user', Auth::user()->id)->get();
+
+        return view('main.log_audit', compact(
+            'datas1'
+        ));
     }
 
     public function verifikasi_identitas_index()

@@ -31,9 +31,9 @@
                         @if ($val->status == 1)
                             <td>DISETUJUI</td>
                         @else
-                            <td><a href="#" style="color: black;" data-bs-toggle="modal" data-bs-target="#exampleModal">BELUM DISETUJUI</a></td>
+                            <td><a href="#" style="color: black;" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $val->id }}">BELUM DISETUJUI</a></td>
 
-                            <div class="modal fade" id="exampleModal" tabindex="-1">
+                            <div class="modal fade" id="exampleModal{{ $val->id }}" tabindex="-1">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
                                     <div class="modal-header">

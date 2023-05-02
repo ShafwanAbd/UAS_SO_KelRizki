@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\AdminBank;
 use App\Models\Deposit;
+use App\Models\LogAudit;
 use App\Models\Penarikan;
 use App\Models\Pendanaan;
 use App\Models\Setting;
@@ -103,18 +104,28 @@ class AdminController extends Controller
 
     public function akunAccept(string $id){
         $model1 = User::find($id);
-        $model1->status = '1'; 
-
+        $model1->status = '1';  
         $model1->save();
+        
+        $model2 = new LogAudit();
+        $model2->id_user = $model1->id;
+        $model2->id_referensi = uniqid();
+        $model2->catatan = 'Akun Diaktifkan oleh Admin'; 
+        $model2->save();
 
         return back()->with('success', 'Berhasil Mengaktifkan Akun '.$model1->username.'!');
     }
 
     public function akunNoAccept(string $id){
         $model1 = User::find($id);
-        $model1->status = '0'; 
-
+        $model1->status = '0';  
         $model1->save();
+        
+        $model2 = new LogAudit();
+        $model2->id_user = $model1->id;
+        $model2->id_referensi = uniqid();
+        $model2->catatan = 'Akun Dinonaktifkan oleh Admin'; 
+        $model2->save();
 
         return back()->with('success', 'Berhasil Menonaktifkan Akun '.$model1->username.'!');
     }
@@ -122,8 +133,7 @@ class AdminController extends Controller
     public function investorAccept(string $id){
         $model1 = User::find($id);
         $model1->status = '1';
-        $model1->role = '2';
-
+        $model1->role = '2'; 
         $model1->save();
 
         return back()->with('success', 'Berhasil Menerima Akun Investor!');
@@ -132,8 +142,7 @@ class AdminController extends Controller
     public function peternakAccept(string $id){
         $model1 = User::find($id);
         $model1->status = '1';
-        $model1->role = '3';
-
+        $model1->role = '3'; 
         $model1->save();
 
         return back()->with('success', 'Berhasil Menerima Akun Peternak!');
@@ -141,8 +150,7 @@ class AdminController extends Controller
 
     public function pendanaanAccept(string $id){
         $model1 = Pendanaan::find($id);
-        $model1->status = '1'; 
-
+        $model1->status = '1';  
         $model1->save();
 
         return back()->with('success', 'Berhasil Menerima Pengajuan Pendanaan Peternak!');
@@ -151,7 +159,13 @@ class AdminController extends Controller
     public function depositAccept(string $id){
         $model1 = Deposit::find($id);
         $model1->status = '1';  
-        $model1->save();
+        $model1->save(); 
+        
+        $model2 = new LogAudit();
+        $model2->id_user = $model1->id_user;
+        $model2->id_referensi = uniqid();
+        $model2->catatan = 'Deposit Disetujui oleh Admin'; 
+        $model2->save();
 
         $user = User::find($model1->id_user); 
         $user->balance += $model1->amount; 
@@ -166,9 +180,21 @@ class AdminController extends Controller
         $model1 = Penarikan::find($id);
         $model1->status = '1';  
         $model1->save();
+        
+        $model2 = new LogAudit();
+        $model2->id_user = $model1->id_user;
+        $model2->id_referensi = uniqid();
+        $model2->catatan = 'Penarikan Disetujui oleh Admin'; 
+        $model2->save();
 
         $user = User::find($model1->id_user);
-        $user->balance -= $model1->amount;
+        if ($model1->debit_from == 'Balance'){ 
+            $user->balance -= $model1->amount;
+        } else if ($model1->debit_from == 'Dividen'){ 
+            $user->dividen -= $model1->amount;
+        } else if ($model1->debit_from == 'Bonus Afiliasi'){ 
+            $user->dividen -= $model1->amount;
+        }
         $user->save();
 
         $name = User::where('id', $model1->id_user)->value('firstName') . ' ' . User::where('id', $model1->id_user)->value('lastName');

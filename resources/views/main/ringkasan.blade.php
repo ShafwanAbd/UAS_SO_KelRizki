@@ -8,7 +8,11 @@
       <div class="col-md-8">
         <div class="d-flex flex-row">
           <div class="profile-image">
+            @if (isset(Auth::user()->poto_profil))
+            <img class="rounded-circle m-2" src="{{asset('./image/poto_profil/'.Auth::user()->poto_profil)}}" alt="" height="60px" width="60px">
+            @else            
             <img class="rounded-circle m-2" src="{{asset('img/profile-icon.jpg')}}" alt="" height="60px" width="60px">
+            @endif
           </div>
           <div class="profile-name pt-2 px-2">
             <h5>{{ Auth::user()->username }}</h5>

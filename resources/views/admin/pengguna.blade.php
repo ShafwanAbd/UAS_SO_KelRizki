@@ -28,9 +28,9 @@
                         <td>{{ $val->username }}</td>
                         <td>{{ $val->email }}</td>
                         @if ($val->status == 1)
-                            <td><a href="#" style="color: black;" data-bs-toggle="modal" data-bs-target="#modalAktif">AKTIF</a></td>
+                            <td><a href="#" style="color: black;" data-bs-toggle="modal" data-bs-target="#modalAktif{{ $val->id }}">AKTIF</a></td>
 
-                            <div class="modal fade" id="modalAktif" tabindex="-1">
+                            <div class="modal fade" id="modalAktif{{ $val->id }}" tabindex="-1">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
                                     <div class="modal-header">
@@ -48,9 +48,9 @@
                                 </div>
                             </div>
                         @else
-                            <td><a href="#" style="color: black;" data-bs-toggle="modal" data-bs-target="#exampleModal">TIDAK AKTIF</a></td>
+                            <td><a href="#" style="color: black;" data-bs-toggle="modal" data-bs-target="#modalAktif{{ $val->id }}">TIDAK AKTIF</a></td>
 
-                            <div class="modal fade" id="exampleModal" tabindex="-1">
+                            <div class="modal fade" id="modalAktif{{ $val->id }}" tabindex="-1">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
                                     <div class="modal-header">

@@ -84,7 +84,7 @@
                                 @if (isset(Auth::user()->poto_profil))
                                     <img src="{{ asset('./image/poto_profil/'.Auth::user()->poto_profil) }}">
                                 @else
-                                    <img src="{{ asset('./image/img1.jpg') }}">
+                                    <img src="{{ asset('/img/profile-icon.jpg') }}">
                                 @endif
                             </label>
                         </div>

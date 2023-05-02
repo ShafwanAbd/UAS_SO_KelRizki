@@ -23,7 +23,7 @@
               <div class="form-floating mb-3">
                 <select id="floatingInput" name="metode_penarikan" class="form-control" required>
                   <option value="" disabled selected>-- Select --</option>
-                  <option value="transfer">Transfer</option>
+                  <option value="Transfer">Transfer</option>
                 </select>
                 <label for="floatingInput">Metode Penarikan</label>
               </div>
@@ -34,9 +34,9 @@
               <div class="form-floating mb-3">
                 <select id="debit_from" name="debit_from" class="form-control" required>
                   <option value="" disabled selected>-- Select --</option>
-                  <option value="dividen">Dividen - {{ @money(Auth::user()->dividen) }}</option>
-                  <option value="balance">Saldo Rekening - {{ @money(Auth::user()->balance) }}</option>
-                  <option value="bonus_afiliasi">Bonus Afiliasi - {{ @money(Auth::user()->dividen) }}</option>
+                  <option value="Dividen">Dividen - {{ @money(Auth::user()->dividen) }}</option>
+                  <option value="Balance">Saldo Rekening - {{ @money(Auth::user()->balance) }}</option>
+                  <option value="Bonus Afiliasi">Bonus Afiliasi - {{ @money(Auth::user()->dividen) }}</option>
                 </select>
                 <label for="debit_from">Debit Dari</label>
                 <p id="hiddenAmount1" class="alert_small mt-1 hidden">Penarikan tidak boleh lebih dari Debit!</p>
@@ -51,11 +51,11 @@
                   var amountVal = amount.val();
                   var debitVal = debit.val();
 
-                  if (debitVal === 'dividen') {
+                  if (debitVal === 'Dividen') {
                     debitVal = '{{ Auth::user()->dividen }}';
-                  } else if (debitVal === 'balance') {
+                  } else if (debitVal === 'Balance') {
                     debitVal = '{{ Auth::user()->balance }}';
-                  } else if (debitVal === 'bonus_afiliasi') {
+                  } else if (debitVal === 'Bonus Afiliasi') {
                     debitVal = '{{ Auth::user()->bonus_afiliasi }}';
                   }
 
@@ -77,11 +77,11 @@
                   var amountVal = amount.val();
                   var debitVal = debit.val();
 
-                  if (debitVal === 'dividen') {
+                  if (debitVal === 'Dividen') {
                     debitVal = '{{ Auth::user()->dividen }}';
-                  } else if (debitVal === 'balance') {
+                  } else if (debitVal === 'Balance') {
                     debitVal = '{{ Auth::user()->balance }}';
-                  } else if (debitVal === 'bonus_afiliasi') {
+                  } else if (debitVal === 'Bonus Afiliasi') {
                     debitVal = '{{ Auth::user()->bonus_afiliasi }}';
                   }
 
