@@ -28,7 +28,25 @@
                         <td>{{ $val->username }}</td>
                         <td>{{ $val->email }}</td>
                         @if ($val->status == 1)
-                            <td>AKTIF</td>
+                            <td><a href="#" style="color: black;" data-bs-toggle="modal" data-bs-target="#modalAktif">AKTIF</a></td>
+
+                            <div class="modal fade" id="modalAktif" tabindex="-1">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">CAUTION</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Apakah Anda yakin untuk menonaktifkan akun dari {{ $val->username }}?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
+                                        <a href="{{ url('/NoAcceptAkun/'.$val->id) }}" class="btn btn-primary">Yakin</a>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
                         @else
                             <td><a href="#" style="color: black;" data-bs-toggle="modal" data-bs-target="#exampleModal">TIDAK AKTIF</a></td>
 

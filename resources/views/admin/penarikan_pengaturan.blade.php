@@ -3,13 +3,17 @@
 @section('content') 
     <div class="container_penggunaAdmin depositTransaksi">
         <div class="container_isi">
-            <h2>Transaksi Deposit</h2>
+            <h2>Transaksi Penarikan</h2>
             <table class="table table-hover">
                 <thead>
                     <tr>
                         <th>No</th>
                         <th>Nama</th>
                         <th>Jumlah</th>
+                        <th>Mengenakan Biaya</th>
+                        <th>Detail</th>
+                        <th>Metode</th>
+                        <th>Jenis</th>
                         <th>Status</th>
                         <th>Dibuat</th>
                         <th>Diperbaharui</th> 
@@ -28,6 +32,10 @@
                         <th>{{ $i++ }}</th>
                         <td>{{ $nama }}</td>
                         <td>{{ @money($val->amount) }}</td> 
+                        <td>{{ @money($setting->fee) }}</td> 
+                        <td>{{ $val->detil_transaksi }}</td>
+                        <td>{{ $val->metode_penarikan }}</td>
+                        <td>{{ $val->debit_from }}</td>
                         @if ($val->status == 1)
                             <td>DISETUJUI</td>
                         @else

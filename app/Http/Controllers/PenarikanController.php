@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\AdminBank;
 use App\Models\Penarikan;
 use App\Models\Setting;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -27,8 +28,7 @@ class PenarikanController extends Controller
         $model1->amount = $request->amount; 
         $model1->debit_from = $request->debit_from; 
         $model1->detil_transaksi = $request->detil_transaksi; 
-        $model1->status = 0;   
- 
+        $model1->status = 0;    
         $model1->save();
 
         return back()->with('success', 'Berhasil Melakukan Penarikan!');
