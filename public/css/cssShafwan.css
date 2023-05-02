@@ -96,11 +96,58 @@ a {
 
 /*** ADMIN =========================================================================================================***/
 
+
+/** Pengguna **/
+
 .container_penggunaAdmin {
     width: 100%;
     height: 100%;
-    background-color: red;
+    padding: 5vh 0;
+    display: flex;
+    justify-content: center;
 }
+
+.container_penggunaAdmin .container_isi {
+    width: 100%;
+    border-radius: 10px;
+    padding: 2.5vh;
+}
+
+.container_penggunaAdmin .container_isi table {
+    margin-top: 2vh;
+}
+
+
+/** Deposit Pengaturan **/
+
+.container_depositPengaturan .container_form {
+    margin-top: 5vh;
+}
+
+.container_depositPengaturan .container_form .container_input {
+    justify-content: space-between;
+    display: flex;
+    margin-bottom: 2vh;
+}
+
+.container_depositPengaturan .container_form .container_input label {
+    margin: auto 0;
+}
+
+.container_depositPengaturan .container_form .container_input input {
+    border-radius: 10px;
+    width: 80%;
+    padding: 1vh;
+    border: 2px solid #eee;
+}
+
+.container_depositPengaturan .container_form .container_input input:focus {
+    border: 2px solid #769FCD;
+    outline: none;
+}
+
+
+/*** USER =========================================================================================================***/
 
 
 /** Pertanyaan **/

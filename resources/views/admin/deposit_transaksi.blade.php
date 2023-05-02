@@ -1,32 +1,33 @@
 @extends('layouts.sidebarAdmin')
 
 @section('content') 
-    <div class="container_penggunaAdmin">
+    <div class="container_penggunaAdmin depositTransaksi">
         <div class="container_isi">
-            <h2>Pengguna</h2>
+            <h2>Transaksi Deposit</h2>
             <table class="table table-hover">
                 <thead>
                     <tr>
                         <th>#</th>
                         <th>Nama</th>
-                        <th>Username</th>
-                        <th>Surel</th>
+                        <th>Jumlah</th>
                         <th>Status</th>
-                        <th>Saldo</th>
-                        <th>Dividen</th>
-                        <th>Bonus Rujukan</th>
+                        <th>Dibuat</th>
+                        <th>Diperbaharui</th> 
                     </tr>
                 </thead>
                 @php
+                    use App\Models\User;
                     $i = 1;
                 @endphp
                 @foreach($datas1 as $key=>$val) 
+                @php
+                    $nama = User::where('id',$val->id_user)->value('firstName') . ' ' . User::where('id',$val->id_user)->value('lastName'); 
+                @endphp
                 <tbody>
                     <tr>
                         <th>{{ $i++ }}</th>
-                        <td>{{ $val->firstName }} {{ $val->lastName }}</td>
-                        <td>{{ $val->username }}</td>
-                        <td>{{ $val->email }}</td>
+                        <td>{{ $nama }}</td>
+                        <td>{{ @money($val->amount) }}</td> 
                         @if ($val->status == 1)
                             <td>AKTIF</td>
                         @else
@@ -40,19 +41,18 @@
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <p>Apakah Anda yakin untuk mengaktifkan akun dari {{ $val->username }}?</p>
+                                        <p>Apakah Anda yakin untuk menyetujui deposit dari {{ $nama }}?</p>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
-                                        <a href="{{ url('/acceptAkun/'.$val->id) }}" class="btn btn-primary">Yakin</a>
+                                        <a href="{{ url('/acceptDeposit/'.$val->id) }}" class="btn btn-primary">Yakin</a>
                                     </div>
                                     </div>
                                 </div>
                             </div>
                         @endif
-                        <td>{{ @money($val->balance) }}</td>
-                        <td>{{ @money($val->dividen) }}</td>
-                        <td>{{ @money($val->bonusRujukan) }}</td>
+                        <td>{{ $val->created_at }}</td> 
+                        <td>{{ $val->updated_at }}</td> 
                     </tr> 
                 </tbody>
                 @endforeach

@@ -46,7 +46,7 @@
 </head>
 
 <body>
-  <div class="row w100">
+  <div class="row mx-0">
     <div class="sidebar col-2 color1 min-vh-100">
       <nav class="text-light sticky-top">
         <a class="title" href="{{ url('/') }}">
@@ -57,7 +57,11 @@
           <li class="my-4"><a class="text-light nav-link" href="{{ url('/penggunaAdmin') }}">Pengguna</a></li>
           <li class="my-4"><a class="text-light nav-link" href="{{ url('/broadcastEmailAdmin') }}">Broadcast Email</a></li>
           <li class="my-4"><a class="text-light nav-link" href="{{ url('/pesanAdmin') }}">Pesan</a></li>
-          <li class="my-4"><a class="text-light nav-link" href="{{ url('/depositAdmin') }}">Deposit</a></li>
+          <li><a class="text-light nav-link" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Deposit</a></li>
+          <div class="collapse" id="collapseExample"> 
+            <li class="my-4"><a class="text-light nav-link mx-3" href="{{ url('/depositTransaksiAdmin') }}">Transaksi</a></li>
+            <li class="my-4"><a class="text-light nav-link mx-3" href="{{ url('/depositPengaturanAdmin') }}">Pengaturan</a></li>
+          </div>
           <li class="my-4"><a class="text-light nav-link" href="{{ url('/penarikanAdmin') }}">Penarikan</a></li>
           <li class="my-4"><a class="text-light nav-link" href="{{ url('/investasiAdmin') }}">Investasi</a></li>
           <li class="my-4"><a class="text-light nav-link" href="{{ url('/blogAdmin') }}">Blog</a></li>

@@ -64,13 +64,18 @@ Route::middleware(['auth'])->group(function () {
 });     
 
 
-Route::middleware(['admin'])->group(function () { 
+Route::middleware(['admin', 'auth'])->group(function () { 
     Route::get('/dashboardAdmin',       [AdminController::class, 'ringkasan_index'])->name('sidebarADM.ringkasan');     // FRONTEND:✘ BACKEND:✘
     Route::get('/penggunaAdmin',        [AdminController::class, 'pengguna_index'])->name('sidebarADM.pengguna');       // FRONTEND:✘ BACKEND:✘
     Route::get('/broadcastEmailAdmin',  [AdminController::class, 'broadcastEmail_index'])->name('sidebarADM.broadcastEmail');   // FRONTEND:✘ BACKEND:✘
     Route::get('/pesanAdmin',           [AdminController::class, 'pesan_index'])->name('sidebarADM.pesan');             // FRONTEND:✘ BACKEND:✘
-    Route::get('/depositAdmin',         [AdminController::class, 'deposit_index'])->name('sidebarADM.deposit');         // FRONTEND:✘ BACKEND:✘
+    Route::get('/depositTransaksiAdmin',[AdminController::class, 'depositTransaksi_index'])->name('sidebarADM.deposit');         // FRONTEND:✘ BACKEND:✘
+    Route::get('/depositPengaturanAdmin',[AdminController::class, 'depositPengaturan_index'])->name('sidebarADM.deposit');         // FRONTEND:✘ BACKEND:✘
     Route::get('/penarikanAdmin',       [AdminController::class, 'penarikan_index'])->name('sidebarADM.penarikan');     // FRONTEND:✘ BACKEND:✘
     Route::get('/investasiAdmin',       [AdminController::class, 'investasi_index'])->name('sidebarADM.investasi');     // FRONTEND:✘ BACKEND:✘
     Route::get('/blogAdmin',            [AdminController::class, 'blog_index'])->name('sidebarADM.blog');               // FRONTEND:✘ BACKEND:✘
+
+    // ACCEPTING
+    Route::get('/acceptAkun/{id}',      [AdminController::class, 'akunAccept']);
+    Route::get('/acceptDeposit/{id}',   [AdminController::class, 'depositAccept']);
 }); 

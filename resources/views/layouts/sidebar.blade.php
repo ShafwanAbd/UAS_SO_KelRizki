@@ -87,7 +87,7 @@
         </ul>
       </nav>
     </div>
-    <div class="col w100">
+    <div class="col">
       @yield('content')
     </div>
   </div>
