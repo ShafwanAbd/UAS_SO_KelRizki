@@ -41,6 +41,6 @@ class DepositController extends Controller
 
         $model1->save();
 
-        return back()->with('success', 'Berhasil Melakukan Deposit!');
+        return back()->with('success', 'Berhasil Melakukan Tiket Deposit!');
     }
 }

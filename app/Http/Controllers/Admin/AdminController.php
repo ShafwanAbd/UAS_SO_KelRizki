@@ -7,6 +7,7 @@ use App\Models\AdminBank;
 use App\Models\Deposit;
 use App\Models\Penarikan;
 use App\Models\Pendanaan;
+use App\Models\Setting;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -52,10 +53,21 @@ class AdminController extends Controller
             'adminbank'
         ));
     }
- 
-    public function penarikan_index(){
+  
+    public function penarikanTransaksi_index(){ 
+        $datas1 = Penarikan::all();
+        $setting = Setting::first();
 
-        return view('admin.penarikan');
+        return view('admin.penarikan_transaksi', compact(
+            'datas1', 'setting'
+        ));
+    }
+  
+    public function penarikanPengaturan_index(){ 
+
+        return view('admin.penarikan_pengaturan', compact(
+            ''
+        ));
     }
  
     public function investasi_index(){
@@ -91,12 +103,20 @@ class AdminController extends Controller
 
     public function akunAccept(string $id){
         $model1 = User::find($id);
-        $model1->status = '1';
-        $model1->role = '3';
+        $model1->status = '1'; 
 
         $model1->save();
 
-        return back()->with('success', 'Berhasil Menerima Akun '.$model1->username.'!');
+        return back()->with('success', 'Berhasil Mengaktifkan Akun '.$model1->username.'!');
+    }
+
+    public function akunNoAccept(string $id){
+        $model1 = User::find($id);
+        $model1->status = '0'; 
+
+        $model1->save();
+
+        return back()->with('success', 'Berhasil Menonaktifkan Akun '.$model1->username.'!');
     }
 
     public function investorAccept(string $id){
@@ -130,9 +150,12 @@ class AdminController extends Controller
 
     public function depositAccept(string $id){
         $model1 = Deposit::find($id);
-        $model1->status = '1'; 
-
+        $model1->status = '1';  
         $model1->save();
+
+        $user = User::find($model1->id_user); 
+        $user->balance += $model1->amount; 
+        $user->save();
 
         $name = User::where('id', $model1->id_user)->value('firstName') . ' ' . User::where('id', $model1->id_user)->value('lastName');
 
@@ -141,10 +164,15 @@ class AdminController extends Controller
 
     public function penarikanAccept(string $id){
         $model1 = Penarikan::find($id);
-        $model1->status = '1'; 
-
+        $model1->status = '1';  
         $model1->save();
 
-        return back()->with('success', 'Berhasil Menerima Penarikan Investor!');
+        $user = User::find($model1->id_user);
+        $user->balance -= $model1->amount;
+        $user->save();
+
+        $name = User::where('id', $model1->id_user)->value('firstName') . ' ' . User::where('id', $model1->id_user)->value('lastName');
+
+        return back()->with('success', 'Berhasil Menerima Penarikan dari '.$name.'!');
     }
 }
