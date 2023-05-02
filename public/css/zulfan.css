@@ -57,3 +57,11 @@ li .button1 {
 .sidebar nav ul li {
     list-style: none;
 }
+
+.judulBlog a {
+    color: black;
+}
+
+.judulBlog a:hover {
+    color: #769fcd;
+}
