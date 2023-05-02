@@ -11,6 +11,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <link rel="stylesheet" href="{{ asset('css/cssShafwan.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/zulfan.css') }}">
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -51,13 +52,13 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link text-light" href="">About Us</a>
+                            <a class="nav-link text-light" href="{{ url('/about_us') }}">About Us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" href="">FAQ</a>
+                            <a class="nav-link text-light" href="{{ url('/FAQ') }}">FAQ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" href="">Blog</a>
+                            <a class="nav-link text-light" href="{{ url('/blog') }}">Blog</a>
                         </li>
                     </ul>
 
