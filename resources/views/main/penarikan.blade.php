@@ -115,7 +115,7 @@
     <div class="col-md-8">
       <div class="card border-0 rounded shadow pt-5 pb-3">
 
-        @if ($datas1->count() > 0) 
+        @if ($datas1->count() > 0)
         @foreach($datas1 as $key=>$val)
         <div class="row pt-2">
           <div class="d-flex flex-row">
@@ -125,19 +125,18 @@
               @elseif ( $val->status == 0 )
               <p class="fw-bold mb-0">Withdrawal <span class="badge bg-warning">Processing</span></p>
               @endif
-              <!-- rapetin -->
-              <p>{{ $val->debit_from }}</p>
-              <p>{{ $val->metode_penarikan }}</p> 
+              <!-- rapetin (udah)-->
+              <p class="lh-base">{{ $val->debit_from }} <br> {{ $val->metode_penarikan }}</p>
             </div>
             <div class="tanggal-penarikan ms-auto px-3">
-              <!-- mentokin kanan? -->
-              <p class="ms-auto">{{ @money($val->amount) }}</p> 
+              <!-- mentokin kanan (udah)-->
+              <p class="ms-auto text-end">{{ @money($val->amount) }}</p>
               <p class="ms-auto">{{ $val->created_at }}</p>
             </div>
           </div>
         </div>
         @endforeach
-        @else 
+        @else
         <div class="row pt-2">
           <div class="d-flex flex-row">
             <div class="jenis-transaksi px-3">
