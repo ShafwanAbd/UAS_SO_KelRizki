@@ -146,6 +146,19 @@ a {
     outline: none;
 }
 
+.container_depositPengaturan .container_form .container_input_check label {
+    width: 20%;
+    margin: auto 0;
+}
+
+.container_depositPengaturan .container_form .container_input_check input[type="checkbox"] {
+    transform: scale(1.5);
+}
+
+.container_depositPengaturan .container_form button {
+    margin-top: 3vh;
+}
+
 
 /*** USER =========================================================================================================***/
 

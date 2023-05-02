@@ -69,6 +69,26 @@ class AdminController extends Controller
     }
 
     // =========== ACCEPTING =========== //
+    public function updateBankAdmin(Request $request){
+        $model1 = AdminBank::first();
+
+        $model1->name = $request->name;
+        $model1->bankName = $request->bankName;
+        $model1->address = $request->address;
+        $model1->swift = $request->swift;
+        $model1->iban = $request->iban;
+        $model1->acct_no = $request->acct_no; 
+        if (isset($request->status)){
+            $model1->status = $request->status; 
+        } else {
+            $model1->status = 0; 
+        }
+
+        $model1->save();
+
+        return back()->with('Berhasil Memperbaharui Bank Admin!');
+    }
+
     public function akunAccept(string $id){
         $model1 = User::find($id);
         $model1->status = '1';
