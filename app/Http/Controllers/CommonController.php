@@ -50,7 +50,11 @@ class CommonController extends Controller
 
     public function aktivitas_index()
     {
-        return view('main.aktivitas');
+        $datas1 = BeliInvestasi::all();
+
+        return view('main.aktivitas', compact(
+            'datas1'
+        ));
     }
 
     public function pengaturan_index()

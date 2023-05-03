@@ -71,6 +71,7 @@ class InvestasiController extends Controller
         $model1 = new BeliInvestasi();
         $model1->id_user = Auth::user()->id;
         $model1->id_investasi = $id;
+        $model1->lembar = $request->lembar;
 
         $model2 = Investasi::find($id);
         $model2->lembar_terjual += $request->lembar; 
