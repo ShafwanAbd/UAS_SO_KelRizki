@@ -57,29 +57,28 @@
           <li class="my-5"><a class="text-light nav-link" href="{{ url('/penarikan') }}">penarikan</a></li>
           <li class="my-5">
             <div class="dropdown">
-              <a class="dropdown-toggle text-light nav-link" href="{{ url('/investasi') }}" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class="dropdown-toggle text-light nav-link" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                 Investasi
               </a>
 
-              <ul class="dropdown-menu dropdown-menu-dark color1" aria-labelledby="dropdownMenuLink">
-                <li><a class="dropdown-item text-light" href="{{ url('/semua_bisnis') }}">Semua Bisnis</a></li>
-                <li><a class="dropdown-item text-light" href="{{ url('/aktivitas') }}">Aktivitas</a></li>
+              <ul class="collapse color1" id="collapseExample">
+                <li><a class="dropdown-item text-light my-4" href="{{ url('/semua_bisnis') }}">Semua Bisnis</a></li>
+                <li><a class="dropdown-item text-light my-4" href="{{ url('/aktivitas') }}">Aktivitas</a></li>
               </ul>
             </div>
           </li>
           <li class="my-5"><a class="text-light nav-link" href="{{ url('/pertanyaan') }}">Pertanyaan</a></li>
           <li class="my-5">
             <div class="dropdown">
-              <a class="dropdown-toggle text-light nav-link" href="{{ url('/investasi') }}" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class="dropdown-toggle text-light nav-link" data-bs-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2">
                 Pengaturan
               </a>
 
-              <ul class="dropdown-menu dropdown-menu-dark color1" aria-labelledby="dropdownMenuLink">
-                <li><a class="dropdown-item text-light" href="{{ url('/profil') }}">Profile</a></li>
-                <li><a class="dropdown-item text-light" href="{{ url('/log_audit') }}">Log Audit</a></li>
-                <li><a class="dropdown-item text-light" href="{{ url('/kata_sandi') }}">Kata Sandi</a></li>
-                <li><a class="dropdown-item text-light" href="{{ url('/verifikasi_identitas') }}">verifikasi
-                    identitas</a></li>
+              <ul class="collapse color1" id="collapseExample2">
+                <li><a class="dropdown-item text-light my-3" href="{{ url('/profil') }}">Profile</a></li>
+                <li><a class="dropdown-item text-light my-3" href="{{ url('/log_audit') }}">Log Audit</a></li>
+                <li><a class="dropdown-item text-light my-3" href="{{ url('/kata_sandi') }}">Kata Sandi</a></li>
+                <li><a class="dropdown-item text-light my-3" href="{{ url('/verifikasi_identitas') }}">verifikasi identitas</a></li>
               </ul>
             </div>
           </li>
