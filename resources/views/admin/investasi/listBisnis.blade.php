@@ -5,36 +5,36 @@
   <a href="{{ url('/createInvestasiAdmin') }}" class="btn btn-primary">Create Plan</a>
   <div class="card shadow my-4">
     <table class="table table-hover">
-    <thead class="text-center">
+    <thead>
       <tr>
         <th scope="col">No</th>
-        <th scope="col">Nama</th>
-        <th scope="col">Duration</th>
-        <th scope="col">Lembar</th>
-        <th scope="col">Interest</th>
-        <th scope="col">Kategori</th>
-        <th scope="col">Location</th>
-        <th scope="col">Asuransi</th>
-        <th scope="col">Start Date</th>
-        <th scope="col">Expiring Date</th>
-        <th scope="col">Status</th> 
+        <th>Nama</th>
+        <th>Duration</th>
+        <th>Lembar</th>
+        <th>Interest</th>
+        <th>Kategori</th>
+        <th>Location</th>
+        <th>Asuransi</th>
+        <th>Start Date</th>
+        <th>Expiring Date</th>
+        <th>Status</th> 
       </tr>
     </thead>
     <tbody>
       @php $i = 1; @endphp
       @foreach($datas1 as $key=>$val)
       <tr>
-        <td scope="row" class="text-center">{{ $i++ }}</td>
-        <td scope="col">{{ $val->nama }}</td>
-        <td scope="col">{{ $val->durasi }} Days</td>
-        <td scope="col">{{ $val->lembar_terjual }}/{{ $val->lembar }}</td>
-        <td scope="col">{{ $val->interest }}%</td>
-        <td scope="col">{{ $val->kategori }}</td>
-        <td scope="col">{{ $val->location }}</td>
-        <td scope="col">{{ $val->asuransi }}</td>
-        <td scope="col">{{ $val->start_date }}</td>
-        <td scope="col">{{ $val->expiring_date }}</td>
-        <td scope="col">{{ $val->status == 1 ? 'Aktif' : 'Tidak Aktif' }}</td> 
+        <td scope="row">{{ $i++ }}</td>
+        <td>{{ $val->nama }}</td>
+        <td>{{ $val->durasi }} Days</td>
+        <td>{{ $val->lembar_terjual }}/{{ $val->lembar }}</td>
+        <td>{{ $val->interest }}%</td>
+        <td>{{ $val->kategori }}</td>
+        <td>{{ $val->location }}</td>
+        <td>{{ $val->asuransi }}</td>
+        <td>{{ $val->start_date }}</td>
+        <td>{{ $val->expiring_date }}</td>
+        <td>{{ $val->status == 1 ? 'Aktif' : 'Tidak Aktif' }}</td> 
       </tr> 
       @endforeach
     </tbody>
