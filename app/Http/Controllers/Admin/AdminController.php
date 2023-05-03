@@ -17,8 +17,18 @@ class AdminController extends Controller
     // =========== VIEW ================ //
      
     public function ringkasan_index(){
+        // CHART 1
+        $datas['total_active'] = User::whereStatus(1)->get()->count() + Deposit::whereStatus(1)->get()->count() + Penarikan::whereStatus(1)->get()->count();
+        $datas['total_unactive'] = User::whereStatus(0)->get()->count() + Deposit::whereStatus(0)->get()->count() + Penarikan::whereStatus(0)->get()->count();
 
-        return view('admin.ringkasan');
+        $datas['total_transaksi'] = Deposit::whereStatus(1)->get()->count() + Penarikan::whereStatus(1)->get()->count();
+        $datas['total_bisnis'] = User::whereStatus(1)->get()->count();
+        $datas['active_users'] = User::whereStatus(1)->get()->count();
+        $datas['total_pendanaan'] = User::whereStatus(1)->get()->count();
+
+        return view('admin.ringkasan', compact(
+            'datas'
+        ));
     }
  
     public function pengguna_index(){
