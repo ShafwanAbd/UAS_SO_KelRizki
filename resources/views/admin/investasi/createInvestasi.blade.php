@@ -10,7 +10,7 @@
   
   <div class="flex">
     <label>Durasi: </label>
-    <input name="durasi" type="number" required>
+    <input name="durasi" type="number" min="0" step="5" required>
   </div>
   
   <div class="flex">
@@ -40,12 +40,12 @@
   
   <div class="flex">
     <label>Harga: </label>
-    <input name="harga" type="number" step="10000" required>
+    <input name="harga" type="number" step="10000" min="0" required>
   </div>
   
   <div class="flex">
     <label>Lembar: </label>
-    <input name="lembar" type="number" required>
+    <input name="lembar" type="number" min="0" step="5" required>
   </div>
   
   <div class="flex">

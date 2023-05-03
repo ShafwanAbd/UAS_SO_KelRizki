@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\BeliInvestasi;
 use App\Models\Investasi;
+use App\Models\LogAudit;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -74,7 +75,13 @@ class InvestasiController extends Controller
 
         $model3 = User::find(Auth::user()->id);
         $model3->balance -= ($request->lembar * $model2->harga);
+  
+        $audit = new LogAudit();
+        $audit->id_user = Auth::user()->id;
+        $audit->id_referensi = uniqid();
+        $audit->catatan = 'Membeli '.$request->lembar.' Lembar pada '.$model2->nama.'!'; 
 
+        $audit->save(); 
         $model1->save();
         $model2->save();
         $model3->save();
