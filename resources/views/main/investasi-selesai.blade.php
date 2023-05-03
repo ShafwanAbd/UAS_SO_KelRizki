@@ -50,38 +50,49 @@
 
   <!-- Pake pengkondisian, kalo ada peternakan yang mau ngajuin dana, ini bisa ditampilin -->
   <div class="row pt-5">
-    <h5>Peternakan yang udah ditutup penjualan sahamnya:</h5>
+    <h5>Peternakan yang udah ditutup penjualan sahamnya:</h5> 
+    @foreach($datas1 as $key=>$val)
     <div class="col-md-4 pt-3 px-3">
-      <div class="card rounded shadow">
+      <div class="card border-0 rounded shadow">
         <div class="card-header pt-3 px-3 border-0">
-          <h5>State Farm Tasikmalaya</h5><span class="badge bg-danger">closed</span>
+          <h5>{{ $val->nama }}</h5><span style="color:green"></span>
         </div>
         <div class="card-body px-3">
-          <small style="color:grey">5000 / 10000 Lembar Terjual</small>
-          <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
-            <div class="progress-bar" style="width: 50%"></div>
+          <small style="color:grey">{{ $val->lembar_terjual }} / {{ $val->lembar }} Lembar Terjual</small>
+          <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="{{ $val->lembar_terjual }}" aria-valuemin="0" aria-valuemax="{{ $val->lembar }}">
+            @php 
+              $persenanBar = $val->lembar_terjual / $val->lembar * 100; 
+            @endphp
+            <div id="progress{{ $val->id }}" class="progress-bar" width="{{ $persenanBar }}%"></div>
+
+            <script>
+              $(document).ready(function() {
+                $('#progress{{ $val->id }}').css('width', '{{ $persenanBar }}%');
+              });
+            </script>
           </div>
           <div class="pt-3">
-            <small style="color:grey">Tasikmalaya</small>
-            <p class="mb-0"><span style="color:blue">5%</span> Pembagian deviden perbulan </p>
-            <p><span style="color:green">Rp. 100,000</span> Perlembar Saham </p>
+            <small style="color:grey">{{ $val->location }}</small>
+            <p class="mb-0"><span style="color:blue">{{ $val->interest }}%</span> Pembagian deviden perbulan </p>
+            <p><span style="color:green">{{ @money($val->harga) }}</span> Perlembar Saham </p>
           </div>
           <div class="row justify-content-between text-center">
             <div class="col-6">
               <span><small>Tanggal Buka</small></span>
-              <p class="text-muted">10/04/2023</p>
+              <p class="text-muted">{{ $val->start_date }}</p>
             </div>
             <div class="col-6">
               <span><small>Tanggal Tutup</small></span>
-              <p class="text-muted">24/04/2023</p>
+              <p class="text-muted">{{ $val->expiring_date }}</p>
             </div>
-            <a href="" class="text-decoration-none">
+            <a href="{{ url('/investasiDetail/'.$val->id) }}" class="text-decoration-none">
               <p>Detail Peternakan ></p>
             </a>
           </div>
         </div>
       </div>
     </div>
+    @endforeach
   </div>
 
   @endsection

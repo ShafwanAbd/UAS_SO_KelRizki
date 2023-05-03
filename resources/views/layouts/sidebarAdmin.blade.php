@@ -69,8 +69,8 @@
           <div class="collapse" id="collapseExample2"> 
             <li class="my-4"><a class="text-light nav-link mx-3" href="{{ url('/penarikanTransaksiAdmin') }}">Transaksi</a></li>
             <li class="my-4"><a class="text-light nav-link mx-3" href="{{ url('/penarikanPengaturanAdmin') }}">Pengaturan</a></li>
-          </div>
-          <li class="my-4"><a class="text-light nav-link" href="{{ url('/investasiAdmin') }}">Investasi</a></li>
+          </div> 
+          <li class="my-4"><a class="text-light nav-link" href="{{ url('/listBisnisAdmin') }}">List Bisnis</a></li>
           <li class="my-4"><a class="text-light nav-link" href="{{ url('/blogAdmin') }}">Blog</a></li>
           <li class="my-4"><a class="text-light nav-link" href="">keluar</a></li>
         </ul>
