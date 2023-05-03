@@ -3,95 +3,99 @@
 @section('content')
 <form method="POST" action="{{ url('makeInvestasiAdmin') }}" enctype="multipart/form-data">
 @csrf
-  <div class="flex">
-    <label>Nama: </label>
-    <input name="nama" type="text" required>
-  </div>
-  
-  <div class="flex">
-    <label>Durasi: </label>
-    <input name="durasi" type="number" min="0" step="5" required>
-  </div>
-  
-  <div class="flex">
-    <label>Period: </label>
-    <select name="period" required>
-      <option value="" disabled selected>-- Select --</option>
-      <option value="1">Day - 1 Days</option>
-      <option value="7">Week - 7 Days</option>
-      <option value="30">Month - 30 Days</option>
-      <option value="365">Year - 365 Days</option> 
-    </select>
-  </div>
-  
-  <div class="flex">
-    <label>Kategori: </label>
-    <select name="kategori" required>
-      <option value="" disabled selected>-- Select --</option>
-      <option value="Saham">Saham</option>
-      <option value="Sukuk">Sukuk</option> 
-    </select>
-  </div>
-  
-  <div class="flex">
-    <label>Interest: </label>
-    <input name="interest" type="text" required>
-  </div>
-  
-  <div class="flex">
-    <label>Harga: </label>
-    <input name="harga" type="number" step="10000" min="0" required>
-  </div>
-  
-  <div class="flex">
-    <label>Lembar: </label>
-    <input name="lembar" type="number" min="0" step="5" required>
-  </div>
-  
-  <div class="flex">
-    <label>Start Date: </label>
-    <input name="start_date" type="date" required>
-  </div>
-  
-  <div class="flex">
-    <label>Location: </label>
-    <input name="location" type="text" required>
-  </div>
-  
-  <div class="flex">
-    <label>Status: </label>
-    <select name="status" required>
-      <option value="" disabled selected>-- Select --</option>
-      <option value="1">Aktif</option>
-      <option value="0">Tidak Aktif</option> 
-    </select>
-  </div>
-  
-  <div class="flex">
-    <label>Asuransi: </label>
-    <select name="asuransi" required>
-      <option value="" disabled selected>-- Select --</option>
-      <option value="Iya">Iya</option>
-      <option value="Tidak">Tidak</option> 
-    </select>
-  </div>
-  
-  <div class="flex">
-    <label>Referral Percent: </label>
-    <input name="referral_percent" type="text" required>
-  </div> 
-  
-  <div class="flex">
-    <label>Poto: </label>
-    <input name="poto" type="file" required>
-  </div> 
-  
-  <div class="flex">
-    <label>Keterangan: </label>
-    <textarea name="keterangan" ></textarea>
-  </div>  
+  <div class="w-75 mx-auto my-5 card shadow p-5">
+    <p class="fw-bold h4 text-center">PLAN</p>
+    <div class="mb-3">
+      <label class="form-label">Nama: </label>
+      <input class="form-control" name="nama" type="text" required>
+    </div>
+    
+    <div class="mb-3">
+      <label class="form-label">Durasi: </label>
+      <input class="form-control" name="durasi" type="number" min="0" step="5" required>
+    </div>
+    
+    <div class="mb-3">
+      <label class="form-label">Period: </label>
+      <select class="form-control" name="period" required>
+        <option value="" disabled selected>-- Select --</option>
+        <option value="1">Day - 1 Days</option>
+        <option value="7">Week - 7 Days</option>
+        <option value="30">Month - 30 Days</option>
+        <option value="365">Year - 365 Days</option> 
+      </select>
+    </div>
+    
+    <div class="mb-3">
+      <label class="form-label">Kategori: </label>
+      <select class="form-control" name="kategori" required>
+        <option value="" disabled selected>-- Select --</option>
+        <option value="Saham">Saham</option>
+        <option value="Sukuk">Sukuk</option> 
+      </select>
+    </div>
+    
+    <div class="mb-3">
+      <label class="form-label">Interest: </label>
+      <input class="form-control" name="interest" type="text" required>
+    </div>
+    
+    <div class="mb-3">
+      <label class="form-label">Harga: </label>
+      <input class="form-control" name="harga" type="number" step="10000" min="0" required>
+    </div>
+    
+    <div class="mb-3">
+      <label class="form-label">Lembar: </label>
+      <input class="form-control" name="lembar" type="number" min="0" step="5" required>
+    </div>
+    
+    <div class="mb-3">
+      <label class="form-label">Start Date: </label>
+      <input class="form-control" name="start_date" type="date" required>
+    </div>
+    
+    <div class="mb-3">
+      <label class="form-label">Location: </label>
+      <input class="form-control" name="location" type="text" required>
+    </div>
+    
+    <div class="mb-3">
+      <label class="form-label">Status: </label>
+      <select class="form-control" name="status" required>
+        <option value="" disabled selected>-- Select --</option>
+        <option value="1">Aktif</option>
+        <option value="0">Tidak Aktif</option> 
+      </select>
+    </div>
+    
+    <div class="mb-3">
+      <label class="form-label">Asuransi: </label>
+      <select class="form-control" name="asuransi" required>
+        <option value="" disabled selected>-- Select --</option>
+        <option value="Iya">Iya</option>
+        <option value="Tidak">Tidak</option> 
+      </select>
+    </div>
+    
+    <div class="mb-3">
+      <label class="form-label">Referral Percent: </label>
+      <input class="form-control" name="referral_percent" type="text" required>
+    </div> 
+    
+    <div class="mb-3">
+      <label class="form-label">Poto: </label>
+      <input class="form-control" name="poto" type="file" required>
+    </div> 
+    
+    <div class="mb-3">
+      <label class="form-label">Keterangan: </label>
+      <textarea class="form-control" name="keterangan" ></textarea>
+    </div>  
 
-  <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+
 </form>
 
 @endsection
