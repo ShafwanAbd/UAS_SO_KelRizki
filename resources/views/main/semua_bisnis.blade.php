@@ -55,7 +55,7 @@
     <div class="col-md-4 pt-3 px-3">
       <div class="card border-0 rounded shadow">
         <div class="card-header pt-3 px-3 border-0">
-          <h5>{{ $val->nama }}</h5><span style="color:green">(500 Lembar/5 Lot)</span>
+          <h5>{{ $val->nama }}</h5><span style="color:green"></span>
         </div>
         <div class="card-body px-3">
           <small style="color:grey">{{ $val->lembar_terjual }} / {{ $val->lembar }} Lembar Terjual</small>
@@ -63,11 +63,11 @@
             @php 
               $persenanBar = $val->lembar_terjual / $val->lembar * 100; 
             @endphp
-            <div id="progress{{}}" class="progress-bar" width="{{ $persenanBar }}%"></div>
+            <div id="progress{{ $val->id }}" class="progress-bar" width="{{ $persenanBar }}%"></div>
 
             <script>
               $(document).ready(function() {
-                $('.progress-bar{{ $val->id }}').css('width', '{{ $persenanBar }}%;');
+                $('#progress{{ $val->id }}').css('width', '{{ $persenanBar }}%');
               });
             </script>
           </div>

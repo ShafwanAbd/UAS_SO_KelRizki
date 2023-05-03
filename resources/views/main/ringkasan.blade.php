@@ -68,9 +68,15 @@
           <small style="color:grey">{{ $val->lembar_terjual }} / {{ $val->lembar }} Lembar Terjual</small>
           <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="{{ $val->lembar_terjual }}" aria-valuemin="0" aria-valuemax="{{ $val->lembar }}">
             @php 
-              $persenanBar = $val->lembar_terjual / $val->lembar * 100;
+              $persenanBar = $val->lembar_terjual / $val->lembar * 100; 
             @endphp
-            <div class="progress-bar" style="width: '{{ $persenanBar }}%'"></div>
+            <div id="progress{{ $val->id }}" class="progress-bar" width="{{ $persenanBar }}%"></div>
+
+            <script>
+              $(document).ready(function() {
+                $('#progress{{ $val->id }}').css('width', '{{ $persenanBar }}%');
+              });
+            </script>
           </div>
           <div class="pt-3">
             <small style="color:grey">{{ $val->location }}</small>
