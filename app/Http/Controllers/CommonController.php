@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\AdminBank;
+use App\Models\BeliInvestasi;
 use App\Models\Investasi;
 use App\Models\LogAudit;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -38,50 +40,10 @@ class CommonController extends Controller
 
     public function ringkasan_index()
     {
-        $datas1 = Investasi::all();
+        $datas2 = BeliInvestasi::where('id_user', Auth::user()->id)->pluck('id_investasi');
+        $datas1 = Investasi::whereIn('id', $datas2)->get(); 
 
         return view('main.ringkasan', compact(
-            'datas1'
-        ));
-    }
-
-    public function investasi_index()
-    {
-        return view('main.investasi');
-    }
-
-    public function semua_bisnis_index()
-    {
-        $datas1 = Investasi::all();
-
-        return view('main.semua_bisnis', compact(
-            'datas1'
-        ));
-    }
-
-    public function investasi_segera_index()
-    {
-        $datas1 = Investasi::all();
-
-        return view('main.investasi-segera', compact(
-            'datas1'
-        ));
-    }
-
-    public function investasi_selesai_index()
-    {
-        $datas1 = Investasi::all();
-
-        return view('main.investasi-selesai', compact(
-            'datas1'
-        ));
-    }
-
-    public function investasi_diikuti_index()
-    {
-        $datas1 = Investasi::all();
-
-        return view('main.investasi-diikuti', compact(
             'datas1'
         ));
     }
