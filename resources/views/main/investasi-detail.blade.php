@@ -1,7 +1,23 @@
 @extends('layouts.sidebar')
 
 @section('content')
-    <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">BELI SAHAM!</a> 
+    <div class="card shadow my-5 mx-4">
+        <p class="fw-bold h3 text-center my-3">Detail</p>
+        <div class="row mx-2 mb-5">
+            <div class="col-4 card px-3">
+                
+            </div>
+            <div class="col-1"></div>
+            <div class="col-7 card">
+                <p class="fw-bold py-3">Keterangan</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, cum soluta libero aut amet iusto, ipsam obcaecati magnam corporis temporibus nam veniam eum. Earum ipsum suscipit pariatur nisi, ab laudantium?</p>
+            </div>
+        </div>
+        <div class="text-center">
+            <a class="btn btn-primary mb-3 w-25 rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">BELI SAHAM!</a> 
+        </div>
+    </div>
+    
     
     <form method="POST" action="{{ url('/beli_investasi/'.$id) }}">
     @csrf
