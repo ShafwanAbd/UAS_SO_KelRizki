@@ -5,7 +5,7 @@
         <p class="fw-bold h3 text-center my-3">Detail</p>
         <div class="row mx-2 mb-5">
             <div class="col-4 card px-3">
-                
+                <!-- isi disisni -->
             </div>
             <div class="col-1"></div>
             <div class="col-7 card">
