@@ -112,8 +112,8 @@ class AdminController extends Controller
         $model1->harga = $request->harga; 
         $model1->lembar = $request->lembar;
         $model1->lembar_terjual = 0;
-        $model1->start_date = Carbon::parse($request->start_date)->format('Y/m/d');
-        $model1->expiring_date = Carbon::parse($request->start_date)->addDays($request->durasi)->format('Y/m/d');
+        $model1->start_date = Carbon::parse($request->start_date)->format('Y-m-d');
+        $model1->expiring_date = Carbon::parse($request->start_date)->addDays($request->durasi)->format('Y-m-d');
         $model1->location = $request->location;
         $model1->status = $request->status;
         $model1->asuransi = $request->asuransi;

@@ -33,9 +33,7 @@
               
               <p class="ms-auto text-end">Rp. 1,000,000</p>
               <p class="ms-auto">2023-04-25 15:45:10</p>
-            </div> -->
-
-
+            </div> --> 
           </div>
         </div>
 

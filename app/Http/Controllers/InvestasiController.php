@@ -7,6 +7,7 @@ use App\Models\Investasi;
 use App\Models\LogAudit;
 use App\Models\User;
 use Carbon\Carbon;
+use Carbon\CarbonPeriod;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,10 +23,10 @@ class InvestasiController extends Controller
     }
 
     public function semua_bisnis_index()
-    { 
+    {    
         $datas1 = Investasi::where('start_date', '<=', Carbon::now())
                             ->where('expiring_date', '>=', Carbon::now())
-                            ->get();  
+                            ->get(); 
 
         return view('main.semua_bisnis', compact(
             'datas1'
@@ -34,7 +35,9 @@ class InvestasiController extends Controller
 
     public function investasi_segera_index()
     { 
-        $datas1 = Investasi::where('start_date', '>', Carbon::now())->get();  
+        $datas1 = Investasi::whereBetween('start_date', [Carbon::now(), Carbon::now()->addMonths(12)])
+                            ->whereNotBetween('start_date', [Carbon::now()->subMonths(12), Carbon::now()])
+                            ->get();  
 
         return view('main.investasi-segera', compact(
             'datas1'
@@ -43,7 +46,9 @@ class InvestasiController extends Controller
 
     public function investasi_selesai_index()
     {
-        $datas1 = Investasi::where('expiring_date', '<', Carbon::now())->get();  
+        $datas1 = Investasi::whereBetween('expiring_date', [Carbon::now()->subMonths(12), Carbon::now()])
+                            ->get();
+ 
 
         return view('main.investasi-selesai', compact(
             'datas1'
@@ -74,7 +79,10 @@ class InvestasiController extends Controller
         }
 
         $model3 = User::find(Auth::user()->id);
-        $model3->balance -= ($request->lembar * $model2->harga);
+        $model3->balance -= $request->lembar * $model2->harga;
+        $model3->balance_to_invest += $request->lembar * $model2->harga;
+ 
+        $model1->amount = $request->lembar * $model2->harga;
   
         $audit = new LogAudit();
         $audit->id_user = Auth::user()->id;

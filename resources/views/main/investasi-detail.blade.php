@@ -15,7 +15,7 @@
             <div class="modal-body">
                 <div class="mb-3">
                     <label for="berapalembar">Lembar</label>
-                    <input name="lembar" type="number" min="0" step="5" class="form-control" id="berapalembar" placeholder="12">
+                    <input name="lembar" type="number" min="0" class="form-control" id="berapalembar" placeholder="12">
                 </div> 
                 <label id="perkalianlembar">0 Lembar: Rp 0</label> 
             </div>
