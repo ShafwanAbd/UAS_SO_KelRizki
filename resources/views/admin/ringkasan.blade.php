@@ -5,7 +5,7 @@
     <!-- dashborad prototype -->
     <div class="my-5">
         <p class="fw-bold mb-5 h5">Dashboard Prototipe</p>
-        <div class="row gx-5">
+        <div class="row">
             <div class="col-9">
                 <div class="flex d-flex justify-content-between text-center">
                     <div>
@@ -36,8 +36,8 @@
             </div>
             <div class="col-3">
                 <p class="mb-2 fw-bold">Activity</p>
-                <div class="">
-                    <div style="">
+                <div class="mx-auto">
+                    <div style="max-width: 300px">
                         <canvas id="myChart"></canvas>
                     </div> 
                 </div>
