@@ -12,7 +12,7 @@
     
     <div class="mb-3">
       <label class="form-label">Durasi: </label>
-      <input class="form-control" name="durasi" type="number" required>
+      <input class="form-control" name="durasi" type="number" min="0" step="5" required>
     </div>
     
     <div class="mb-3">
@@ -42,12 +42,12 @@
     
     <div class="mb-3">
       <label class="form-label">Harga: </label>
-      <input class="form-control" name="harga" type="number" step="10000" required>
+      <input class="form-control" name="harga" type="number" step="10000" min="0" required>
     </div>
     
     <div class="mb-3">
       <label class="form-label">Lembar: </label>
-      <input class="form-control" name="lembar" type="number" required>
+      <input class="form-control" name="lembar" type="number" min="0" step="5" required>
     </div>
     
     <div class="mb-3">
