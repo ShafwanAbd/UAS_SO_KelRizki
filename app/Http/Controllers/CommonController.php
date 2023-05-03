@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\AdminBank;
+use App\Models\Investasi;
 use App\Models\LogAudit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -37,7 +38,11 @@ class CommonController extends Controller
 
     public function ringkasan_index()
     {
-        return view('main.ringkasan');
+        $datas1 = Investasi::all();
+
+        return view('main.ringkasan', compact(
+            'datas1'
+        ));
     }
 
     public function investasi_index()
@@ -47,22 +52,38 @@ class CommonController extends Controller
 
     public function semua_bisnis_index()
     {
-        return view('main.semua_bisnis');
+        $datas1 = Investasi::all();
+
+        return view('main.semua_bisnis', compact(
+            'datas1'
+        ));
     }
 
     public function investasi_segera_index()
     {
-        return view('main.investasi-segera');
+        $datas1 = Investasi::all();
+
+        return view('main.investasi-segera', compact(
+            'datas1'
+        ));
     }
 
     public function investasi_selesai_index()
     {
-        return view('main.investasi-selesai');
+        $datas1 = Investasi::all();
+
+        return view('main.investasi-selesai', compact(
+            'datas1'
+        ));
     }
 
     public function investasi_diikuti_index()
     {
-        return view('main.investasi-diikuti');
+        $datas1 = Investasi::all();
+
+        return view('main.investasi-diikuti', compact(
+            'datas1'
+        ));
     }
 
     public function aktivitas_index()

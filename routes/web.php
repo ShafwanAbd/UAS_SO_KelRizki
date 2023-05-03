@@ -75,8 +75,11 @@ Route::middleware(['admin', 'auth', 'aktif'])->group(function () {
     Route::get('/penarikanTransaksiAdmin',  [AdminController::class, 'penarikanTransaksi_index']);     // FRONTEND:✘ BACKEND:✘
     Route::get('/penarikanPengaturanAdmin',  [AdminController::class, 'penarikanPengaturan_index']);     // FRONTEND:✘ BACKEND:✘
     Route::get('/investasiAdmin',       [AdminController::class, 'investasi_index'])->name('sidebarADM.investasi');     // FRONTEND:✘ BACKEND:✘
+    Route::get('/listBisnisAdmin',      [AdminController::class, 'listBisnis_index']);    // FRONTEND:✘ BACKEND:✘
+    Route::get('/createInvestasiAdmin', [AdminController::class, 'createInvestasi_index']);    // FRONTEND:✘ BACKEND:✘
+    Route::post('/makeInvestasiAdmin',  [AdminController::class, 'makeInvestasi_index']);    // FRONTEND:✘ BACKEND:✘
     Route::get('/blogAdmin',            [AdminController::class, 'blog_index'])->name('sidebarADM.blog');               // FRONTEND:✘ BACKEND:✘
-
+    
     // ACCEPTING
     Route::get('/acceptAkun/{id}',      [AdminController::class, 'akunAccept']);
     Route::get('/NoAcceptAkun/{id}',    [AdminController::class, 'akunNoAccept']);

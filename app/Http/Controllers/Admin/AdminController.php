@@ -5,11 +5,13 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\AdminBank;
 use App\Models\Deposit;
+use App\Models\Investasi;
 use App\Models\LogAudit;
 use App\Models\Penarikan;
 use App\Models\Pendanaan;
 use App\Models\Setting;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -83,7 +85,44 @@ class AdminController extends Controller
  
     public function investasi_index(){
 
-        return view('admin.investasi');
+        return view('admin.investasi.investasi');
+    }
+ 
+    public function listBisnis_index(){
+        $datas1 = Investasi::all();
+
+        return view('admin.investasi.listBisnis', compact(
+            'datas1'
+        ));
+    }
+ 
+    public function createInvestasi_index(){  
+        
+        return view('admin.investasi.createInvestasi');
+    }
+ 
+    public function makeInvestasi_index(Request $request){  
+
+        $model1 = new Investasi();
+        $model1->nama = $request->nama;
+        $model1->durasi = $request->durasi;
+        $model1->period = $request->period;
+        $model1->kategori = $request->kategori;
+        $model1->interest = $request->interest;
+        $model1->harga = $request->harga; 
+        $model1->lembar = $request->lembar;
+        $model1->lembar_terjual = 0;
+        $model1->start_date = Carbon::parse($request->start_date)->format('Y/m/d');
+        $model1->expiring_date = Carbon::parse($request->start_date)->addDays($request->durasi)->format('Y/m/d');
+        $model1->location = $request->location;
+        $model1->status = $request->status;
+        $model1->asuransi = $request->asuransi;
+        $model1->referral_percent = $request->referral_percent;
+        $model1->poto = $request->poto;
+        $model1->keterangan = $request->keterangan ;
+        $model1->save();
+        
+        return redirect('/listBisnisAdmin')->with('success', 'Berhasil Membuat Investasi!');
     }
  
     public function blog_index(){
