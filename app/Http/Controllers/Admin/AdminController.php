@@ -5,10 +5,13 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\AdminBank;
 use App\Models\Deposit;
+use App\Models\Investasi;
+use App\Models\LogAudit;
 use App\Models\Penarikan;
 use App\Models\Pendanaan;
 use App\Models\Setting;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -16,8 +19,18 @@ class AdminController extends Controller
     // =========== VIEW ================ //
      
     public function ringkasan_index(){
+        // CHART 1
+        $datas['total_active'] = User::whereStatus(1)->get()->count() + Deposit::whereStatus(1)->get()->count() + Penarikan::whereStatus(1)->get()->count();
+        $datas['total_unactive'] = User::whereStatus(0)->get()->count() + Deposit::whereStatus(0)->get()->count() + Penarikan::whereStatus(0)->get()->count();
 
-        return view('admin.ringkasan');
+        $datas['total_transaksi'] = Deposit::whereStatus(1)->get()->count() + Penarikan::whereStatus(1)->get()->count();
+        $datas['total_bisnis'] = User::whereStatus(1)->get()->count();
+        $datas['active_users'] = User::whereStatus(1)->get()->count();
+        $datas['total_pendanaan'] = User::whereStatus(1)->get()->count();
+
+        return view('admin.ringkasan', compact(
+            'datas'
+        ));
     }
  
     public function pengguna_index(){
@@ -72,7 +85,44 @@ class AdminController extends Controller
  
     public function investasi_index(){
 
-        return view('admin.investasi');
+        return view('admin.investasi.investasi');
+    }
+ 
+    public function listBisnis_index(){
+        $datas1 = Investasi::all();
+
+        return view('admin.investasi.listBisnis', compact(
+            'datas1'
+        ));
+    }
+ 
+    public function createInvestasi_index(){  
+        
+        return view('admin.investasi.createInvestasi');
+    }
+ 
+    public function makeInvestasi_index(Request $request){  
+
+        $model1 = new Investasi();
+        $model1->nama = $request->nama;
+        $model1->durasi = $request->durasi;
+        $model1->period = $request->period;
+        $model1->kategori = $request->kategori;
+        $model1->interest = $request->interest;
+        $model1->harga = $request->harga; 
+        $model1->lembar = $request->lembar;
+        $model1->lembar_terjual = 0;
+        $model1->start_date = Carbon::parse($request->start_date)->format('Y/m/d');
+        $model1->expiring_date = Carbon::parse($request->start_date)->addDays($request->durasi)->format('Y/m/d');
+        $model1->location = $request->location;
+        $model1->status = $request->status;
+        $model1->asuransi = $request->asuransi;
+        $model1->referral_percent = $request->referral_percent;
+        $model1->poto = $request->poto;
+        $model1->keterangan = $request->keterangan ;
+        $model1->save();
+        
+        return redirect('/listBisnisAdmin')->with('success', 'Berhasil Membuat Investasi!');
     }
  
     public function blog_index(){
@@ -103,18 +153,28 @@ class AdminController extends Controller
 
     public function akunAccept(string $id){
         $model1 = User::find($id);
-        $model1->status = '1'; 
-
+        $model1->status = '1';  
         $model1->save();
+        
+        $model2 = new LogAudit();
+        $model2->id_user = $model1->id;
+        $model2->id_referensi = uniqid();
+        $model2->catatan = 'Akun Diaktifkan oleh Admin'; 
+        $model2->save();
 
         return back()->with('success', 'Berhasil Mengaktifkan Akun '.$model1->username.'!');
     }
 
     public function akunNoAccept(string $id){
         $model1 = User::find($id);
-        $model1->status = '0'; 
-
+        $model1->status = '0';  
         $model1->save();
+        
+        $model2 = new LogAudit();
+        $model2->id_user = $model1->id;
+        $model2->id_referensi = uniqid();
+        $model2->catatan = 'Akun Dinonaktifkan oleh Admin'; 
+        $model2->save();
 
         return back()->with('success', 'Berhasil Menonaktifkan Akun '.$model1->username.'!');
     }
@@ -122,8 +182,7 @@ class AdminController extends Controller
     public function investorAccept(string $id){
         $model1 = User::find($id);
         $model1->status = '1';
-        $model1->role = '2';
-
+        $model1->role = '2'; 
         $model1->save();
 
         return back()->with('success', 'Berhasil Menerima Akun Investor!');
@@ -132,8 +191,7 @@ class AdminController extends Controller
     public function peternakAccept(string $id){
         $model1 = User::find($id);
         $model1->status = '1';
-        $model1->role = '3';
-
+        $model1->role = '3'; 
         $model1->save();
 
         return back()->with('success', 'Berhasil Menerima Akun Peternak!');
@@ -141,8 +199,7 @@ class AdminController extends Controller
 
     public function pendanaanAccept(string $id){
         $model1 = Pendanaan::find($id);
-        $model1->status = '1'; 
-
+        $model1->status = '1';  
         $model1->save();
 
         return back()->with('success', 'Berhasil Menerima Pengajuan Pendanaan Peternak!');
@@ -151,7 +208,13 @@ class AdminController extends Controller
     public function depositAccept(string $id){
         $model1 = Deposit::find($id);
         $model1->status = '1';  
-        $model1->save();
+        $model1->save(); 
+        
+        $model2 = new LogAudit();
+        $model2->id_user = $model1->id_user;
+        $model2->id_referensi = uniqid();
+        $model2->catatan = 'Deposit Disetujui oleh Admin'; 
+        $model2->save();
 
         $user = User::find($model1->id_user); 
         $user->balance += $model1->amount; 
@@ -166,9 +229,21 @@ class AdminController extends Controller
         $model1 = Penarikan::find($id);
         $model1->status = '1';  
         $model1->save();
+        
+        $model2 = new LogAudit();
+        $model2->id_user = $model1->id_user;
+        $model2->id_referensi = uniqid();
+        $model2->catatan = 'Penarikan Disetujui oleh Admin'; 
+        $model2->save();
 
         $user = User::find($model1->id_user);
-        $user->balance -= $model1->amount;
+        if ($model1->debit_from == 'Balance'){ 
+            $user->balance -= $model1->amount;
+        } else if ($model1->debit_from == 'Dividen'){ 
+            $user->dividen -= $model1->amount;
+        } else if ($model1->debit_from == 'Bonus Afiliasi'){ 
+            $user->dividen -= $model1->amount;
+        }
         $user->save();
 
         $name = User::where('id', $model1->id_user)->value('firstName') . ' ' . User::where('id', $model1->id_user)->value('lastName');

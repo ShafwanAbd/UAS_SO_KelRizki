@@ -51,6 +51,19 @@ return new class extends Migration
                     'dividen'   => '150000',
                     'email'     => 'ADMIN@gmail.com',
                     'password'  => bcrypt('ADMIN'), 
+                ], 
+                
+                [
+                    'role' => '',
+                    'status' => '1',
+                    'firstName' => 'Komang',
+                    'lastName'  => 'Kameng',
+                    'username'  => 'KomKameng',
+                    'balance'   => '25000000',
+                    'profit'    => '125000',
+                    'dividen'   => '50000',
+                    'email'     => 'komeng@gmail.com',
+                    'password'  => bcrypt('komeng'), 
                 ]
             )
         );

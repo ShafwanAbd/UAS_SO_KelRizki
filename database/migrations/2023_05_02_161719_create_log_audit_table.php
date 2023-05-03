@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('investor', function (Blueprint $table) {
+        Schema::create('log_audit', function (Blueprint $table) {
             $table->id();
             $table->string('id_user');
-            $table->string('invest_sum');
-            $table->string('status');
+            $table->string('id_referensi');
+            $table->string('catatan'); 
             $table->timestamps();
         });
     }
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('investor');
+        Schema::dropIfExists('log_audit');
     }
 };

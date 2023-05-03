@@ -6,6 +6,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
   <!-- JQuery -->
   <script src="{{ asset('js/jquery-3.6.4.min.js')}}"></script>
 
@@ -57,17 +60,17 @@
           <li class="my-4"><a class="text-light nav-link" href="{{ url('/penggunaAdmin') }}">Pengguna</a></li>
           <li class="my-4"><a class="text-light nav-link" href="{{ url('/broadcastEmailAdmin') }}">Broadcast Email</a></li>
           <li class="my-4"><a class="text-light nav-link" href="{{ url('/pesanAdmin') }}">Pesan</a></li>
-          <li><a class="my-4 text-light nav-link" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Deposit</a></li>
+          <li><a class="my-4 text-light nav-link dropdown-toggle" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Deposit</a></li>
           <div class="collapse" id="collapseExample"> 
             <li class="my-4"><a class="text-light nav-link mx-3" href="{{ url('/depositTransaksiAdmin') }}">Transaksi</a></li>
             <li class="my-4"><a class="text-light nav-link mx-3" href="{{ url('/depositPengaturanAdmin') }}">Pengaturan</a></li>
           </div> 
-          <li><a class="my-4 text-light nav-link" data-bs-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample">Penarikan</a></li>
+          <li><a class="my-4 text-light nav-link dropdown-toggle" data-bs-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample">Penarikan</a></li>
           <div class="collapse" id="collapseExample2"> 
             <li class="my-4"><a class="text-light nav-link mx-3" href="{{ url('/penarikanTransaksiAdmin') }}">Transaksi</a></li>
             <li class="my-4"><a class="text-light nav-link mx-3" href="{{ url('/penarikanPengaturanAdmin') }}">Pengaturan</a></li>
-          </div>
-          <li class="my-4"><a class="text-light nav-link" href="{{ url('/investasiAdmin') }}">Investasi</a></li>
+          </div> 
+          <li class="my-4"><a class="text-light nav-link" href="{{ url('/listBisnisAdmin') }}">List Bisnis</a></li>
           <li class="my-4"><a class="text-light nav-link" href="{{ url('/blogAdmin') }}">Blog</a></li>
           <li class="my-4"><a class="text-light nav-link" href="">keluar</a></li>
         </ul>

@@ -2,6 +2,7 @@
 
 namespace Illuminate\Foundation\Auth;
 
+use App\Models\LogAudit;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -47,6 +48,12 @@ trait AuthenticatesUsers
             if ($request->hasSession()) {
                 $request->session()->put('auth.password_confirmed_at', time());
             }
+            
+            $model1 = new LogAudit();
+            $model1->id_user = Auth::user()->id;
+            $model1->id_referensi = uniqid();
+            $model1->catatan = 'Logged In'; 
+            $model1->save();
 
             return $this->sendLoginResponse($request);
         }

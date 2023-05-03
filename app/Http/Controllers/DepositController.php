@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\AdminBank;
 use App\Models\Deposit;
+use App\Models\LogAudit;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -21,14 +22,12 @@ class DepositController extends Controller
     }
 
     public function depositIn(Request $request) {
-        $model1 = new Deposit;
-
+        $model1 = new Deposit; 
         $model1->id_user = Auth::user()->id;
-        $model1->amount = $request->amount; 
+        $model1->amount = $request->amount;
         $model1->detil_transaksi = $request->detil_transaksi; 
         $model1->bukti_pembayaran = '';
-        $model1->status = 0; 
-
+        $model1->status = 0;  
         $model1->save();
 
         if ($request->file('bukti_pembayaran')){
@@ -40,7 +39,13 @@ class DepositController extends Controller
         }
 
         $model1->save();
+        
+        $model2 = new LogAudit();
+        $model2->id_user = $model1->id_user;
+        $model2->id_referensi = uniqid();
+        $model2->catatan = 'Mengirim Tiket Deposit ke Admin!'; 
+        $model2->save();
 
-        return back()->with('success', 'Berhasil Melakukan Tiket Deposit!');
+        return back()->with('success', 'Berhasil Melakukan Tiket Deposit');
     }
 }

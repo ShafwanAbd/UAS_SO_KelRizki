@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\LogAudit;
 use App\Models\Pertanyaan;
 use App\Models\Reply;
 use App\Models\User;
@@ -19,28 +20,36 @@ class PertanyaanController extends Controller
     } 
 
     public function create(Request $request){
-        $model1 = new Pertanyaan;
-
+        $model1 = new Pertanyaan; 
         $model1->id_user = Auth::user()->id;
         $model1->owner = User::where('id', Auth::user()->id)->value('username');
         $model1->subjek = $request->subjek;
         $model1->prioritas = $request->prioritas;
-        $model1->deskripsi = $request->deskripsi;
-
+        $model1->deskripsi = $request->deskripsi; 
         $model1->save();
+        
+        $model2 = new LogAudit();
+        $model2->id_user = $model1->id_user;
+        $model2->id_referensi = uniqid();
+        $model2->catatan = 'Membuat Pertanyaan pada Forum Pertanyaan'; 
+        $model2->save();
 
         return back()->with('success', 'Berhasil Menambahkan Pertanyaan');
     }
 
     public function createReply(string $id ,Request $request){
-        $model1 = new Reply();
- 
+        $model1 = new Reply(); 
         $model1->id_pertanyaan = $id; 
         $model1->owner = User::where('id', Auth::user()->id)->value('username');
         $model1->replyTo = $request->replyTo;
-        $model1->deskripsi = $request->deskripsi;
-
+        $model1->deskripsi = $request->deskripsi; 
         $model1->save();
+        
+        $model2 = new LogAudit();
+        $model2->id_user = Auth::user()->id;
+        $model2->id_referensi = uniqid();
+        $model2->catatan = 'Menjawab Pertanyaan dari Forum Pertanyaan dengan ID '.$model1->id_pertanyaan; 
+        $model2->save();
 
         return back()->with('success', 'Berhasil Menambahkan Jawaban');
     }
@@ -53,9 +62,14 @@ class PertanyaanController extends Controller
     }
 
     public function delete(string $id){
-        $model1 = Pertanyaan::find($id);  
-
+        $model1 = Pertanyaan::find($id);   
         $model1->delete();
+        
+        $model2 = new LogAudit();
+        $model2->id_user = $model1->id_user;
+        $model2->id_referensi = uniqid();
+        $model2->catatan = 'Menghapus Pertanyaan dengan ID '.$id; 
+        $model2->save();
 
         return back()->with('success', 'Berhasil Menghapus Pertanyaan!');
     }

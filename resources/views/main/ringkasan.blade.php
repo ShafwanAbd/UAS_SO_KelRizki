@@ -8,7 +8,11 @@
       <div class="col-md-8">
         <div class="d-flex flex-row">
           <div class="profile-image">
+            @if (isset(Auth::user()->poto_profil))
+            <img class="rounded-circle m-2" src="{{asset('./image/poto_profil/'.Auth::user()->poto_profil)}}" alt="" height="60px" width="60px">
+            @else            
             <img class="rounded-circle m-2" src="{{asset('img/profile-icon.jpg')}}" alt="" height="60px" width="60px">
+            @endif
           </div>
           <div class="profile-name pt-2 px-2">
             <h5>{{ Auth::user()->username }}</h5>
@@ -54,38 +58,50 @@
   <!-- Alokasi Dana Investasi -->
   <div class="row pt-5">
     <h5><i class="bi bi-cash-stack"></i> Alokasi Dana Investasi Kamu:</h5>
+    @foreach($datas1 as $key=>$val)
     <div class="col-md-4 pt-3 px-3">
       <div class="card border-0 rounded shadow">
         <div class="card-header pt-3 px-3 border-0">
-          <h5>State Farm Tasikmalaya</h5><span style="color:green">(500 Lembar/5 Lot)</span>
+          <h5>{{ $val->nama }}</h5><span style="color:green">(500 Lembar/5 Lot)</span>
         </div>
         <div class="card-body px-3">
-          <small style="color:grey">5000 / 10000 Lembar Terjual</small>
-          <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
-            <div class="progress-bar" style="width: 50%"></div>
+          <small style="color:grey">{{ $val->lembar_terjual }} / {{ $val->lembar }} Lembar Terjual</small>
+          <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="{{ $val->lembar_terjual }}" aria-valuemin="0" aria-valuemax="{{ $val->lembar }}">
+            @php 
+              $persenanBar = $val->lembar_terjual / $val->lembar * 100; 
+            @endphp
+            <div id="progress{{ $val->id }}" class="progress-bar" width="{{ $persenanBar }}%"></div>
+
+            <script>
+              $(document).ready(function() {
+                $('#progress{{ $val->id }}').css('width', '{{ $persenanBar }}%');
+              });
+            </script>
           </div>
           <div class="pt-3">
-            <small style="color:grey">Tasikmalaya</small>
-            <p class="mb-0"><span style="color:blue">5%</span> Pembagian deviden perbulan </p>
-            <p><span style="color:green">Rp. 100,000</span> Perlembar Saham </p>
+            <small style="color:grey">{{ $val->location }}</small>
+            <p class="mb-0"><span style="color:blue">{{ $val->interest }}%</span> Pembagian deviden perbulan </p>
+            <p><span style="color:green">{{ @money($val->harga) }}</span> Perlembar Saham </p>
           </div>
           <div class="row justify-content-between text-center">
             <div class="col-6">
               <span><small>Tanggal Buka</small></span>
-              <p class="text-muted">10/04/2023</p>
+              <p class="text-muted">{{ $val->start_date }}</p>
             </div>
             <div class="col-6">
               <span><small>Tanggal Tutup</small></span>
-              <p class="text-muted">24/04/2023</p>
+              <p class="text-muted">{{ $val->expiring_date }}</p>
             </div>
-            <a href="" class="text-decoration-none">
+            <a href="{{ url('/investasiDetail/'.$val->id) }}" class="text-decoration-none">
               <p>Detail Peternakan ></p>
             </a>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-md-4 pt-3 px-3">
+    @endforeach
+
+    <!-- <div class="col-md-4 pt-3 px-3">
       <div class="card border-0 rounded shadow">
         <div class="card-header pt-3 px-3 border-0">
           <h5>Taman Farm</h5><span style="color:green">(500 Lembar/5 Lot)</span>
@@ -116,6 +132,7 @@
         </div>
       </div>
     </div>
+
     <div class="col-md-4 pt-3 px-3">
       <div class="card border-0 rounded shadow">
         <div class="card-header pt-3 px-3 border-0">
@@ -146,7 +163,8 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
+
   </div>
 </div>
 </div>
