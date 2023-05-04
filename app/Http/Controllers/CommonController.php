@@ -50,6 +50,11 @@ class CommonController extends Controller
         return view('main.investasi');
     }
 
+    public function detail_peternakan_index()
+    {
+        return view('main.detail-peternakan');
+    }
+
     public function semua_bisnis_index()
     {
         $datas1 = Investasi::all();
