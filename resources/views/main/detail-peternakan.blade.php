@@ -14,7 +14,7 @@
     </div>
     <div class="col-md-6">
       <div class="row me-3">
-        <h5 style="color: black"><span class="badge" style="background: #769FCD;">{{ strtoupper($datas1->kategori) }}</span> Peternakan Ayam</h5>
+        <h5 style="color: black"><span class="badge" style="background: #769FCD;">{{ strtoupper($datas1->kategori) }}</span> {{ $datas1->jenis }}</h5>
         <h1 class="fw-semibold">{{ $datas1->nama }}</h1>
         <p><i class="bi bi-geo-alt-fill"></i> {{ $datas1->location }}</p>
         <p style="color:grey">TOTAL INVESTASI</p>
