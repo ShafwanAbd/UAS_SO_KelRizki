@@ -62,7 +62,7 @@
     <div class="col-md-4 pt-3 px-3">
       <div class="card border-0 rounded shadow">
         <div class="card-header pt-3 px-3 border-0">
-          <h5>{{ $val->nama }}</h5><span style="color:green">(500 Lembar/5 Lot)</span>
+          <h5>{{ $val->nama }}</h5><span style="color:green"></span>
         </div>
         <div class="card-body px-3">
           <small style="color:grey">{{ $val->lembar_terjual }} / {{ $val->lembar }} Lembar Terjual</small>
@@ -92,7 +92,7 @@
               <span><small>Tanggal Tutup</small></span>
               <p class="text-muted">{{ $val->expiring_date }}</p>
             </div>
-            <a href="{{ url('/investasiDetail/'.$val->id) }}" class="text-decoration-none">
+            <a href="{{ url('/investasi-detail/'.$val->id) }}" class="text-decoration-none">
               <p>Detail Peternakan ></p>
             </a>
           </div>

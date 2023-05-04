@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\AdminBank;
+use App\Models\BeliInvestasi;
 use App\Models\Deposit;
 use App\Models\Investasi;
 use App\Models\LogAudit;
@@ -20,13 +21,24 @@ class AdminController extends Controller
      
     public function ringkasan_index(){
         // CHART 1
-        $datas['total_active'] = User::whereStatus(1)->get()->count() + Deposit::whereStatus(1)->get()->count() + Penarikan::whereStatus(1)->get()->count();
-        $datas['total_unactive'] = User::whereStatus(0)->get()->count() + Deposit::whereStatus(0)->get()->count() + Penarikan::whereStatus(0)->get()->count();
+        $datas['total_active'] = User::whereStatus(1)->get()->count()
+                                + Deposit::whereStatus(1)->get()->count()
+                                + Penarikan::whereStatus(1)->get()->count();
+                                
+        $datas['total_unactive'] = User::whereStatus(0)->get()->count()
+                                + Deposit::whereStatus(0)->get()->count()
+                                + Penarikan::whereStatus(0)->get()->count();
 
         $datas['total_transaksi'] = Deposit::whereStatus(1)->get()->count() + Penarikan::whereStatus(1)->get()->count();
         $datas['total_bisnis'] = User::whereStatus(1)->get()->count();
         $datas['active_users'] = User::whereStatus(1)->get()->count();
-        $datas['total_pendanaan'] = User::whereStatus(1)->get()->count();
+
+        $total_pendanaan = 0;
+        foreach (BeliInvestasi::all() as $key=>$value) {
+            $total_pendanaan += $value->amount;
+        }
+        
+        $datas['total_pendanaan'] = $total_pendanaan;
 
         return view('admin.ringkasan', compact(
             'datas'
@@ -112,8 +124,8 @@ class AdminController extends Controller
         $model1->harga = $request->harga; 
         $model1->lembar = $request->lembar;
         $model1->lembar_terjual = 0;
-        $model1->start_date = Carbon::parse($request->start_date)->format('Y/m/d');
-        $model1->expiring_date = Carbon::parse($request->start_date)->addDays($request->durasi)->format('Y/m/d');
+        $model1->start_date = Carbon::parse($request->start_date)->format('Y-m-d');
+        $model1->expiring_date = Carbon::parse($request->start_date)->addDays($request->durasi)->format('Y-m-d');
         $model1->location = $request->location;
         $model1->status = $request->status;
         $model1->asuransi = $request->asuransi;
