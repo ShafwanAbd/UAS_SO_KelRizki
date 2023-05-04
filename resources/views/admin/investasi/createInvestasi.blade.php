@@ -37,13 +37,15 @@
     
     <div class="mb-3">
       <label class="form-label">Jenis: </label>
-      <select class="form-control" name="jenis" required>
-        <option value="" disabled selected>-- Select --</option>
-        <option value="Peternakan Ayam">Peternakan Ayam</option> 
-        <option value="Peternakan Ayam">Peternakan Ayam</option> 
-        <option value="Peternakan Ayam">Peternakan Ayam</option> 
-        <option value="Peternakan Ayam">Peternakan Ayam</option> 
-      </select>
+      <input class="form-control" name="jenis" type="text" list="jenisLists" required>
+      <datalist id="jenisLists">
+        <option value="Peternakan Ayam">
+        <option value="Peternakan Sapi">
+        <option value="Peternakan Kambing"> 
+        <option value="Peternakan Kerbau"> 
+        <option value="Peternakan Lele"> 
+        <option value="Peternakan Babi"> 
+      </datalist>
     </div>
     
     <div class="mb-3">
