@@ -81,7 +81,7 @@
               <span><small>Tanggal Tutup</small></span>
               <p class="text-muted">{{ $val->expiring_date }}</p>
             </div>
-            <a href="{{ url('/investasi-detail/'.$val->id) }}" class="text-decoration-none">
+            <a href="{{ url('/detail-peternakan/'.$val->id) }}" class="text-decoration-none">
               <p>Detail Peternakan ></p>
             </a>
           </div>
