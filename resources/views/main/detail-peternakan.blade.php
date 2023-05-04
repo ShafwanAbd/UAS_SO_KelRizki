@@ -3,7 +3,8 @@
 @section('content')
 <div class="container-fluid py-3">
   <div class="d-flex-row text-end px-3">
-    <a href="{{ url('/semua_bisnis') }}" class="btn" style="background:#769FCD; color:white"><i class="bi bi-arrow-left"></i> Kembali</a>
+    <a href="{{ url('/semua_bisnis') }}" class="btn" style="background:#769FCD; color:white"><i
+        class="bi bi-arrow-left"></i> Kembali</a>
   </div>
   <div class="row py-5 px-3">
     <div class="col-md-6">
@@ -18,7 +19,8 @@
       <p style="color:grey">TOTAL INVESTASI</p>
       <h5 style="color:forestgreen">Rp. 250,000,000</h5>
       <div class="progress">
-        <div class="progress-bar" role="progressbar" aria-label="Success example" style="width: 25%; background:#769FCD" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+        <div class="progress-bar" role="progressbar" aria-label="Success example" style="width: 25%; background:#769FCD"
+          aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
       </div>
       <p style="text-align: end;">Target: Rp. 1,000,000,000</p>
       <div class="d-flex d-row text-center align-items-center justify-content-center">
