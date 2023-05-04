@@ -83,9 +83,7 @@
                 $('#perkalianlembar').html(berapalembarVal + ' Lembar: Rp ' + (berapalembarVal * '{{ $datas1->harga }}'));
                 });
             })    
-            </script>
-
-
+            </script> 
         </div>  
     </div>
     </form>

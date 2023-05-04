@@ -36,6 +36,17 @@
     </div>
     
     <div class="mb-3">
+      <label class="form-label">Jenis: </label>
+      <select class="form-control" name="jenis" required>
+        <option value="" disabled selected>-- Select --</option>
+        <option value="Peternakan Ayam">Peternakan Ayam</option> 
+        <option value="Peternakan Ayam">Peternakan Ayam</option> 
+        <option value="Peternakan Ayam">Peternakan Ayam</option> 
+        <option value="Peternakan Ayam">Peternakan Ayam</option> 
+      </select>
+    </div>
+    
+    <div class="mb-3">
       <label class="form-label">Interest: </label>
       <input class="form-control" name="interest" type="text" required>
     </div>

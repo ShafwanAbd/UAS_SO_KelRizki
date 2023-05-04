@@ -120,6 +120,7 @@ class AdminController extends Controller
         $model1->durasi = $request->durasi;
         $model1->period = $request->period;
         $model1->kategori = $request->kategori;
+        $model1->jenis = $request->jenis;
         $model1->interest = $request->interest;
         $model1->harga = $request->harga; 
         $model1->lembar = $request->lembar;

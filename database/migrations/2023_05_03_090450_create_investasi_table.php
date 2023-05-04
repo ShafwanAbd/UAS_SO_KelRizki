@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('durasi');
             $table->string('period');
             $table->string('kategori');
+            $table->string('jenis');
             $table->string('interest');
             $table->string('harga');
             $table->string('lembar');

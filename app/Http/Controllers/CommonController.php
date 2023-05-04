@@ -38,9 +38,13 @@ class CommonController extends Controller
         return view('main.dashboard');
     }
 
-    public function detail_peternakan_index()
+    public function detail_peternakan_index(string $id)
     {
-        return view('main.detail-peternakan');
+        $datas1 = Investasi::find($id);
+
+        return view('main.detail-peternakan', compact(
+            'datas1'
+        ));
     }
 
     public function ringkasan_index()
@@ -55,6 +59,7 @@ class CommonController extends Controller
 
     public function aktivitas_index()
     {
+        $datas1 = BeliInvestasi::all();
 
         return view('main.aktivitas', compact(
             'datas1'

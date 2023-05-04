@@ -14,18 +14,27 @@
     </div>
     <div class="col-md-6">
       <div class="row me-3">
-        <h5 style="color: black"><span class="badge" style="background: #769FCD;">SAHAM</span> Peternakan Ayam</h5>
-        <h1 class="fw-semibold">PT. NARATAS FARM</h1>
-        <p><i class="bi bi-geo-alt-fill"></i> Ciamis, Jawa Barat</p>
+        <h5 style="color: black"><span class="badge" style="background: #769FCD;">{{ strtoupper($datas1->kategori) }}</span> Peternakan Ayam</h5>
+        <h1 class="fw-semibold">{{ $datas1->nama }}</h1>
+        <p><i class="bi bi-geo-alt-fill"></i> {{ $datas1->location }}</p>
         <p style="color:grey">TOTAL INVESTASI</p>
-        <h5 style="color:forestgreen">Rp. 250,000,000</h5>
+        <h5 style="color:forestgreen">{{ @money($datas1->harga * $datas1->lembar_terjual) }}</h5>
         <div class="progress">
-          <div class="progress-bar" role="progressbar" aria-label="Success example"
-            style="width: 25%; background:#769FCD" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+          <div id="progressbar" class="progress-bar" role="progressbar" aria-label="Success example"
+            style="width: 0%; background:#769FCD" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100">
+          </div>
+
+          @php $percent = $datas1->lembar_terjual / $datas1->lembar * 100; @endphp
+
+          <script>
+            $(document).ready(function() {
+              $('#progressbar').css('width', '{{ $percent }}%')
+            })
+          </script>
         </div>
-        <p style="text-align: end;">Target: Rp. 1,000,000,000</p>
+        <p style="text-align: end;">Target: {{ @money($datas1->harga * $datas1->lembar) }}</p>
         <div class="d-flex d-row text-center align-items-center justify-content-center">
-          <a class="btn shadow py-2 px-4" style="background: #769FCD; color:aliceblue">Pesan Saham</a>
+          <a class="btn shadow py-2 px-4" style="background: #769FCD; color:aliceblue" data-bs-toggle="modal" data-bs-target="#exampleModal">Pesan Saham</a>
           <a class="btn ms-2 shadow py-2 px-4" style="background:white"><i class="bi bi-share"></i> Bagikan</a>
         </div>
       </div>
@@ -109,14 +118,48 @@
           </ul>
           <div class="total-investasi lh-1">
             <p class="lh-1">Total Investasi:</p>
-            <p class="lh-1" style="color:forestgreen">Rp. 250,000,000</p>
+            <p class="lh-1" style="color:forestgreen">{{ @money($datas1->harga * $datas1->lembar_terjual) }}</p>
           </div>
-          <a class="btn shadow py-2" style="background: #769FCD; color:aliceblue">Pesan Saham</a>
+          <a class="btn shadow py-2" style="background: #769FCD; color:aliceblue" data-bs-toggle="modal" data-bs-target="#exampleModal">Pesan Saham</a>
         </div>
       </div>
     </div>
+  </div> 
+</div>
+</div>
+
+<form method="POST" action="{{ url('/beli_investasi/'.$datas1->id) }}">
+  @csrf
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+          <div class="modal-body">
+              <div class="mb-3">
+                  <label for="berapalembar">Lembar</label>
+                  <input name="lembar" type="number" min="0" class="form-control" id="berapalembar" placeholder="0">
+              </div> 
+              <label id="perkalianlembar">0 Lembar: Rp 0</label> 
+          </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary">Save changes</button>
+              </div>
+          </div>
+
+          <script>
+          $(document).ready(function() {
+              $('#berapalembar').on('input', function() {
+              const berapalembarVal = $('#berapalembar').val();
+              $('#perkalianlembar').html(berapalembarVal + ' Lembar: Rp ' + (berapalembarVal * '{{ $datas1->harga }}'));
+              });
+          })    
+          </script> 
+      </div>  
   </div>
-</div>
-</div>
+  </form>
 
 @endsection

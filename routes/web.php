@@ -43,11 +43,16 @@ Route::middleware(['auth', 'aktif'])->group(function () {
     Route::post('/deposit/in',          [DepositController::class, 'depositIn'])->name('depositIn');                // FRONTEND:✘ BACKEND:✘
     Route::get('/penarikan',            [PenarikanController::class, 'penarikan_index'])->name('sidebar.penarikan'); // FRONTEND:✘ BACKEND:✘
     Route::post('/penarikan/create',    [PenarikanController::class, 'create'])->name('sidebar.penarikan.create');  // FRONTEND:✘ BACKEND:✘
-    Route::get('/detail-peternakan',            [CommonController::class, 'detail_peternakan_index'])->name('detail-peternakan');   // FRONTEND:✘ BACKEND:✘
-    Route::get('/semua_bisnis',         [CommonController::class, 'semua_bisnis_index'])->name('sidebar.semua_bisnis'); // FRONTEND:✘ BACKEND:✘
-    Route::get('/investasi-segera',     [CommonController::class, 'investasi_segera_index'])->name('sidebar.investasi_segera');     // FRONTEND:✘ BACKEND:✘
-    Route::get('/investasi-selesai',    [CommonController::class, 'investasi_selesai_index'])->name('sidebar.investasi_selesai');  // FRONTEND:✘ BACKEND:✘
-    Route::get('/investasi-diikuti',    [CommonController::class, 'investasi_diikuti_index'])->name('sidebar.investasi_diikuti');  // FRONTEND:✘ BACKEND:✘
+    
+    Route::get('/detail-peternakan/{id}',    [CommonController::class, 'detail_peternakan_index'])->name('detail-peternakan');   // FRONTEND:✘ BACKEND:✘
+
+    Route::get('/investasi-detail/{id}',[InvestasiController::class, 'investasi_detail_index']);     // FRONTEND:✘ BACKEND:✘
+        Route::post('/beli_investasi/{id}',[InvestasiController::class, 'beli_investasi']);     // FRONTEND:✘ BACKEND:✘
+    Route::get('/semua_bisnis',         [InvestasiController::class, 'semua_bisnis_index'])->name('sidebar.semua_bisnis'); // FRONTEND:✘ BACKEND:✘
+    Route::get('/investasi-segera',     [InvestasiController::class, 'investasi_segera_index'])->name('sidebar.investasi_segera');     // FRONTEND:✘ BACKEND:✘
+    Route::get('/investasi-selesai',    [InvestasiController::class, 'investasi_selesai_index'])->name('sidebar.investasi_selesai');  // FRONTEND:✘ BACKEND:✘
+    Route::get('/investasi-diikuti',    [InvestasiController::class, 'investasi_diikuti_index'])->name('sidebar.investasi_diikuti');  // FRONTEND:✘ BACKEND:✘
+
     Route::get('/aktivitas',            [CommonController::class, 'aktivitas_index'])->name('sidebar.aktivitas');       // FRONTEND:✘ BACKEND:✘
 
     Route::get('/pertanyaan',           [PertanyaanController::class, 'pertanyaan_index'])->name('sidebar.pertanyaan'); // FRONTEND:✘ BACKEND:✘
