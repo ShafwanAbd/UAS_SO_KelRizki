@@ -13,19 +13,21 @@
       </div>
     </div>
     <div class="col-md-6">
-      <h5 style="color: black"><span class="badge" style="background: #769FCD;">SAHAM</span> Peternakan Ayam</h5>
-      <h1 class="fw-semibold">PT. NARATAS FARM</h1>
-      <p><i class="bi bi-geo-alt-fill"></i> Ciamis, Jawa Barat</p>
-      <p style="color:grey">TOTAL INVESTASI</p>
-      <h5 style="color:forestgreen">Rp. 250,000,000</h5>
-      <div class="progress">
-        <div class="progress-bar" role="progressbar" aria-label="Success example" style="width: 25%; background:#769FCD"
-          aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-      </div>
-      <p style="text-align: end;">Target: Rp. 1,000,000,000</p>
-      <div class="d-flex d-row text-center align-items-center justify-content-center">
-        <a class="btn shadow py-2 px-4" style="background: #769FCD; color:aliceblue">Pesan Saham</a>
-        <a class="btn ms-2 shadow py-2 px-4" style="background:white"><i class="bi bi-share"></i> Bagikan</a>
+      <div class="row me-3">
+        <h5 style="color: black"><span class="badge" style="background: #769FCD;">SAHAM</span> Peternakan Ayam</h5>
+        <h1 class="fw-semibold">PT. NARATAS FARM</h1>
+        <p><i class="bi bi-geo-alt-fill"></i> Ciamis, Jawa Barat</p>
+        <p style="color:grey">TOTAL INVESTASI</p>
+        <h5 style="color:forestgreen">Rp. 250,000,000</h5>
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" aria-label="Success example"
+            style="width: 25%; background:#769FCD" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <p style="text-align: end;">Target: Rp. 1,000,000,000</p>
+        <div class="d-flex d-row text-center align-items-center justify-content-center">
+          <a class="btn shadow py-2 px-4" style="background: #769FCD; color:aliceblue">Pesan Saham</a>
+          <a class="btn ms-2 shadow py-2 px-4" style="background:white"><i class="bi bi-share"></i> Bagikan</a>
+        </div>
       </div>
     </div>
   </div>

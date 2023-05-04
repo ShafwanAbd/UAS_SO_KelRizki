@@ -38,10 +38,15 @@ class CommonController extends Controller
         return view('main.dashboard');
     }
 
+    public function detail_peternakan_index()
+    {
+        return view('main.detail-peternakan');
+    }
+
     public function ringkasan_index()
     {
         $datas2 = BeliInvestasi::where('id_user', Auth::user()->id)->pluck('id_investasi');
-        $datas1 = Investasi::whereIn('id', $datas2)->get(); 
+        $datas1 = Investasi::whereIn('id', $datas2)->get();
 
         return view('main.ringkasan', compact(
             'datas1'
@@ -50,8 +55,6 @@ class CommonController extends Controller
 
     public function aktivitas_index()
     {
-        return view('main.investasi');
-    }
 
         return view('main.aktivitas', compact(
             'datas1'
