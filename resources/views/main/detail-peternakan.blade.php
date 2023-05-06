@@ -1,10 +1,9 @@
 @extends('layouts.layout')
 
 @section('content')
-<div class="container-fluid py-3">
+<div class="container py-3">
   <div class="d-flex-row text-end px-3">
-    <a href="{{ url('/semua_bisnis') }}" class="btn" style="background:#769FCD; color:white"><i
-        class="bi bi-arrow-left"></i> Kembali</a>
+    <a href="{{ url('/semua_bisnis') }}" class="btn" style="background:#769FCD; color:white"><i class="bi bi-arrow-left"></i> Kembali</a>
   </div>
   <div class="row py-5 px-3">
     <div class="col-md-6">
@@ -13,15 +12,14 @@
       </div>
     </div>
     <div class="col-md-6">
-      <div class="row me-3">
+      <div class="row">
         <h5 style="color: black"><span class="badge" style="background: #769FCD;">{{ strtoupper($datas1->kategori) }}</span> {{ $datas1->jenis }}</h5>
         <h1 class="fw-semibold">{{ $datas1->nama }}</h1>
         <p><i class="bi bi-geo-alt-fill"></i> {{ $datas1->location }}</p>
         <p style="color:grey">TOTAL INVESTASI</p>
         <h5 style="color:forestgreen">{{ @money($datas1->harga * $datas1->lembar_terjual) }}</h5>
-        <div class="progress">
-          <div id="progressbar" class="progress-bar" role="progressbar" aria-label="Success example"
-            style="width: 0%; background:#769FCD" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100">
+        <div class="progress px-0 rounded-0 mx-3 my-0">
+          <div id="progressbar" class="progress-bar" role="progressbar" aria-label="Success example" style="width: 0%; background:#769FCD" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
           </div>
 
           @php $percent = $datas1->lembar_terjual / $datas1->lembar * 100; @endphp
@@ -109,7 +107,7 @@
     </div>
     <div class="col-md-2">
       <div class="row sticky-top">
-        <div class="card border-0 shadow pt-2 pe-2 ps-3 pb-4">
+        <div class="card border-0 shadow pt-2 ps-3 pb-4">
           <p class="fw-semibold fs-6">Yuk Investasi!</p>
           <p>Limit investasi tahunan anda adalah:</p>
           <ul class="text-justify-end">
@@ -124,42 +122,43 @@
         </div>
       </div>
     </div>
-  </div> 
+  </div>
 </div>
 </div>
 
 <form method="POST" action="{{ url('/beli_investasi/'.$datas1->id) }}">
   @csrf
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-              <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-          <div class="modal-body">
-              <div class="mb-3">
-                  <label for="berapalembar">Lembar</label>
-                  <input name="lembar" type="number" min="0" class="form-control" id="berapalembar" placeholder="0">
-              </div> 
-              <label id="perkalianlembar">0 Lembar: Rp 0</label> 
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="berapalembar">Lembar</label>
+            <input name="lembar" type="number" min="0" class="form-control" id="berapalembar" placeholder="0">
           </div>
-              <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="submit" class="btn btn-primary">Save changes</button>
-              </div>
-          </div>
+          <label id="perkalianlembar">0 Lembar: Rp 0</label>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
 
-          <script>
-          $(document).ready(function() {
-              $('#berapalembar').on('input', function() {
-              const berapalembarVal = $('#berapalembar').val();
-              $('#perkalianlembar').html(berapalembarVal + ' Lembar: Rp ' + (berapalembarVal * '{{ $datas1->harga }}'));
-              });
-          })    
-          </script> 
-      </div>  
+      <script>
+        $(document).ready(function() {
+          $('#berapalembar').on('input', function() {
+            const berapalembarVal = $('#berapalembar').val();
+            $('#perkalianlembar').html(berapalembarVal + ' Lembar: Rp ' + (berapalembarVal *
+              '{{ $datas1->harga }}'));
+          });
+        })
+      </script>
+    </div>
   </div>
-  </form>
+</form>
 
 @endsection
