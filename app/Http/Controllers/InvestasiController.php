@@ -75,12 +75,21 @@ class InvestasiController extends Controller
 
         $model2 = Investasi::find($id);
         $model2->lembar_terjual += $request->lembar; 
+
         if ($model2->lembar_terjual > $model2->lembar){
             return back()->with('failed', 'Lembar Melebihi Batas Maksimal!');
+        }   
+
+        if (($model2->harga * $request->lembar) > ($request->pembayaran_from == 'balance' ? Auth::user()->balance : Auth::user()->dividen)){
+            return back()->with('failed', 'Saldo Anda Kurang!');
         }
 
-        $model3 = User::find(Auth::user()->id);
-        $model3->balance -= $request->lembar * $model2->harga;
+        $model3 = User::find(Auth::user()->id); 
+        if ($request->pembayaran_dara == "saldo"){
+            $model3->balance -= $request->lembar * $model2->harga;
+        } else if ($request->pembayaran_dari == "dividen"){
+            $model3->dividen -= $request->lembar * $model2->harga;
+        } 
         $model3->balance_to_invest += $request->lembar * $model2->harga;
  
         $model1->amount = $request->lembar * $model2->harga;

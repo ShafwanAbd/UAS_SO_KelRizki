@@ -126,21 +126,34 @@
 </div>
 </div>
 
+<!-- MODAL -->
 <form method="POST" action="{{ url('/beli_investasi/'.$datas1->id) }}">
   @csrf
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Pesan Saham</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
+
           <div class="mb-3">
             <label for="berapalembar">Lembar</label>
-            <input name="lembar" type="number" min="0" class="form-control" id="berapalembar" placeholder="0">
-          </div>
+            <input name="lembar" type="number" min="1" class="form-control" id="berapalembar" placeholder="0" required>
+          </div> 
+
+          <div class="mb-3">
+            <label for="berapalembar">Pembayaran Dari</label>
+            <select name="pembayaran_from" class="form-control" required>
+              <option value="" disabled selected>-- Select --</option>
+              <option value="balance">Saldo - {{ @money(Auth::user()->balance) }}</option>
+              <option value="dividen">Dividen - {{ @money(Auth::user()->dividen) }}</option>
+            </select>
+          </div> 
+
           <label id="perkalianlembar">0 Lembar: Rp 0</label>
+
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
