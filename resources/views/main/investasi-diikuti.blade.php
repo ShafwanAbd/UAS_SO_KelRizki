@@ -45,6 +45,7 @@
   </div>
 </div> -->
 
+@if ($datas1->count() > 0)
   <div class="row pt-5">
     <h5>Peternakan yang kamu kasih dana:</h5> 
     @foreach($datas1 as $key=>$val)
@@ -90,5 +91,8 @@
     </div>
     @endforeach
   </div>
+  @else
+  <h1>WADUH KOSONG 😅</h1>
+  @endif
 
   @endsection

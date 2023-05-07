@@ -49,6 +49,7 @@
 </div> -->
 
   <!-- Pake pengkondisian, kalo ada peternakan yang ngajuin dana, ini bisa ditampilin -->
+  @if ($datas1->count() > 0)
   <div class="row pt-5">
     <h5>Peternakan yang lagi ngebutuhin dana:</h5>
     @foreach($datas1 as $key=>$val)
@@ -94,5 +95,8 @@
     </div>
     @endforeach 
   </div>
+  @else
+  <h1>WADUH KOSONG 😅</h1>
+  @endif
 
   @endsection

@@ -69,41 +69,43 @@ class InvestasiController extends Controller
     public function beli_investasi(Request $request, string $id){
 
         $model1 = new BeliInvestasi();
+        $model2 = Investasi::find($id);
+        $model3 = User::find(Auth::user()->id); 
+
         $model1->id_user = Auth::user()->id;
         $model1->id_investasi = $id;
         $model1->lembar = $request->lembar;
+        $model1->pembayaran_from = $request->pembayaran_from;
+        $model1->amount = $request->lembar * $model2->harga;
+        $model1->status = 0;
 
-        $model2 = Investasi::find($id);
-        $model2->lembar_terjual += $request->lembar; 
-
+        $model2->lembar_terjual += $request->lembar;  
         if ($model2->lembar_terjual > $model2->lembar){
             return back()->with('failed', 'Lembar Melebihi Batas Maksimal!');
-        }   
-
+        }    
         if (($model2->harga * $request->lembar) > ($request->pembayaran_from == 'balance' ? Auth::user()->balance : Auth::user()->dividen)){
             return back()->with('failed', 'Saldo Anda Kurang!');
         }
-
-        $model3 = User::find(Auth::user()->id); 
-        if ($request->pembayaran_dara == "saldo"){
+ 
+        // Pengurangan Saldo / Dividen User
+        if ($request->pembayaran_from == "saldo"){
             $model3->balance -= $request->lembar * $model2->harga;
-        } else if ($request->pembayaran_dari == "dividen"){
+        } else if ($request->pembayaran_from == "dividen"){
             $model3->dividen -= $request->lembar * $model2->harga;
         } 
-        $model3->balance_to_invest += $request->lembar * $model2->harga;
- 
-        $model1->amount = $request->lembar * $model2->harga;
+        // Penambahan balance_to_invest dari pembelian
+        $model3->balance_to_invest += $request->lembar * $model2->harga; 
   
         $audit = new LogAudit();
         $audit->id_user = Auth::user()->id;
         $audit->id_referensi = uniqid();
-        $audit->catatan = 'Membeli '.$request->lembar.' Lembar pada '.$model2->nama.'!'; 
+        $audit->catatan = 'Memesan '.$request->lembar.' Lembar pada '.$model2->nama.'!'; 
 
         $audit->save(); 
         $model1->save();
         $model2->save();
         $model3->save();
 
-        return back()->with('success', 'Berhasil Membeli Investasi');
+        return back()->with('success', 'Berhasil Memesan Investasi');
     }
 }

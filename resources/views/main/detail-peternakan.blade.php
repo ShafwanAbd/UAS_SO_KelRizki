@@ -1,6 +1,13 @@
 @extends('layouts.layout')
 
 @section('content')
+
+@if(Session::has('success'))
+    <p class="alert alert-success fixed-top w-75 mx-auto my-5 text-center" id="sixSeconds">{{ Session::get('success') }}</p>
+@elseif(Session::has('failed'))
+    <p class="alert alert-warning fixed-top w-75 mx-auto my-5 text-center" id="sixSeconds">{{ Session::get('failed') }}</p>
+@endif
+
 <div class="container py-3">
   <div class="d-flex-row text-end px-3">
     <a href="{{ url('/semua_bisnis') }}" class="btn" style="background:#769FCD; color:white"><i class="bi bi-arrow-left"></i> Kembali</a>
@@ -8,7 +15,7 @@
   <div class="row py-5 px-3">
     <div class="col-md-6">
       <div class="ratio ratio-16x9">
-        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/{{ $datas1->url_yt }}" title="YouTube video" allowfullscreen></iframe>
       </div>
     </div>
     <div class="col-md-6">
@@ -29,7 +36,7 @@
               $('#progressbar').css('width', '{{ $percent }}%')
             })
           </script>
-        </div>
+        </div> 
         <p style="text-align: end;">Target: {{ @money($datas1->harga * $datas1->lembar) }}</p>
         <div class="d-flex d-row text-center align-items-center justify-content-center">
           <a class="btn shadow py-2 px-4" style="background: #769FCD; color:aliceblue" data-bs-toggle="modal" data-bs-target="#exampleModal">Pesan Saham</a>
@@ -147,7 +154,7 @@
             <label for="berapalembar">Pembayaran Dari</label>
             <select name="pembayaran_from" class="form-control" required>
               <option value="" disabled selected>-- Select --</option>
-              <option value="balance">Saldo - {{ @money(Auth::user()->balance) }}</option>
+              <option value="balance">Saldo Rekening - {{ @money(Auth::user()->balance) }}</option>
               <option value="dividen">Dividen - {{ @money(Auth::user()->dividen) }}</option>
             </select>
           </div> 
@@ -157,7 +164,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Save changes</button>
+          <button type="submit" class="btn btn-primary">Pesan Saham</button>
         </div>
       </div>
 

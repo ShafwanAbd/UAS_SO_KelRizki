@@ -13,15 +13,6 @@
     display: none;
 }
 
-.alert {
-    background-color: #769FCD;
-    width: 100%;
-    border-radius: 10px;
-    color: #FFF;
-    font-weight: 800;
-    text-align: center;
-}
-
 .alert_small {
     background-color: #769FCD;
     width: 100%;

@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('id_investasi');
             $table->string('amount');
             $table->string('lembar');
+            $table->string('pembayaran_from');
+            $table->string('status');
             $table->timestamps();
         });
     }

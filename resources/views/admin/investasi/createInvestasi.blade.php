@@ -102,6 +102,11 @@
     </div> 
     
     <div class="mb-3">
+      <label class="form-label">URL Video Youtube: </label>
+      <input class="form-control" name="url_yt" type="text" required>
+    </div> 
+    
+    <div class="mb-3">
       <label class="form-label">Keterangan: </label>
       <textarea class="form-control" name="keterangan" ></textarea>
     </div>  

@@ -29,6 +29,7 @@ return new class extends Migration
             $table->string('asuransi');
             $table->string('referral_percent');
             $table->string('poto');
+            $table->string('url_yt'); 
             $table->string('keterangan')->nullable(); 
             $table->timestamps();
         });

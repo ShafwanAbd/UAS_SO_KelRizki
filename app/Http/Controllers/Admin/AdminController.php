@@ -132,6 +132,11 @@ class AdminController extends Controller
         $model1->asuransi = $request->asuransi;
         $model1->referral_percent = $request->referral_percent;
         $model1->poto = $request->poto;
+ 
+        preg_match('/[\\?\\&]v=([^\\?\\&]+)/', $request->url_yt, $matches);
+        $video_id = $matches[1];
+
+        $model1->url_yt = $video_id;
         $model1->keterangan = $request->keterangan ;
         $model1->save();
         
@@ -262,5 +267,9 @@ class AdminController extends Controller
         $name = User::where('id', $model1->id_user)->value('firstName') . ' ' . User::where('id', $model1->id_user)->value('lastName');
 
         return back()->with('success', 'Berhasil Menerima Penarikan dari '.$name.'!');
+    }
+
+    public function beliInvestasiAccept(){
+
     }
 }
