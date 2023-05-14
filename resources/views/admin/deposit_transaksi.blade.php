@@ -4,8 +4,9 @@
     <div class="container_penggunaAdmin depositTransaksi">
         <div class="container_isi">
             <h2>Transaksi Deposit</h2>
+            <div class="card shadow">
             <table class="table table-hover">
-                <thead>
+                <thead class="text-center">
                     <tr>
                         <th>No</th>
                         <th>Nama</th>
@@ -25,7 +26,7 @@
                 @endphp
                 <tbody>
                     <tr>
-                        <th>{{ $i++ }}</th>
+                        <th class="text-center">{{ $i++ }}</th>
                         <td>{{ $nama }}</td>
                         <td>{{ @money($val->amount) }}</td> 
                         @if ($val->status == 1)
@@ -57,6 +58,7 @@
                 </tbody>
                 @endforeach
                 </table>
+            </div>
         </div>
     </div>
 @endsection

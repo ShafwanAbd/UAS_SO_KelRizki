@@ -9,6 +9,10 @@
   <!-- JQuery -->
   <script src="{{ asset('js/jquery-3.6.4.min.js')}}"></script>
 
+  <!-- icon -->
+  <script src="https://unpkg.com/feather-icons"></script>
+  
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -46,50 +50,77 @@
 </head>
 
 <body>
-  <div class="row mx-0">
-    <div class="sidebar col-2 color1 min-vh-100">
-      <nav class="text-light sticky-top">
-        <a class="title" href="{{ url('/') }}">
-          <p class="mx-3 my-5 h5 fw-bold">ternakConnect</p>
-        </a>
-        <ul class="text-capitalize">
-          <li class="my-5"><a class="text-light nav-link" href="{{ url('/dashboard') }}">ringkasan</a></li>
-          <li class="my-5"><a class="text-light nav-link" href="{{ url('/penarikan') }}">penarikan</a></li>
-          <li class="my-5">
-            <div class="dropdown">
-              <a class="dropdown-toggle text-light nav-link" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                Investasi
-              </a>
+    <div class="content">
+      <nav class="text-light sidebar ">
+        <div class="sidebar-menu">
+          <div class="mt-3 text-end pe-3">
+            <i data-feather="x" id="x"></i>
+          </div>
+          <a class="title" href="{{ url('/') }}">
+            <p class="mx-3 mb-5 mt-3 h5 fw-bold">ternakConnect</p>
+          </a>
+          <ul class="text-capitalize">
+            <li class="my-5"><a class="text-light nav-link" href="{{ url('/dashboard') }}">ringkasan</a></li>
+            <li class="my-5"><a class="text-light nav-link" href="{{ url('/penarikan') }}">penarikan</a></li>
+            <li class="my-5">
+              <div class="dropdown">
+                <a class="dropdown-toggle text-light nav-link" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                  Investasi
+                </a>
 
-              <ul class="collapse color1" id="collapseExample">
-                <li><a class="dropdown-item text-light my-4" href="{{ url('/semua_bisnis') }}">Semua Bisnis</a></li>
-                <li><a class="dropdown-item text-light my-4" href="{{ url('/aktivitas') }}">Aktivitas</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="my-5"><a class="text-light nav-link" href="{{ url('/pertanyaan') }}">Pertanyaan</a></li>
-          <li class="my-5">
-            <div class="dropdown">
-              <a class="dropdown-toggle text-light nav-link" data-bs-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2">
-                Pengaturan
-              </a>
+                <ul class="collapse color1" id="collapseExample">
+                  <li><a class="dropdown-item text-light my-4" href="{{ url('/semua_bisnis') }}">Semua Bisnis</a></li>
+                  <li><a class="dropdown-item text-light my-4" href="{{ url('/aktivitas') }}">Aktivitas</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="my-5"><a class="text-light nav-link" href="{{ url('/pertanyaan') }}">Pertanyaan</a></li>
+            <li class="my-5">
+              <div class="dropdown">
+                <a class="dropdown-toggle text-light nav-link" data-bs-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2">
+                  Pengaturan
+                </a>
 
-              <ul class="collapse color1" id="collapseExample2">
-                <li><a class="dropdown-item text-light my-3" href="{{ url('/profil') }}">Profile</a></li>
-                <li><a class="dropdown-item text-light my-3" href="{{ url('/log_audit') }}">Log Audit</a></li>
-                <li><a class="dropdown-item text-light my-3" href="{{ url('/kata_sandi') }}">Kata Sandi</a></li>
-                <li><a class="dropdown-item text-light my-3" href="{{ url('/verifikasi_identitas') }}">verifikasi identitas</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="my-5"><a class="text-light nav-link" href="">keluar</a></li>
-        </ul>
+                <ul class="collapse color1" id="collapseExample2">
+                  <li><a class="dropdown-item text-light my-3" href="{{ url('/profil') }}">Profile</a></li>
+                  <li><a class="dropdown-item text-light my-3" href="{{ url('/log_audit') }}">Log Audit</a></li>
+                  <li><a class="dropdown-item text-light my-3" href="{{ url('/kata_sandi') }}">Kata Sandi</a></li>
+                  <li><a class="dropdown-item text-light my-3" href="{{ url('/verifikasi_identitas') }}">verifikasi identitas</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="my-5"><a class="text-light nav-link" href="">keluar</a></li>
+          </ul>
+        </div>
       </nav>
-    </div>
-    <div class="col">
-      @yield('content')
-    </div>
-  </div>
-</body>
 
+      <div class="pt-3 container btn-menu" id="humberger">
+        <i data-feather="menu" id="humberger"></i>
+      </div>
+        @yield('content')
+      </div>
+    </div>
+
+  <script>
+      feather.replace()
+  </script>
+
+  <script>
+    const burger = document.querySelector('#humberger');
+    const x = document.querySelector('#x');
+    const sidebar = document.querySelector('.sidebar');
+
+    burger.onclick = ()=>{
+      sidebar.classList.toggle('active')
+      burger.style.display = 'none'
+    }
+
+    document.addEventListener('click', (e)=>{
+      if(!sidebar.contains(e.target) && !burger.contains(e.target) || x.contains(e.target)) {
+        sidebar.classList.remove('active')
+        burger.style.display = 'block'
+      }
+    })
+  </script>
+</body>
 </html>
