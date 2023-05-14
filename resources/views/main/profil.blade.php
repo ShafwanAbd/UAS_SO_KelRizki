@@ -1,7 +1,7 @@
 @extends('layouts.sidebar')
 
 @section('content') 
-<div class="container_content">
+<div class="container_content container">
     <div class="container_profil">
         <div class="container_isi flex"> 
             <div class="container1">
