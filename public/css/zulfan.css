@@ -58,6 +58,7 @@ li .button1 {
     display: none;
     width: 15rem;
     min-height: 100vh;
+    height: 100%;
     z-index: 99999;
 }
 
@@ -65,9 +66,9 @@ li .button1 {
     display: block;
 }
 
-/* .sidebar-menu {
+.sidebar-menu {
     position: fixed;
-} */
+}
 
 .sidebar ul li {
     list-style: none;
