@@ -58,13 +58,16 @@ li .button1 {
     display: none;
     width: 15rem;
     min-height: 100vh;
-    left: -100%;
+    height: 100%;
     z-index: 99999;
-    transition: 6s;
 }
 
 .active {
     display: block;
+}
+
+.sidebar-menu {
+    position: fixed;
 }
 
 .sidebar ul li {
