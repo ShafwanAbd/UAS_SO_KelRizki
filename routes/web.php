@@ -76,7 +76,7 @@ Route::middleware(['auth', 'aktif'])->group(function () {
     Route::get('/verifikasi_identitas', [CommonController::class, 'verifikasi_identitas_index'])->name('sidebar.verifikasi_identitas'); // FRONTEND:✘ BACKEND:✘
 });
 
-
+// ADMIN ========================================= <>
 Route::middleware(['admin', 'auth', 'aktif'])->group(function () {
     Route::get('/dashboardAdmin',       [AdminController::class, 'ringkasan_index'])->name('sidebarADM.ringkasan');     // FRONTEND:✘ BACKEND:✘
     Route::get('/penggunaAdmin',        [AdminController::class, 'pengguna_index'])->name('sidebarADM.pengguna');       // FRONTEND:✘ BACKEND:✘

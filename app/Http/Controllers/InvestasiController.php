@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\BeliInvestasi;
+use App\Models\IkutiInvestasi;
 use App\Models\Investasi;
 use App\Models\LogAudit;
 use App\Models\User;
@@ -57,7 +58,8 @@ class InvestasiController extends Controller
 
     public function investasi_diikuti_index()
     {
-        $datas1 = Investasi::all();
+        $datas2 = BeliInvestasi::where('id_user', Auth::user()->id)->pluck('id_investasi');
+        $datas1 = Investasi::whereIn('id', $datas2)->get();
 
         return view('main.investasi-diikuti', compact(
             'datas1'
@@ -107,5 +109,5 @@ class InvestasiController extends Controller
         $model3->save();
 
         return back()->with('success', 'Berhasil Memesan Investasi');
-    }
+    } 
 }

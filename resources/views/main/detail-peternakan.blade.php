@@ -39,7 +39,11 @@
         </div> 
         <p style="text-align: end;">Target: {{ @money($datas1->harga * $datas1->lembar) }}</p>
         <div class="d-flex d-row text-center align-items-center justify-content-center">
+          @if($isActive)
           <a class="btn shadow py-2 px-4" style="background: #769FCD; color:aliceblue" data-bs-toggle="modal" data-bs-target="#exampleModal">Pesan Saham</a>
+          @else
+          <a class="btn shadow py-2 px-4 disabled" style="background: #769FCD; color:aliceblue" >Pesan Saham</a>
+          @endif
           <a class="btn ms-2 shadow py-2 px-4" style="background:white"><i class="bi bi-share"></i> Bagikan</a>
         </div>
       </div>
@@ -125,7 +129,11 @@
             <p class="lh-1">Total Investasi:</p>
             <p class="lh-1" style="color:forestgreen">{{ @money($datas1->harga * $datas1->lembar_terjual) }}</p>
           </div>
+          @if ($isActive)
           <a class="btn shadow py-2" style="background: #769FCD; color:aliceblue" data-bs-toggle="modal" data-bs-target="#exampleModal">Pesan Saham</a>
+          @else
+          <a class="btn shadow py-2 disabled" style="background: #769FCD; color:aliceblue">Pesan Saham</a>
+          @endif
         </div>
       </div>
     </div>

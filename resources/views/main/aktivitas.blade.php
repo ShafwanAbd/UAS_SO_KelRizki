@@ -8,18 +8,19 @@
   </div>
   <div class="row align-items-center justify-content-center">
     @foreach($datas1 as $key=>$val)
-    <div class="col-md-11">
+    <div class="col-md-11 my-2">
       <div class="card border-0 rounded shadow pt-4 pb-3">
         <div class="row pt-2">
           <div class="d-flex flex-row">
             <div class="jenis-transaksi px-3">
 
               <p class="fw-bold mb-0">Order - Buy 
-                @if(isset($val->status) ? ($val->status == 1 ? : '') : '')
+                  <!-- NO NEED STATUS --> 
+                <!-- @if(isset($val->status) ? ($val->status == 1 ? : '') : '')
                 <span class="badge bg-success">Success</span>
                 @else
                 <span class="badge bg-warning">Pending</span>
-                @endif
+                @endif -->
               </p>
               <!-- rapetin (udah) -->
               <p class="lh-base">{{ $val->lembar }} Lot<br> {{ App\Models\Investasi::where('id', $val->id_investasi)->value('nama') }}</p>

@@ -91,7 +91,7 @@
               <th>{{ $val->id_user }}</th>
               <th>{{ @money($val->amount) }}</th>
               <th>{{ @money($setting->admin_fee) }}</th>
-              <th>{{ $val->status === 1 ? 'Accepted' : 'Processing' }}</th>
+              <th>{{ $val->status === '1' ? 'Accepted' : 'Processing' }}</th>
               <th>{{ $val->created_at->DiffForHumans() }}</th>
             </tr>
             @endforeach

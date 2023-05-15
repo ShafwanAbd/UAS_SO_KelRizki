@@ -49,7 +49,7 @@
     <div class="col-md-3 pt-3">
       <div class="card pt-3 px-3 border-0 bg-white shadow">
         <h6 class="bold">Jumlah Peternakan</h6>
-        <p>{{ isset(Auth::user()->investing) ? Auth::user()->investing : '0' }}</p>
+        <p>{{ $datas1->count() }}</p>
       </div>
     </div>
   </div>
@@ -58,6 +58,7 @@
   <!-- Alokasi Dana Investasi -->
   <div class="row pt-5">
     <h5><i class="bi bi-cash-stack"></i> Alokasi Dana Investasi Kamu:</h5>
+    @if ($datas1->count() > 0)
     @foreach($datas1 as $key=>$val)
     <div class="col-md-4 pt-3 px-3">
       <div class="card border-0 rounded shadow">
@@ -100,6 +101,9 @@
       </div>
     </div>
     @endforeach
+    @else
+    <h1>WADUH KOSONG 😅</h1>
+    @endif
 
     <!-- <div class="col-md-4 pt-3 px-3">
       <div class="card border-0 rounded shadow">
@@ -165,15 +169,8 @@
       </div>
     </div> -->
 
+      </div>
+    </div>
   </div>
 </div>
-</div>
-</div>
-
-
-
-
-<!-- JS Bootstrap -->
-<!-- <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
-  </script>  -->
 @endsection

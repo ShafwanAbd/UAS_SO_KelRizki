@@ -42,8 +42,10 @@ class CommonController extends Controller
     {
         $datas1 = Investasi::find($id);
 
+        $isActive = Carbon::now()->between($datas1->start_date, $datas1->expiring_date) ? '1' : '0';
+  
         return view('main.detail-peternakan', compact(
-            'datas1'
+            'datas1', 'isActive'
         ));
     }
 
@@ -59,7 +61,7 @@ class CommonController extends Controller
 
     public function aktivitas_index()
     {
-        $datas1 = BeliInvestasi::all();
+        $datas1 = BeliInvestasi::where('id_user', Auth::user()->id)->get();
 
         return view('main.aktivitas', compact(
             'datas1'
