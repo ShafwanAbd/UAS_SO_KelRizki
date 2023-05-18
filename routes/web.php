@@ -26,7 +26,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 // NAVBAR ====================================== <>
 Route::get('/',         [CommonController::class, 'home_index'])->name('home.main');
@@ -36,7 +36,7 @@ Route::get('/blog',     [CommonController::class, 'blog_index'])->name('home.blo
 
 // MAIN ========================================= <>  
 
-Route::middleware(['auth', 'aktif'])->group(function () {
+Route::middleware(['auth', 'verified', 'aktif'])->group(function () {
     Route::get('/dashboard',            [CommonController::class, 'ringkasan_index'])->name('sidebar.ringkasan');   // FRONTEND:✘ BACKEND:✘
 
     Route::get('/deposit',              [DepositController::class, 'deposit_index'])->name('deposit');              // FRONTEND:✘ BACKEND:✘
