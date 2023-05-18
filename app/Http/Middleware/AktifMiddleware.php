@@ -16,7 +16,7 @@ class AktifMiddleware
     public function handle(Request $request, Closure $next): Response
     {
         if ($request->user() && $request->user()->status !== '1'){
-            abort(403, 'Akun Anda Perlu Disetujui Oleh Admin Terlebih Dahulu!');
+            return response()->view('auth.aktif'); 
         }
 
         return $next($request);

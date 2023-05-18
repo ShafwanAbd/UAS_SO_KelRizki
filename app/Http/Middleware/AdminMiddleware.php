@@ -17,7 +17,7 @@ class AdminMiddleware
     public function handle(Request $request, Closure $next)
     {
         if ($request->user() && $request->user()->role !== 'admin') {
-            abort(403, 'Akses Tidak Diizinkan, Admin Only!!.');
+            return response()->view('auth.admin'); 
         }
 
         return $next($request);

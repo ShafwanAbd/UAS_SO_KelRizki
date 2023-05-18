@@ -9,6 +9,10 @@
     background-color: #cd7676 !important;
 }
 
+.btn-primary {
+    background-color: #769fcd !important;
+}
+
 .hidden {
     display: none;
 }
