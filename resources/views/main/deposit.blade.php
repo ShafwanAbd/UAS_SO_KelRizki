@@ -75,6 +75,7 @@
     <div class="col-md-12">
       <h5>Riwayat Deposit</h5>
       <div class="card border-0 shadow py-3">
+        @if($datas1->count() > 0)
         <table id="riwayat-deposit" class="table table-responsive py-4 text-center">
           <thead>
             <tr>
@@ -97,6 +98,12 @@
             @endforeach
           </tbody>
         </table>
+        @else 
+        <div class="d-flex justify-content flex-column"> 
+            <img class="mx-auto mt-3" style="width: 20vh;" src="{{ url('./image/helper/image1.png') }}">
+            <h4 class="text-center mb-3 mt-2">Alokasi Dana Investasi Kamu Masih Kosong Nih...</h4>
+        </div>
+        @endif
       </div>
     </div>
   </div>

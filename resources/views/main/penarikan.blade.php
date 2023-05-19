@@ -134,9 +134,11 @@
         @else
         <div class="row pt-2">
           <div class="d-flex flex-row">
-            <div class="jenis-transaksi px-3">
-              <!-- Gatau ini div div nya, ama mnh aja ya -->
-              <p class="fw-bold mb-0">Riwayat Penarikan Masih Kosong Nih...</p>
+            <div class="jenis-transaksi px-3"> 
+              <div class="d-flex justify-content flex-column"> 
+                  <img class="mx-auto w-25 mt-5 mb-2" src="{{ url('./image/helper/image1.png') }}">
+                  <h4 class="text-center mb-4 pb-3">Penarikan Kamu Masih Kosong Nih...</h4>
+              </div>
             </div>
           </div>
         </div>
