@@ -1,12 +1,16 @@
 @extends('layouts.sidebar')
+
 @section('content')
 <div class="container py-5">
+
   <div class="row">
     <div class="page-header">
       <h5 class="fw-bold">Aktifitas Transaksi</h5>
     </div>
   </div>
+
   <div class="row align-items-center justify-content-center">
+    @if($datas1->count() > 0)
     @foreach($datas1 as $key=>$val)
     <div class="col-md-11 my-2">
       <div class="card border-0 rounded shadow pt-4 pb-3">
@@ -55,6 +59,14 @@
       </div>
     </div>
     @endforeach
+    @else
+    <div class="card shadow border-0 mt-5">
+        <div class="d-flex justify-content flex-column"> 
+            <img class="mx-auto w-25 mt-4 mb-3" src="{{ url('./image/helper/image1.png') }}">
+            <h4 class="text-center mb-4">Aktifitas Kamu Masih Kosong Nih...</h4>
+        </div>
+    </div>
+    @endif
   </div>
 </div>
 

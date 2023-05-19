@@ -3,7 +3,7 @@
 @section('content') 
     <div class="container_penggunaAdmin depositTransaksi">
         <div class="container_isi">
-            <h2 class="mb-5">Transaksi Deposit</h2> 
+            <h2 class="mb-4">Transaksi Deposit</h2> 
             <div class="card shadow">
                 @if($datas1->count() > 0)
                 <table class="table table-hover">
@@ -52,15 +52,16 @@
                                     </div>
                                 </div>
                             @endif
-                            <td>{{ $val->created_at }}</td> 
-                            <td>{{ $val->updated_at }}</td> 
-                        </tr> 
+                            <td>{{ $val->created_at }}</td>
+                            <td>{{ $val->updated_at }}</td>
+                        </tr>
                     </tbody>
                     @endforeach
                 </table>
                 @else
-                <div class=""> 
-                    <h4 class="text-center py-5">Transaksi Deposit Kosong Nih...</h4>
+                <div class="d-flex justify-content flex-column"> 
+                    <img class="mx-auto w-25 mt-5 mb-3" src="{{ url('./image/helper/image1.png') }}">
+                    <h4 class="text-center mb-5">Transaksi Deposit User Masih Kosong Nih...</h4>
                 </div>
                 @endif
             </div> 

@@ -14,16 +14,15 @@
             <h4>Pertanyaan</h4>
             <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Buat Topik Diskusi</a>
         </div>
-        <div class="container_isi">
+        <div class="container_isi card my-5 rounded">
             @if ($datas1->count() == 0)
-            <div class="isi_kosong border-0">
-                <div class="container_image hidden">
-                    <img src="{{ asset('./image/helper/stairways.png') }}">
-                </div>
+            <div class="isi_kosong border-0 my-5"> 
+                <div class="d-flex justify-content flex-column"> 
+                    <img class="mx-auto w-75 mb-2" src="{{ url('./image/helper/image1.png') }}"> 
+                </div> 
                 <h4>Pertanyaan Masih Kosong</h4>
                 <p>Silahkan menambahkan pertanyaan ...</p>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Membuat
-                    forum diskusi</button>
+                <button type="button" class="btn btn-primary mt-4" data-bs-toggle="modal" data-bs-target="#exampleModal">Membuat forum diskusi</button>
                 <!-- Button trigger modal -->
             </div>
             @else

@@ -3,7 +3,8 @@
 @section('content') 
     <div class="container_penggunaAdmin depositTransaksi">
         <div class="container_isi">
-            <h2>Transaksi Penarikan</h2>
+            <h2 class="mb-4">Transaksi Penarikan</h2>
+            @if($datas1->count() > 0)
             <table class="table table-hover">
                 <thead>
                     <tr>
@@ -19,13 +20,12 @@
                         <th>Diperbaharui</th> 
                     </tr>
                 </thead>
-                @php
-                    use App\Models\User;
+                @php 
                     $i = 1;
                 @endphp
                 @foreach($datas1 as $key=>$val) 
                 @php
-                    $nama = User::where('id',$val->id_user)->value('firstName') . ' ' . User::where('id',$val->id_user)->value('lastName'); 
+                    $nama = App\Models\User::where('id',$val->id_user)->value('firstName') . ' ' . App\Models\User::where('id',$val->id_user)->value('lastName'); 
                 @endphp
                 <tbody>
                     <tr>
@@ -64,7 +64,15 @@
                     </tr> 
                 </tbody>
                 @endforeach
-                </table>
+            </table> 
+            @else  
+            <div class="card shadow">
+                <div class="d-flex justify-content flex-column"> 
+                    <img class="mx-auto w-25 mt-4 mb-3" src="{{ url('./image/helper/image1.png') }}">
+                    <h4 class="text-center mb-4">Transaksi Penarikan User Masih Kosong Nih...</h4>
+                </div> 
+            </div>
+            @endif
         </div>
     </div>
 @endsection

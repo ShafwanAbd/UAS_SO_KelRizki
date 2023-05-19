@@ -92,7 +92,12 @@
     @endforeach
   </div>
   @else
-  <h1>WADUH KOSONG 😅</h1>
+    <div class="card shadow border-0 mt-5">
+        <div class="d-flex justify-content flex-column"> 
+            <img class="mx-auto w-25 mt-5 mb-3" src="{{ url('./image/helper/image1.png') }}">
+            <h4 class="text-center mb-5">Belum Ada Investasi yang Sedang Kamu Ikuti Nih...</h4>
+        </div>
+    </div>
   @endif
 
   @endsection

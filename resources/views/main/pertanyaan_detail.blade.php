@@ -22,7 +22,7 @@
         <div class="navbar2 flex">
         </div>
         <div class="container_isi"> 
-            <div class="isi_ada">
+            <div class="isi_ada shadow border-0">
                 <div class="header flex">
                     <div class="subjek flex">
                         <h2 class="title">{{ $model1->subjek }}</h2>
@@ -45,7 +45,7 @@
             </div>
 
             @foreach($model2 as $key=>$val)
-            <div class="isi_ada replyDetail">
+            <div class="isi_ada replyDetail shadow border-0">
                 <div class="header flex">  
                     <div class="subjek">
                         @if (isset($val->replyTo))
@@ -69,7 +69,7 @@
             </div>
             @endforeach
 
-            <div class="isi_ada reply">
+            <div class="isi_ada reply shadow border-0">
                 <div class="header flex">
                     <div class="subjek">
                         <h2>Your Answer</h2>
@@ -80,7 +80,7 @@
                 <div class="isi mb-3">      
                     <p class="replyTo"></p>
                     <input type="hidden" name="replyTo" id="inputReplyTo">
-                    <textarea type="text" name="deskripsi" class="form-control" id="floatingInput" placeholder="Tulis Deskripsi Disini ..."></textarea>
+                    <textarea type="text" name="deskripsi" class="form-control" id="floatingInput" placeholder="Tulis Jawaban Disini ..."></textarea>
                 </div>
                 <div class="footer flex">
                     <button type="submit" class="btn btn-primary">Submit</button>

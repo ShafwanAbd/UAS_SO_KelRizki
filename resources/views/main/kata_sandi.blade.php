@@ -11,7 +11,7 @@
                     <p class="alert failed" id="sixSeconds">{{ Session::get('failed') }}</p>
                 @endif 
 
-                <h4>Kata Sandi</h4> 
+                <h4 class="mb-5">Kata Sandi</h4> 
                 <form method="POST" action="{{ url('/kata_sandi/update') }}">
                 @csrf
                 <div class="container_form flex">
@@ -100,7 +100,7 @@
                         });
                     </script> 
                 </div>
-                <button id="submitBtn" type="submit" class="btn btn-primary">Submit</button>
+                <button id="submitBtn" type="submit" class="btn btn-primary float-end rounded-5 px-5  py-2 fs-5">Submit</button>
                 </form> 
 
                 <script>  
@@ -167,10 +167,7 @@
                         }
                     });
                 </script>
-            </div>
-            <div class="container_isi">
-                <h4>Perangkat</h4>
-            </div>
+            </div> 
         </div>
     </div>
     

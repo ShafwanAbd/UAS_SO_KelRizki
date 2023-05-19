@@ -102,7 +102,12 @@
     </div>
     @endforeach
     @else
-    <h1>WADUH KOSONG 😅</h1>
+    <div class="card shadow border-0">
+        <div class="d-flex justify-content flex-column"> 
+            <img class="mx-auto w-25 mt-5 mb-2" src="{{ url('./image/helper/image1.png') }}">
+            <h4 class="text-center mb-4 pb-3">Alokasi Dana Investasi Kamu Masih Kosong Nih...</h4>
+        </div>
+    </div>
     @endif
 
     <!-- <div class="col-md-4 pt-3 px-3">

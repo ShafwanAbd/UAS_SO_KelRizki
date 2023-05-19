@@ -59,8 +59,7 @@
           <a class="title" href="{{ url('/') }}">
             <p class="mx-3 mb-5 mt-3 h5 fw-bold">ternakConnect</p>
           </a>
-          <ul class="text-capitalize">
-            <li class="my-5"><a class="text-light nav-link" href="{{ url('/dashboard') }}">Coba cek</a></li>
+          <ul class="text-capitalize"> 
             <li class="my-5"><a class="text-light nav-link" href="{{ url('/dashboard') }}">ringkasan</a></li>
             <li class="my-5"><a class="text-light nav-link" href="{{ url('/penarikan') }}">penarikan</a></li>
             <li class="my-5">
