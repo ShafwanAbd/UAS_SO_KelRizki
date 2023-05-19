@@ -9,8 +9,20 @@
     background-color: #cd7676 !important;
 }
 
+.bg-c-primary {
+    background-color: #769fcd !important;
+}
+
+.bg-c-primary-unactive {
+    background-color: rgb(66, 123, 188) !important;
+}
+
 .btn-primary {
     background-color: #769fcd !important;
+}
+
+.btn-primary:hover {
+    opacity: 0.75 !important;
 }
 
 .hidden {
