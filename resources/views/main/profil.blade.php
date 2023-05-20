@@ -5,7 +5,7 @@
     <div class="container_profil">
         <div class="container_isi flex"> 
             <div class="container1">
-                <h4>Profil</h4>
+                <h4 class="mb-5">Profil</h4>
                 <form method="POST" action="{{ url('/profil/update/'.Auth::user()->id) }}">
                 @csrf
                 <div class="container_form flex">
@@ -45,14 +45,14 @@
                         </div>   
                     </div> 
                 </div>
-                <button class="btn btn-primary">
+                <button class="btn btn-primary px-4">
                     Update
                 </button>
                 </form>
-                <div class="container_delete">
-                    <h4>Hapus Akun</h4>
-                    <p>!!! AKUN YANG SUDAH DIHAPUS TIDAK BISA DIKEMBALIKAN !!!</p>
-                    <button type="button" class="btn btn-primary w100 bg-red" data-bs-toggle="modal" data-bs-target="#modalDelete1">Delete</button>
+                <div class="container_delete border-2 border-danger rounded" style="border-style: dotted;">
+                    <h4 class="text-center  mb-3 text-uppercase fw-bolder">Hapus Akun</h4>
+                    <p class="text-center">!!! AKUN YANG SUDAH DIHAPUS TIDAK BISA DIKEMBALIKAN !!!</p>
+                    <button type="button" class="btn w-100 btn-danger text-white" data-bs-toggle="modal" data-bs-target="#modalDelete1">DELETE</button>
                 </div>
 
                 <div class="modal fade" id="modalDelete1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -74,7 +74,7 @@
                 </div>
             </div>
             <div class="container2"> 
-                <div class="container3">
+                <div class="container3 mt-5">
                     <form method="post" action="{{ url('/profil/update/photo/'.Auth::user()->id) }}" enctype="multipart/form-data"> 
                     @csrf
                     <div class="container_isi_inner">

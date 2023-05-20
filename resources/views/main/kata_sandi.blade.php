@@ -100,7 +100,7 @@
                         });
                     </script> 
                 </div>
-                <button id="submitBtn" type="submit" class="btn btn-primary float-end rounded-5 px-5  py-2 fs-5">Submit</button>
+                <button id="submitBtn" type="submit" class="btn btn-primary float-end rounded px-5  py-2 fs-5">Submit</button>
                 </form> 
 
                 <script>  

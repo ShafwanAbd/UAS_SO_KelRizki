@@ -108,7 +108,7 @@
     </div>
 
     <div class="col-md-8">
-      <div class="card border-0 rounded shadow pt-5 pb-3">
+      <div class="card border-0 rounded shadow mt-4 pb-3">
 
         @if ($datas1->count() > 0)
         @foreach($datas1 as $key=>$val)

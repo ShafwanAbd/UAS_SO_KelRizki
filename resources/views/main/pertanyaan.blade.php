@@ -47,7 +47,7 @@
                             <td>
                                 <div class="container_button flex">
                                     <a href="{{ url('/pertanyaan/'.$val->id) }}" class="btn btn-primary">Lihat</a>
-                                    <a href="{{ url('/pertanyaan/delete/'.$val->id) }}" class="btn btn-primary">Hapus</a>
+                                    <a href="{{ url('/pertanyaan/delete/'.$val->id) }}" class="btn btn-danger">Hapus</a>
                                 </div>
                             </td>
                         </tr>
