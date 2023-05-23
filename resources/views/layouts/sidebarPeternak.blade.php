@@ -50,7 +50,7 @@
 </head>
 
 <body>
-  <div class="content">
+  <div class="content sticky-top">
     <nav class="text-light sidebar ">
       <div class="sidebar-menu">
         <div class="mt-3 text-end pe-3">
