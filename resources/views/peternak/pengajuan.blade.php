@@ -100,6 +100,11 @@
           </div>
 
           <div class="mb-3">
+            <label class="form-label">Prospektus: </label>
+            <input class="form-control" name="prospektus" type="file" required>
+          </div>
+
+          <div class="mb-3">
             <label class="form-label">Poto: </label>
             <input class="form-control" name="poto" type="file" required>
           </div>
