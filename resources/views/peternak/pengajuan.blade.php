@@ -1,7 +1,7 @@
 @extends('layouts.sidebarPeternak')
 
 @section('content')
-<div class="container">
+<div class="container py-5">
   <div class="d-row d-flex justify-content-center align-items-center">
     <div class="col-md-8 mx-auto">
       <form method="POST" action="{{ url('makeInvestasiAdmin') }}" enctype="multipart/form-data">

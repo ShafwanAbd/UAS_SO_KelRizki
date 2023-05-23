@@ -23,8 +23,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
   <!-- Bootstrap External -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
   </script>
 
   <!-- Private External -->
@@ -60,7 +62,7 @@
           <p class="mx-3 mb-5 mt-3 h5 fw-bold">ternakConnect</p>
         </a>
         <ul class="text-capitalize">
-          <li class="my-5"><a class="text-light nav-link" href="{{ url('/dashboard') }}">ringkasan</a></li>
+          <li class="my-5"><a class="text-light nav-link" href="{{ url('/dashboardPeternak') }}">ringkasan</a></li>
           <li class="my-5"><a class="text-light nav-link" href="{{ url('/pengajuan') }}">pengajuan</a></li>
           <li class="my-5"><a class="text-light nav-link" href="{{ url('/penarikan') }}">laporan</a></li>
           <li class="my-5"><a class="text-light nav-link" href="">keluar</a></li>
@@ -76,25 +78,25 @@
   </div>
 
   <script>
-    feather.replace()
+  feather.replace()
   </script>
 
   <script>
-    const burger = document.querySelector('#humberger');
-    const x = document.querySelector('#x');
-    const sidebar = document.querySelector('.sidebar');
+  const burger = document.querySelector('#humberger');
+  const x = document.querySelector('#x');
+  const sidebar = document.querySelector('.sidebar');
 
-    burger.onclick = () => {
-      sidebar.classList.toggle('active')
-      burger.style.display = 'none'
+  burger.onclick = () => {
+    sidebar.classList.toggle('active')
+    burger.style.display = 'none'
+  }
+
+  document.addEventListener('click', (e) => {
+    if (!sidebar.contains(e.target) && !burger.contains(e.target) || x.contains(e.target)) {
+      sidebar.classList.remove('active')
+      burger.style.display = 'block'
     }
-
-    document.addEventListener('click', (e) => {
-      if (!sidebar.contains(e.target) && !burger.contains(e.target) || x.contains(e.target)) {
-        sidebar.classList.remove('active')
-        burger.style.display = 'block'
-      }
-    })
+  })
   </script>
 </body>
 
