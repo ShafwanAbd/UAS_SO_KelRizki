@@ -89,6 +89,23 @@
                             </div>
                         </div>
 
+                        <div class="row mb-3">
+                            <label for="radio" class="col-md-4 col-form-label text-md-end">Role</label>
+
+                            <div class="form-check">
+                                <input value="peternak" class="form-check-input" type="radio" name="role" id="flexRadioDefault1" required>
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Peternak
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input value="investor" class="form-check-input" type="radio" name="role" id="flexRadioDefault2" required>
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                    Investor
+                                </label>
+                            </div>
+                        </div>
+
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

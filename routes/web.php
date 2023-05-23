@@ -7,6 +7,7 @@ use App\Http\Controllers\InvestasiController;
 use App\Http\Controllers\KataSandiController;
 use App\Http\Controllers\PenarikanController;
 use App\Http\Controllers\PertanyaanController;
+use App\Http\Controllers\PeternakController;
 use App\Http\Controllers\ProfilController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -36,6 +37,7 @@ Route::get('/blog',     [CommonController::class, 'blog_index'])->name('home.blo
 
 // MAIN ========================================= <>  
 
+// INVESTOR ACCESS
 Route::middleware(['auth', 'verified', 'aktif'])->group(function () {
     Route::get('/dashboard',            [CommonController::class, 'ringkasan_index'])->name('sidebar.ringkasan');   // FRONTEND:✘ BACKEND:✘
 
@@ -74,6 +76,11 @@ Route::middleware(['auth', 'verified', 'aktif'])->group(function () {
     Route::post('/kata_sandi/update',    [KataSandiController::class, 'kata_sandi_update'])->name('sidebar.kata_sandi.update');         // FRONTEND:✘ BACKEND:✘
 
     Route::get('/verifikasi_identitas', [CommonController::class, 'verifikasi_identitas_index'])->name('sidebar.verifikasi_identitas'); // FRONTEND:✘ BACKEND:✘
+});
+
+// PETERNAK ACCESS
+Route::middleware(['peternak', 'auth', 'verified', 'aktif'])->group(function () {
+    Route::get('/dashboardPeternak', [PeternakController::class, 'dashboard']);
 });
 
 // ADMIN ========================================= <>

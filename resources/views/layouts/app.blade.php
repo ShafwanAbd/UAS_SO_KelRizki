@@ -79,9 +79,15 @@
                         </li>
                         @endif
                         @else
-                        <li class="nav-item">
-                            <button class="button2 rounded-pill px-3 mx-2 "><a class="nav-link btn" href="{{ url('/dashboard') }}">Dashboard</a></button>
-                        </li>
+                            @if (Auth::user()->role == 'peternak')
+                            <li class="nav-item">
+                                <button class="button2 rounded-pill px-3 mx-2 "><a class="nav-link btn" href="{{ url('/dashboardPeternak') }}">Dashboard</a></button>
+                            </li>
+                            @elseif (Auth::user()->role == 'investor')
+                            <li class="nav-item">
+                                <button class="button2 rounded-pill px-3 mx-2 "><a class="nav-link btn" href="{{ url('/dashboard') }}">Dashboard</a></button>
+                            </li>
+                            @endif
 
                         @if (Auth::user()->username == 'ADMIN')
                         <li class="nav-item">
