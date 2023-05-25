@@ -177,7 +177,7 @@ class AdminController extends Controller
         $model2 = new LogAudit();
         $model2->id_user = $model1->id;
         $model2->id_referensi = uniqid();
-        $model2->catatan = 'Akun Diaktifkan oleh Admin'; 
+        $model2->catatan = 'Akun dengan ID '.$model1->id.' Diaktifkan oleh Admin.'; 
         $model2->save();
 
         return back()->with('success', 'Berhasil Mengaktifkan Akun '.$model1->username.'!');
@@ -191,30 +191,40 @@ class AdminController extends Controller
         $model2 = new LogAudit();
         $model2->id_user = $model1->id;
         $model2->id_referensi = uniqid();
-        $model2->catatan = 'Akun Dinonaktifkan oleh Admin'; 
+        $model2->catatan = 'Akun dengan ID '.$model1->id.' Dinonaktifkan oleh Admin.'; 
         $model2->save();
 
         return back()->with('success', 'Berhasil Menonaktifkan Akun '.$model1->username.'!');
     }
 
-    public function investorAccept(string $id){
-        $model1 = User::find($id);
-        $model1->status = '1';
-        $model1->role = '2'; 
+    public function acceptInvestasi(string $id){
+        $model1 = Investasi::find($id);
+        $model1->status = '1';  
         $model1->save();
+        
+        $model2 = new LogAudit();
+        $model2->id_user = $model1->id;
+        $model2->id_referensi = uniqid();
+        $model2->catatan = 'Investasi dengan ID '.$model1->id.' Diaktifkan oleh Admin.'; 
+        $model2->save();
 
-        return back()->with('success', 'Berhasil Menerima Akun Investor!');
+        return back()->with('success', 'Berhasil Mengaktifkan Investasi '.$model1->nama.' dengan ID '.$model1->id.'!');
     }
 
-    public function peternakAccept(string $id){
-        $model1 = User::find($id);
-        $model1->status = '1';
-        $model1->role = '3'; 
+    public function noAcceptInvestasi(string $id){
+        $model1 = Investasi::find($id);
+        $model1->status = '0';  
         $model1->save();
+        
+        $model2 = new LogAudit();
+        $model2->id_user = $model1->id;
+        $model2->id_referensi = uniqid();
+        $model2->catatan = 'Investasi dengan ID '.$model1->id.' Diaktifkan oleh Admin.'; 
+        $model2->save();
 
-        return back()->with('success', 'Berhasil Menerima Akun Peternak!');
-    }
-
+        return back()->with('success', 'Berhasil Menonaktifkan Investasi '.$model1->nama.' dengan ID '.$model1->id.'!');
+    } 
+    
     public function pendanaanAccept(string $id){
         $model1 = Pendanaan::find($id);
         $model1->status = '1';  

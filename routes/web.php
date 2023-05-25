@@ -37,53 +37,52 @@ Route::get('/blog',     [CommonController::class, 'blog_index'])->name('home.blo
 
 // MAIN ========================================= <>  
 
+// ALL ACCESS
+Route::get('/detail-peternakan/{id}',    [CommonController::class, 'detail_peternakan_index']);
+
 // INVESTOR ACCESS
 Route::middleware(['auth', 'verified', 'aktif'])->group(function () {
-    Route::get('/dashboard',            [CommonController::class, 'ringkasan_index'])->name('sidebar.ringkasan');   // FRONTEND:✘ BACKEND:✘
+    Route::get('/dashboard',            [CommonController::class, 'ringkasan_index']);  
 
-    Route::get('/deposit',              [DepositController::class, 'deposit_index'])->name('deposit');              // FRONTEND:✘ BACKEND:✘
-    Route::post('/deposit/in',          [DepositController::class, 'depositIn'])->name('depositIn');                // FRONTEND:✘ BACKEND:✘
-    Route::get('/penarikan',            [PenarikanController::class, 'penarikan_index'])->name('sidebar.penarikan'); // FRONTEND:✘ BACKEND:✘
-    Route::post('/penarikan/create',    [PenarikanController::class, 'create'])->name('sidebar.penarikan.create');  // FRONTEND:✘ BACKEND:✘
+    Route::get('/deposit',              [DepositController::class, 'deposit_index']);            
+    Route::post('/deposit/in',          [DepositController::class, 'depositIn']);               
+    Route::get('/penarikan',            [PenarikanController::class, 'penarikan_index']);
+    Route::post('/penarikan/create',    [PenarikanController::class, 'create']);
 
-    Route::get('/detail-peternakan/{id}',    [CommonController::class, 'detail_peternakan_index'])->name('detail-peternakan');   // FRONTEND:✘ BACKEND:✘
 
-    Route::get('/investasi-detail/{id}', [InvestasiController::class, 'investasi_detail_index']);     // FRONTEND:✘ BACKEND:✘
-    Route::post('/beli_investasi/{id}', [InvestasiController::class, 'beli_investasi']);     // FRONTEND:✘ BACKEND:✘
-    Route::get('/semua_bisnis',         [InvestasiController::class, 'semua_bisnis_index'])->name('sidebar.semua_bisnis'); // FRONTEND:✘ BACKEND:✘
-    Route::get('/investasi-segera',     [InvestasiController::class, 'investasi_segera_index'])->name('sidebar.investasi_segera');     // FRONTEND:✘ BACKEND:✘
-    Route::get('/investasi-selesai',    [InvestasiController::class, 'investasi_selesai_index'])->name('sidebar.investasi_selesai');  // FRONTEND:✘ BACKEND:✘
-    Route::get('/investasi-diikuti',    [InvestasiController::class, 'investasi_diikuti_index'])->name('sidebar.investasi_diikuti');  // FRONTEND:✘ BACKEND:✘
+    Route::get('/investasi-detail/{id}', [InvestasiController::class, 'investasi_detail_index']);    
+    Route::post('/beli_investasi/{id}', [InvestasiController::class, 'beli_investasi']);    
+    Route::get('/semua_bisnis',         [InvestasiController::class, 'semua_bisnis_index']);
+    Route::get('/investasi-segera',     [InvestasiController::class, 'investasi_segera_index']);  
+    Route::get('/investasi-selesai',    [InvestasiController::class, 'investasi_selesai_index']);
+    Route::get('/investasi-diikuti',    [InvestasiController::class, 'investasi_diikuti_index']);
 
-    Route::get('/aktivitas',            [CommonController::class, 'aktivitas_index'])->name('sidebar.aktivitas');       // FRONTEND:✘ BACKEND:✘
+    Route::get('/aktivitas',            [CommonController::class, 'aktivitas_index']);   
 
-    Route::get('/pertanyaan',           [PertanyaanController::class, 'pertanyaan_index'])->name('sidebar.pertanyaan'); // FRONTEND:✘ BACKEND:✘
-    Route::post('/pertanyaan/create',   [PertanyaanController::class, 'create'])->name('sidebar.pertanyaan.create');    // FRONTEND:✘ BACKEND:✘
-    Route::post('/pertanyaan/createReply/{id}', [PertanyaanController::class, 'createReply'])->name('sidebar.createReply'); // FRONTEND:✘ BACKEND:✘
-    Route::get('/pertanyaan/{id}',      [PertanyaanController::class, 'detail'])->name('sidebar.pertanyaan.detail');    // FRONTEND:✘ BACKEND:✘
-    Route::get('/pertanyaan/delete/{id}', [PertanyaanController::class, 'delete'])->name('sidebar.pertanyaan.detail');  // FRONTEND:✘ BACKEND:✘
+    Route::get('/pertanyaan',           [PertanyaanController::class, 'pertanyaan_index']);
+    Route::post('/pertanyaan/create',   [PertanyaanController::class, 'create']);
+    Route::post('/pertanyaan/createReply/{id}', [PertanyaanController::class, 'createReply']);
+    Route::get('/pertanyaan/{id}',      [PertanyaanController::class, 'detail']);
+    Route::get('/pertanyaan/delete/{id}', [PertanyaanController::class, 'delete']);
 
-    Route::get('/pengaturan',           [CommonController::class, 'pengaturan_index'])->name('sidebar.pengaturan');     // FRONTEND:✘ BACKEND:✘
+    Route::get('/pengaturan',           [CommonController::class, 'pengaturan_index']);
+    Route::get('/profil',               [ProfilController::class, 'profil_index']);         
+    Route::post('/profil/update/{id}',  [ProfilController::class, 'profil_update']);     
+    Route::post('/profil/update/photo/{id}',  [ProfilController::class, 'profil_update_photo']);      
+    Route::get('/profil/delete/{id}',   [ProfilController::class, 'profil_delete'])->name('sidebar.profil.delete');         
 
-    Route::get('/profil',               [ProfilController::class, 'profil_index'])->name('sidebar.profil');             // FRONTEND:✘ BACKEND:✘
-    Route::post('/profil/update/{id}',  [ProfilController::class, 'profil_update'])->name('sidebar.profil.update');     // FRONTEND:✘ BACKEND:✘   
-    Route::post('/profil/update/photo/{id}',  [ProfilController::class, 'profil_update_photo'])->name('sidebar.profil.update');     // FRONTEND:✘ BACKEND:✘   
-    Route::get('/profil/delete/{id}',   [ProfilController::class, 'profil_delete'])->name('sidebar.profil.delete');     // FRONTEND:✘ BACKEND:✘    
+    Route::get('/log_audit',            [CommonController::class, 'log_audit_index'])->name('sidebar.log_audit');       
 
-    Route::get('/log_audit',            [CommonController::class, 'log_audit_index'])->name('sidebar.log_audit');       // FRONTEND:✘ BACKEND:✘
+    Route::get('/kata_sandi',           [KataSandiController::class, 'kata_sandi_index'])->name('sidebar.kata_sandi');  
+    Route::post('/kata_sandi/update',    [KataSandiController::class, 'kata_sandi_update'])->name('sidebar.kata_sandi.update');         
 
-    Route::get('/kata_sandi',           [KataSandiController::class, 'kata_sandi_index'])->name('sidebar.kata_sandi');  // FRONTEND:✘ BACKEND:✘
-    Route::post('/kata_sandi/update',    [KataSandiController::class, 'kata_sandi_update'])->name('sidebar.kata_sandi.update');         // FRONTEND:✘ BACKEND:✘
+    Route::get('/verifikasi_identitas', [CommonController::class, 'verifikasi_identitas_index'])->name('sidebar.verifikasi_identitas'); 
 
-    Route::get('/verifikasi_identitas', [CommonController::class, 'verifikasi_identitas_index'])->name('sidebar.verifikasi_identitas'); // FRONTEND:✘ BACKEND:✘
-});
 
 // PETERNAK ACCESS
-Route::middleware(['peternak', 'auth', 'verified', 'aktif'])->group(function () {
-    Route::get('/dashboardPeternak', [PeternakController::class, 'dashboard']);
-});
-Route::middleware(['peternak', 'auth', 'verified', 'aktif'])->group(function () {
-    Route::get('/pengajuan', [PeternakController::class, 'pengajuan']);
+    Route::get('/dashboardPeternak', [PeternakController::class, 'dashboard']); 
+    Route::get('/pengajuan', [PeternakController::class, 'pengajuan']); 
+    Route::post('/add_bisnis', [PeternakController::class, 'add_bisnis']); 
 });
 
 // ADMIN ========================================= <>
@@ -109,6 +108,8 @@ Route::middleware(['admin', 'auth', 'aktif'])->group(function () {
     // ACCEPTING
     Route::get('/acceptAkun/{id}',      [AdminController::class, 'akunAccept']);
     Route::get('/NoAcceptAkun/{id}',    [AdminController::class, 'akunNoAccept']);
+    Route::get('/acceptInvestasi/{id}',      [AdminController::class, 'acceptInvestasi']);
+    Route::get('/noAcceptInvestasi/{id}',    [AdminController::class, 'noAcceptInvestasi']);
     Route::get('/acceptDeposit/{id}',   [AdminController::class, 'depositAccept']);
     Route::get('/acceptPenarikan/{id}', [AdminController::class, 'penarikanAccept']);
 });

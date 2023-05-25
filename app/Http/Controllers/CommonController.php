@@ -42,7 +42,14 @@ class CommonController extends Controller
     {
         $datas1 = Investasi::find($id);
 
-        $isActive = Carbon::now()->between($datas1->start_date, $datas1->expiring_date) ? '1' : '0';
+        $condition1 = Carbon::now()->between($datas1->start_date, $datas1->expiring_date) ? '1' : '0';
+        $condition2 = $datas1->status == '1' ? '1' : '0';
+ 
+        if ($condition1 && $condition2 == '1'){
+            $isActive = 1;
+        } else {
+            $isActive = 0;
+        }
   
         return view('main.detail-peternakan', compact(
             'datas1', 'isActive'

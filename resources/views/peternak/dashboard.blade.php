@@ -18,10 +18,14 @@
       </div>
     </div>
     <div class="d-inline pt-2 ms-auto">
-      <button class="btn btn-primary">Detail Bisnis Kamu</button>
-      <button class="btn btn-success">Upload Laporan Bulanan</button>
-      <!-- Pake Pengkondisian -->
-      <!-- <button class="btn btn-primary">Ajukan Bisnis</button> -->
+      <button class="btn btn-primary">Detail Bisnis Kamu</button> 
+      @if (Auth::user()->jumlah_peternakan)
+        @if (Auth::user()->jumlah_peternakan->count() > 0)
+        <button class="btn btn-success">Upload Laporan Bulanan</button>
+        @endif 
+      @else
+      <a href="{{ url('/pengajuan') }}" class="btn btn-primary">Ajukan Bisnis</a>
+      @endif
     </div>
   </div>
 
@@ -29,25 +33,25 @@
     <div class="col-md-3 pt-3">
       <div class="card pt-3 px-3 border-0 bg-white shadow">
         <h6 class="bold">Saldo</h6>
-        <p>0</p>
+        <p>{{ @money(Auth::user()->balance) }}</p>
       </div>
     </div>
     <div class="col-md-3 pt-3">
       <div class="card pt-3 px-3 border-0 bg-white shadow">
         <h6 class="bold">Saldo yang Diinvestasikan</h6>
-        <p>0</p>
+        <p>{{ @money(Auth::user()->balance_to_invest) }}</p>
       </div>
     </div>
     <div class="col-md-3 pt-3">
       <div class="card pt-3 px-3 border-0 bg-white shadow">
         <h6 class="bold">Profit</h6>
-        <p>0</p>
+        <p>{{ @money(Auth::user()->profit) }}</p>
       </div>
     </div>
     <div class="col-md-3 pt-3">
       <div class="card pt-3 px-3 border-0 bg-white shadow">
         <h6 class="bold">Jumlah Peternakan</h6>
-        <p>1</p>
+        <p>{{ $datas['jmlpeternakan'] }}</p>
       </div>
     </div>
   </div>

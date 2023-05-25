@@ -1,8 +1,7 @@
 @extends('layouts.sidebarAdmin')
 
 @section('content') 
-<div class="my-4 p-4">
-  <a href="{{ url('/createInvestasiAdmin') }}" class="btn btn-primary">Create Plan</a>
+<div class="my-4 p-4"> 
   <div class="card shadow my-4">
     @if($datas1->count() > 0)
     <table class="table table-hover">
@@ -19,6 +18,7 @@
           <th>Start Date</th>
           <th>Expiring Date</th>
           <th>Status</th> 
+          <th>Detail</th> 
         </tr>
       </thead>
       <tbody>
@@ -35,7 +35,58 @@
           <td>{{ $val->asuransi }}</td>
           <td>{{ $val->start_date }}</td>
           <td>{{ $val->expiring_date }}</td>
-          <td>{{ $val->status == 1 ? 'Aktif' : 'Tidak Aktif' }}</td> 
+          <td>
+          @if ($val->status == 1)  
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalAktif{{ $val->id }}">
+              Aktif
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="modalAktif{{ $val->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Caution</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <h4>Apakah Anda Yakin?</h4>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
+                    <a href="{{ url('noAcceptInvestasi/'.$val->id) }}" class="btn btn-primary">Yakin</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          @else 
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTidakAktif{{ $val->id }}">
+              Tidak Aktif
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="modalTidakAktif{{ $val->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Caution</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <h4>Apakah Anda Yakin?</h4>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
+                    <a href="{{ url('acceptInvestasi/'.$val->id) }}" class="btn btn-primary">Yakin</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          @endif
+          </td>
+          <td> 
+            <a href="{{ url('/detail-peternakan/'.$val->id) }}" class="btn btn-primary">Detail</a> 
+          </td>
         </tr> 
         @endforeach
       </tbody>

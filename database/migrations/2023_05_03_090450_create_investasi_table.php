@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('investasi', function (Blueprint $table) {
             $table->id();
+            $table->string('id_user');
             $table->string('nama');
             $table->string('durasi');
             $table->string('period');
@@ -27,8 +28,7 @@ return new class extends Migration
             $table->string('location');
             $table->string('status');
             $table->string('asuransi');
-            $table->string('referral_percent');
-            $table->string('poto');
+            $table->string('referral_percent'); 
             $table->string('url_yt'); 
             $table->string('keterangan')->nullable(); 
             $table->timestamps();

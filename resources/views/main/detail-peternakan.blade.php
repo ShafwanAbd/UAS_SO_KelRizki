@@ -10,7 +10,11 @@
 
 <div class="container py-3">
   <div class="d-flex-row text-end px-3">
+    @if (Auth::user()->role == 'admin')
+    <a href="{{ url('/listBisnisAdmin') }}" class="btn" style="background:#769FCD; color:white"><i class="bi bi-arrow-left"></i> Kembali</a>
+    @else    
     <a href="{{ url('/semua_bisnis') }}" class="btn" style="background:#769FCD; color:white"><i class="bi bi-arrow-left"></i> Kembali</a>
+    @endif
   </div>
   <div class="row py-5 px-3">
     <div class="col-md-6">
@@ -39,20 +43,24 @@
         </div> 
         <p style="text-align: end;">Target: {{ @money($datas1->harga * $datas1->lembar) }}</p>
         <div class="d-flex d-row text-center align-items-center justify-content-center">
-          @if($isActive)
+          @if($isActive == '1')
           <a class="btn shadow py-2 px-4" style="background: #769FCD; color:aliceblue" data-bs-toggle="modal" data-bs-target="#exampleModal">Pesan Saham</a>
-          @else
-          <a class="btn shadow py-2 px-4 disabled" style="background: #769FCD; color:aliceblue" >Pesan Saham</a>
+          @else 
+          <button type="button" data-bs-content="Peternakan Sedang Tidak Aktif" class="btn shadow py-2 px-4" style="background: #ACC3DD; color:aliceblue" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="top">
+            Pesan Saham
+          </button>
           @endif
           <a class="btn ms-2 shadow py-2 px-4" style="background:white"><i class="bi bi-share"></i> Bagikan</a>
         </div>
       </div>
     </div>
   </div>
+  
   <div class="row py-2 px-4">
     <div class="col-md-3">
       <div class="row sticky-top">
-        <div class="card border-0 shadow">
+
+        <!-- <div class="card border-0 shadow">
           <div class=" d-flex d-row pt-3">
             <a href="#farm-highlight" class="text-decoration-none">
               <p class="fw-bold" style="color: grey;">Farm Highlight</p>
@@ -65,9 +73,38 @@
             </a>
             <p class=" ms-auto" style="color: grey;">></p>
           </div>
-        </div>
+        </div>  -->
+
+        <div class="accordion" id="accordionExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                Farm Highlight
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Company Overview
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+              </div>
+            </div>
+          </div>
+        </div> 
+
       </div>
     </div>
+    
     <div class="col-md-7">
       <div class="row">
         <h4 class="fw-bold" id="farm-highlight">FARM HIGHLIGHT</h4>
@@ -129,10 +166,12 @@
             <p class="lh-1">Total Investasi:</p>
             <p class="lh-1" style="color:forestgreen">{{ @money($datas1->harga * $datas1->lembar_terjual) }}</p>
           </div>
-          @if ($isActive)
+          @if ($isActive == '1')
           <a class="btn shadow py-2" style="background: #769FCD; color:aliceblue" data-bs-toggle="modal" data-bs-target="#exampleModal">Pesan Saham</a>
-          @else
-          <a class="btn shadow py-2 disabled" style="background: #769FCD; color:aliceblue">Pesan Saham</a>
+          @else 
+          <button type="button" data-bs-content="Peternakan Sedang Tidak Aktif" class="btn shadow py-2 px-4" style="background: #ACC3DD; color:aliceblue" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="top">
+            Pesan Saham
+          </button>          
           @endif
         </div>
       </div>
@@ -189,4 +228,8 @@
   </div>
 </form>
 
+<script>
+  const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+  const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+</script>
 @endsection
