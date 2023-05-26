@@ -35,7 +35,7 @@
                 <select id="debit_from" name="debit_from" class="form-control" required>
                   <option value="" disabled selected>-- Select --</option>
                   <option value="Dividen">Dividen - {{ @money(Auth::user()->dividen) }}</option>
-                  <option value="Balance">Saldo Rekening - {{ @money(Auth::user()->balance) }}</option> 
+                  <option value="Balance">Saldo - {{ @money(Auth::user()->balance) }}</option> 
                 </select>
                 <label for="debit_from">Debit Dari</label>
                 <p id="hiddenAmount1" class="alert_small mt-1 hidden">Penarikan tidak boleh lebih dari Debit!</p>

@@ -12,8 +12,10 @@
   <div class="d-flex-row text-end px-3">
     @if (Auth::user()->role == 'admin')
     <a href="{{ url('/listBisnisAdmin') }}" class="btn" style="background:#769FCD; color:white"><i class="bi bi-arrow-left"></i> Kembali</a>
-    @else    
-    <a href="{{ url('/semua_bisnis') }}" class="btn" style="background:#769FCD; color:white"><i class="bi bi-arrow-left"></i> Kembali</a>
+    @elseif (Auth::user()->role == 'peternak')
+    <a href="{{ url('/dashboardPeternak') }}" class="btn" style="background:#769FCD; color:white"><i class="bi bi-arrow-left"></i> Kembali</a>
+    @elseif (Auth::user()->role == 'investor')   
+    <a href="{{ url('/dasboard') }}" class="btn" style="background:#769FCD; color:white"><i class="bi bi-arrow-left"></i> Kembali</a>
     @endif
   </div>
   <div class="row py-5 px-3">
@@ -43,7 +45,9 @@
         </div> 
         <p style="text-align: end;">Target: {{ @money($datas1->harga * $datas1->lembar) }}</p>
         <div class="d-flex d-row text-center align-items-center justify-content-center">
-          @if($isActive == '1')
+          @if ($isOwner == '1')          
+          <a class="btn shadow py-2 px-4" style="background: #769FCD; color:aliceblue" data-bs-toggle="modal" data-bs-target="#exampleModal">Ambil Saldo</a>
+          @elseif ($isActive == '1')
           <a class="btn shadow py-2 px-4" style="background: #769FCD; color:aliceblue" data-bs-toggle="modal" data-bs-target="#exampleModal">Pesan Saham</a>
           @else 
           <button type="button" data-bs-content="Peternakan Sedang Tidak Aktif" class="btn shadow py-2 px-4" style="background: #ACC3DD; color:aliceblue" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="top">

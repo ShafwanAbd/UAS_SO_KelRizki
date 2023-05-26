@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BeliInvestasi;
 use App\Models\Investasi;
 use App\Models\LogAudit;
 use App\Models\User;
@@ -13,10 +14,17 @@ class PeternakController extends Controller
 {
     public function dashboard()
     {
-        $datas['jmlpeternakan'] = Investasi::where('id_user', Auth::user()->id)->count();
+        $datas['jmlpeternakan'] = Investasi::where('id_user', Auth::user()->id)->count();  
+        $datas1 = Investasi::where('id_user', Auth::user()->id)->get();
+
+        $model1 = Investasi::where('id_user', Auth::user()->id)->get();
+        $datas['saldoSaham'] = 0;
+        foreach ($model1 as $key=>$val){
+            $datas['saldoSaham'] += $val->lembar_terjual * $val->harga;
+        }
 
         return view('peternak.dashboard', compact(
-            'datas'
+            'datas', 'datas1'
         ));
     }
 

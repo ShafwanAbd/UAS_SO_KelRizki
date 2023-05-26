@@ -42,6 +42,11 @@ class CommonController extends Controller
     {
         $datas1 = Investasi::find($id);
 
+        $isOwner = 0;
+        if ($datas1->id_user == Auth::user()->id){
+            $isOwner = 1;
+        }
+
         $condition1 = Carbon::now()->between($datas1->start_date, $datas1->expiring_date) ? '1' : '0';
         $condition2 = $datas1->status == '1' ? '1' : '0';
  
@@ -52,7 +57,7 @@ class CommonController extends Controller
         }
   
         return view('main.detail-peternakan', compact(
-            'datas1', 'isActive'
+            'datas1', 'isActive', 'isOwner'
         ));
     }
 
