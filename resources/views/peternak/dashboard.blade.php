@@ -18,13 +18,11 @@
       </div>
     </div>
     <div class="d-inline pt-2 ms-auto">
-      <button class="btn btn-primary">Detail Bisnis Kamu</button> 
-      @if (Auth::user()->jumlah_peternakan)
-        @if (Auth::user()->jumlah_peternakan->count() > 0)
-        <button class="btn btn-success">Upload Laporan Bulanan</button>
-        @endif 
-      @else
-      <a href="{{ url('/pengajuan') }}" class="btn btn-primary">Ajukan Bisnis</a>
+      <button class="btn btn-primary">Detail Bisnis Kamu</button>  
+      @if ($datas['jmlpeternakan'] > 0)
+      <a href="{{ url('/pengajuan') }}" class="btn btn-success">Upload Laporan Bulanan</a>
+      @elseif ($datas['jmlpeternakan'] < 1)
+      <a href="{{ url('/pengajuan') }}" class="btn btn-primary">Ajukan Bisnis</a> 
       @endif
     </div>
   </div>
