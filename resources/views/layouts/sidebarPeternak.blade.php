@@ -11,8 +11,7 @@
 
   <!-- icon -->
   <script src="https://unpkg.com/feather-icons"></script>
-
-
+   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,11 +22,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
   <!-- Bootstrap External -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
-  </script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 
   <!-- Private External -->
   <link rel="stylesheet" href="{{ asset('css/css.css') }}">
@@ -52,7 +48,7 @@
 </head>
 
 <body>
-  <div class="content sticky-top">
+  <div class="content">
     <nav class="text-light sidebar ">
       <div class="sidebar-menu">
         <div class="mt-3 text-end pe-3">
@@ -64,7 +60,7 @@
         <ul class="text-capitalize">
           <li class="my-5"><a class="text-light nav-link" href="{{ url('/dashboardPeternak') }}">ringkasan</a></li>
           <li class="my-5"><a class="text-light nav-link" href="{{ url('/pengajuan') }}">pengajuan</a></li>
-          <li class="my-5"><a class="text-light nav-link" href="{{ url('/penarikan') }}">laporan</a></li>
+          <li class="my-5"><a class="text-light nav-link" href="{{ url('/penarikan') }}">penarikan</a></li>
           <li class="my-5"><a class="text-light nav-link" href="">keluar</a></li>
         </ul>
       </div>
@@ -73,31 +69,30 @@
     <div class="pt-3 container btn-menu" id="humberger">
       <i data-feather="menu" id="humberger"></i>
     </div>
-    @yield('content')
-  </div>
+      @yield('content')
+    </div>
   </div>
 
   <script>
-  feather.replace()
+      feather.replace()
   </script>
 
   <script>
-  const burger = document.querySelector('#humberger');
-  const x = document.querySelector('#x');
-  const sidebar = document.querySelector('.sidebar');
+    const burger = document.querySelector('#humberger');
+    const x = document.querySelector('#x');
+    const sidebar = document.querySelector('.sidebar');
 
-  burger.onclick = () => {
-    sidebar.classList.toggle('active')
-    burger.style.display = 'none'
-  }
-
-  document.addEventListener('click', (e) => {
-    if (!sidebar.contains(e.target) && !burger.contains(e.target) || x.contains(e.target)) {
-      sidebar.classList.remove('active')
-      burger.style.display = 'block'
+    burger.onclick = ()=>{
+      sidebar.classList.toggle('active')
+      burger.style.display = 'none'
     }
-  })
+
+    document.addEventListener('click', (e)=>{
+      if(!sidebar.contains(e.target) && !burger.contains(e.target) || x.contains(e.target)) {
+        sidebar.classList.remove('active')
+        burger.style.display = 'block'
+      }
+    })
   </script>
 </body>
-
 </html>

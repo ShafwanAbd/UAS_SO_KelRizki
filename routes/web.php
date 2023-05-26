@@ -40,12 +40,13 @@ Route::get('/blog',     [CommonController::class, 'blog_index'])->name('home.blo
 // ALL ACCESS
 Route::get('/detail-peternakan/{id}',    [CommonController::class, 'detail_peternakan_index']);
 
-// INVESTOR ACCESS
+// UMUM ACCESS
 Route::middleware(['auth', 'verified', 'aktif'])->group(function () {
     Route::get('/dashboard',            [CommonController::class, 'ringkasan_index']);  
 
     Route::get('/deposit',              [DepositController::class, 'deposit_index']);            
     Route::post('/deposit/in',          [DepositController::class, 'depositIn']);               
+    
     Route::get('/penarikan',            [PenarikanController::class, 'penarikan_index']);
     Route::post('/penarikan/create',    [PenarikanController::class, 'create']);
 

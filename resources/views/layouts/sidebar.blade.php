@@ -11,8 +11,7 @@
 
   <!-- icon -->
   <script src="https://unpkg.com/feather-icons"></script>
-  
-
+   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,8 +23,7 @@
 
   <!-- Bootstrap External -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
-  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 
   <!-- Private External -->
   <link rel="stylesheet" href="{{ asset('css/css.css') }}">
@@ -50,56 +48,56 @@
 </head>
 
 <body>
-    <div class="content">
-      <nav class="text-light sidebar ">
-        <div class="sidebar-menu">
-          <div class="mt-3 text-end pe-3">
-            <i data-feather="x" id="x"></i>
-          </div>
-          <a class="title" href="{{ url('/') }}">
-            <p class="mx-3 mb-5 mt-3 h5 fw-bold">ternakConnect</p>
-          </a>
-          <ul class="text-capitalize"> 
-            <li class="my-5"><a class="text-light nav-link" href="{{ url('/dashboard') }}">ringkasan</a></li>
-            <li class="my-5"><a class="text-light nav-link" href="{{ url('/penarikan') }}">penarikan</a></li>
-            <li class="my-5">
-              <div class="dropdown">
-                <a class="dropdown-toggle text-light nav-link" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                  Investasi
-                </a>
-
-                <ul class="collapse color1" id="collapseExample">
-                  <li><a class="dropdown-item text-light my-4" href="{{ url('/semua_bisnis') }}">Semua Bisnis</a></li>
-                  <li><a class="dropdown-item text-light my-4" href="{{ url('/aktivitas') }}">Aktivitas</a></li>
-                </ul>
-              </div>
-            </li>
-            <li class="my-5"><a class="text-light nav-link" href="{{ url('/pertanyaan') }}">Pertanyaan</a></li>
-            <li class="my-5">
-              <div class="dropdown">
-                <a class="dropdown-toggle text-light nav-link" data-bs-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2">
-                  Pengaturan
-                </a>
-
-                <ul class="collapse color1" id="collapseExample2">
-                  <li><a class="dropdown-item text-light my-3" href="{{ url('/profil') }}">Profile</a></li>
-                  <li><a class="dropdown-item text-light my-3" href="{{ url('/log_audit') }}">Log Audit</a></li>
-                  <li><a class="dropdown-item text-light my-3" href="{{ url('/kata_sandi') }}">Kata Sandi</a></li>
-                  <li><a class="dropdown-item text-light my-3" href="{{ url('/verifikasi_identitas') }}">verifikasi identitas</a></li>
-                </ul>
-              </div>
-            </li>
-            <li class="my-5"><a class="text-light nav-link" href="">keluar</a></li>
-          </ul>
+  <div class="content">
+    <nav class="text-light sidebar ">
+      <div class="sidebar-menu">
+        <div class="mt-3 text-end pe-3">
+          <i data-feather="x" id="x"></i>
         </div>
-      </nav>
+        <a class="title" href="{{ url('/') }}">
+          <p class="mx-3 mb-5 mt-3 h5 fw-bold">ternakConnect</p>
+        </a>
+        <ul class="text-capitalize"> 
+          <li class="my-5"><a class="text-light nav-link" href="{{ url('/dashboard') }}">ringkasan</a></li>
+          <li class="my-5"><a class="text-light nav-link" href="{{ url('/penarikan') }}">penarikan</a></li>
+          <li class="my-5">
+            <div class="dropdown">
+              <a class="dropdown-toggle text-light nav-link" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                Investasi
+              </a>
 
-      <div class="pt-3 container btn-menu" id="humberger">
-        <i data-feather="menu" id="humberger"></i>
+              <ul class="collapse color1" id="collapseExample">
+                <li><a class="dropdown-item text-light my-4" href="{{ url('/semua_bisnis') }}">Semua Bisnis</a></li>
+                <li><a class="dropdown-item text-light my-4" href="{{ url('/aktivitas') }}">Aktivitas</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="my-5"><a class="text-light nav-link" href="{{ url('/pertanyaan') }}">Pertanyaan</a></li>
+          <li class="my-5">
+            <div class="dropdown">
+              <a class="dropdown-toggle text-light nav-link" data-bs-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2">
+                Pengaturan
+              </a>
+
+              <ul class="collapse color1" id="collapseExample2">
+                <li><a class="dropdown-item text-light my-3" href="{{ url('/profil') }}">Profile</a></li>
+                <li><a class="dropdown-item text-light my-3" href="{{ url('/log_audit') }}">Log Audit</a></li>
+                <li><a class="dropdown-item text-light my-3" href="{{ url('/kata_sandi') }}">Kata Sandi</a></li>
+                <li><a class="dropdown-item text-light my-3" href="{{ url('/verifikasi_identitas') }}">verifikasi identitas</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="my-5"><a class="text-light nav-link" href="">keluar</a></li>
+        </ul>
       </div>
-        @yield('content')
-      </div>
+    </nav>
+
+    <div class="pt-3 container btn-menu" id="humberger">
+      <i data-feather="menu" id="humberger"></i>
     </div>
+      @yield('content')
+    </div>
+  </div>
 
   <script>
       feather.replace()

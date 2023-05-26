@@ -1,4 +1,4 @@
-@extends('layouts.sidebar')
+@extends(Auth::user()->role == 'peternak' ? 'layouts.sidebarPeternak' : 'layouts.sidebar') 
 
 @section('content')
 <div class="container py-5">
