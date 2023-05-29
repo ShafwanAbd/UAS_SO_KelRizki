@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container vh-100 d-flex">
-    <div class="justify-content-center w-50 m-auto align-items-center">
+    <div class="justify-content-center w-50 m-auto align-items-center shadow rounded px-5 py-4">
         <a href="{{ url('/') }}" class="h2 text-decoration-none"><span>&#60;</span></a>
         <p class="text-center text-uppercase h2 fw-bold">login</p>
         <form method="POST" action="{{ route('login') }}">
