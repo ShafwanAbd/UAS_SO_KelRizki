@@ -15,7 +15,7 @@
     @elseif (Auth::user()->role == 'peternak')
     <a href="{{ url('/dashboardPeternak') }}" class="btn" style="background:#769FCD; color:white"><i class="bi bi-arrow-left"></i> Kembali</a>
     @elseif (Auth::user()->role == 'investor')   
-    <a href="{{ url('/dasboard') }}" class="btn" style="background:#769FCD; color:white"><i class="bi bi-arrow-left"></i> Kembali</a>
+    <a href="{{ url('/dashboard') }}" class="btn" style="background:#769FCD; color:white"><i class="bi bi-arrow-left"></i> Kembali</a>
     @endif
   </div>
   <div class="row py-5 px-3">
@@ -44,9 +44,45 @@
           </script>
         </div> 
         <p style="text-align: end;">Target: {{ @money($datas1->harga * $datas1->lembar) }}</p>
-        <div class="d-flex d-row text-center align-items-center justify-content-center">
+        <div class="d-flex d-row align-items-center justify-content-center">
           @if ($isOwner == '1')          
-          <a class="btn shadow py-2 px-4" style="background: #769FCD; color:aliceblue" data-bs-toggle="modal" data-bs-target="#exampleModal">Ambil Saldo</a>
+          <a class="btn shadow py-2 px-4 " style="background: #769FCD; color:aliceblue" data-bs-toggle="modal" data-bs-target="#ambilSaldoModal">Ambil Saldo</a>
+
+          <div class="modal fade" id="ambilSaldoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Ambil Saldo</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                  <div class="mb-3">
+                    <label for="berapalembar">Lembar</label>
+                    <input name="lembar" type="number" min="1" class="form-control" id="berapalembar" placeholder="0" required>
+                  </div>  
+
+                  <label id="perkalianlembar">0 Lembar: Rp 0</label><br>
+                  <label id="tersedia">Tersedia: Rp {{ @money($datas1->harga * $datas1->lembar_terjual) }}</label>
+
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary">Ambil</button>
+                </div>
+              </div>
+
+              <script>
+                $(document).ready(function() {
+                  $('#berapalembar').on('input', function() {
+                    const berapalembarVal = $('#berapalembar').val();
+                    $('#perkalianlembar').html(berapalembarVal + ' Lembar: Rp ' + (berapalembarVal *
+                      '{{ $datas1->harga }}'));
+                  });
+                })
+              </script>
+            </div>
+          </div>
           @elseif ($isActive == '1')
           <a class="btn shadow py-2 px-4" style="background: #769FCD; color:aliceblue" data-bs-toggle="modal" data-bs-target="#exampleModal">Pesan Saham</a>
           @else 
@@ -54,7 +90,7 @@
             Pesan Saham
           </button>
           @endif
-          <a class="btn ms-2 shadow py-2 px-4" style="background:white"><i class="bi bi-share"></i> Bagikan</a>
+          <a class="btn ms-2 shadow py-2 px-4" style="background:white"><i class="bi bi-share"></i> Bagikan</a> 
         </div>
       </div>
     </div>
@@ -170,7 +206,9 @@
             <p class="lh-1">Total Investasi:</p>
             <p class="lh-1" style="color:forestgreen">{{ @money($datas1->harga * $datas1->lembar_terjual) }}</p>
           </div>
-          @if ($isActive == '1')
+          @if ($isOwner == '1')
+          <a class="btn shadow py-2 px-4 " style="background: #769FCD; color:aliceblue" data-bs-toggle="modal" data-bs-target="#ambilSaldoModal">Ambil Saldo</a>
+          @elseif ($isActive == '1')
           <a class="btn shadow py-2" style="background: #769FCD; color:aliceblue" data-bs-toggle="modal" data-bs-target="#exampleModal">Pesan Saham</a>
           @else 
           <button type="button" data-bs-content="Peternakan Sedang Tidak Aktif" class="btn shadow py-2 px-4" style="background: #ACC3DD; color:aliceblue" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="top">
