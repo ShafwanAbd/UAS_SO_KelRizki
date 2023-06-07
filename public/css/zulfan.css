@@ -91,6 +91,8 @@ li .button1 {
 #humberger {
     position: fixed;
     z-index: 99999;
+    width: 28px;
+    height: 30px;
 }
 
 .content {
