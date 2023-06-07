@@ -2,7 +2,6 @@
 
 @section('content')
 <div>
-    <!-- dashborad prototype -->
     <div class="my-5">
         <p class="fw-bold mb-5 h5">Dashboard Prototipe</p>
         <div class="row">
@@ -96,7 +95,7 @@
                             }
                         }
                     }; 
- 
+
                     new Chart(ctxLine, chartConfig);
                 </script>
             </div>
