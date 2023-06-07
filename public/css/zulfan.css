@@ -70,6 +70,7 @@ li .button1 {
     position: fixed;
     min-height: 100vh;
     background-color: #769fcd;
+    min-width: 16rem;
     max-width: 20%;
     left: 0;
     z-index: 999999;

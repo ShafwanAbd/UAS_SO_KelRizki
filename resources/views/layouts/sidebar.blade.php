@@ -49,11 +49,11 @@
 
 <body>
   <div class="content">
-    <nav class="text-light sidebar ">
-      <div class="sidebar-menu mt-5">
-        <!-- <div class="mt-5 text-end pe-3">
+    <div class="text-light sidebar">
+      <div class="sidebar-menu pt-5">
+        <div class=" text-end pe-3">
           <i data-feather="x" id="x"></i>
-        </div> -->
+        </div>
         <a class="title" href="{{ url('/') }}">
           <p class="mx-3 mb-5 mt-3 h5 fw-bold">ternakConnect</p>
         </a>
@@ -90,13 +90,14 @@
           <li class="my-5"><a class="text-light nav-link" href=""><i class="bi bi-box-arrow-in-right pe-3"></i>keluar</a></li>
         </ul>
       </div>
-    </nav>
+    </div>
 
     <div class="pt-3 container btn-menu ps-5 fw-bold" id="humberger">
       <i data-feather="menu" id="humberger"></i>
     </div>
+
       @yield('content')
-    </div>
+
   </div>
 
   <script>

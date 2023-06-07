@@ -51,7 +51,7 @@
 </head>
 
 <body>
-  <div class="row mx-0">
+  <!-- <div class="row mx-0">
     <div class=" col-2 color1 min-vh-100 ">
       <nav class="text-light sticky-top">
         <a class="title" href="{{ url('/') }}">
@@ -81,44 +81,45 @@
     <div class="col">
       @yield('content')
     </div>
-  </div>
+  </div> -->
 
-  <!-- <div class="content">
-    <nav class="text-light sidebar ">
-      <div class="sidebar-menu">
-        <div class="mt-3 text-end pe-3">
+  <div class="content">
+    <div class="text-light sidebar">
+      <div class="sidebar-menu pt-5">
+        <div class=" text-end pe-3">
           <i data-feather="x" id="x"></i>
         </div>
         <a class="title" href="{{ url('/') }}">
           <p class="mx-3 mb-5 mt-3 h5 fw-bold">ternakConnect</p>
         </a>
         <ul class="text-capitalize">
-          <li class="my-4"><a class="text-light nav-link" href="{{ url('/dashboardAdmin') }}">Ringkasan</a></li>
-          <li class="my-4"><a class="text-light nav-link" href="{{ url('/penggunaAdmin') }}">Pengguna</a></li>
-          <li class="my-4"><a class="text-light nav-link" href="{{ url('/broadcastEmailAdmin') }}">Broadcast Email</a></li>
-          <li class="my-4"><a class="text-light nav-link" href="{{ url('/pesanAdmin') }}">Pesan</a></li>
-          <li><a class="my-4 text-light nav-link dropdown-toggle" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Deposit</a></li>
+          <li class="my-4"><a class="text-light nav-link" href="{{ url('/dashboardAdmin') }}"><i class="bi bi-file-earmark-spreadsheet pe-3"></i>Ringkasan</a></li>
+          <li class="my-4"><a class="text-light nav-link" href="{{ url('/penggunaAdmin') }}"><i class="bi bi-person-lines-fill pe-3"></i>Pengguna</a></li>
+          <li class="my-4"><a class="text-light nav-link" href="{{ url('/broadcastEmailAdmin') }}"><i class="bi bi-broadcast pe-3"></i>Broadcast Email</a></li>
+          <li class="my-4"><a class="text-light nav-link" href="{{ url('/pesanAdmin') }}"><i class="bi bi-chat-text-fill pe-3"></i>Pesan</a></li>
+          <li><a class="my-4 text-light nav-link dropdown-toggle" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="bi bi-cash-stack pe-3"></i>Deposit</a></li>
           <div class="collapse" id="collapseExample"> 
             <li class="my-4"><a class="text-light nav-link mx-3" href="{{ url('/depositTransaksiAdmin') }}">Transaksi</a></li>
             <li class="my-4"><a class="text-light nav-link mx-3" href="{{ url('/depositPengaturanAdmin') }}">Pengaturan</a></li>
           </div> 
-          <li><a class="my-4 text-light nav-link dropdown-toggle" data-bs-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample">Penarikan</a></li>
+          <li><a class="my-4 text-light nav-link dropdown-toggle" data-bs-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="bi bi-wallet2 pe-3"></i>Penarikan</a></li>
           <div class="collapse" id="collapseExample2"> 
             <li class="my-4"><a class="text-light nav-link mx-3" href="{{ url('/penarikanTransaksiAdmin') }}">Transaksi</a></li>
             <li class="my-4"><a class="text-light nav-link mx-3" href="{{ url('/penarikanPengaturanAdmin') }}">Pengaturan</a></li>
           </div> 
-          <li class="my-4"><a class="text-light nav-link" href="{{ url('/listBisnisAdmin') }}">List Bisnis</a></li>
-          <li class="my-4"><a class="text-light nav-link" href="{{ url('/blogAdmin') }}">Blog</a></li>
-          <li class="my-4"><a class="text-light nav-link" href="">keluar</a></li>
+          <li class="my-4"><a class="text-light nav-link" href="{{ url('/listBisnisAdmin') }}"><i class="bi bi-tropical-storm pe-3"></i>List Bisnis</a></li>
+          <li class="my-4"><a class="text-light nav-link" href="{{ url('/blogAdmin') }}"><i class="bi bi-postcard-fill pe-3"></i>Blog</a></li>
+          <li class="my-4"><a class="text-light nav-link" href=""><i class="bi bi-box-arrow-in-right pe-3"></i>keluar</a></li>
         </ul>
       </div>
-    </nav>
+    </div>
 
     <div class="pt-3 container btn-menu ps-5 fw-bold" id="humberger">
       <i data-feather="menu" id="humberger"></i>
     </div>
+
       @yield('content')
-    </div>
+
   </div>
 
   <script>
@@ -141,7 +142,7 @@
         burger.style.display = 'block'
       }
     })
-  </script> -->
+  </script>
 </body>
 
 </html>
