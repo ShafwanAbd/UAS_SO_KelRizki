@@ -12,6 +12,9 @@
   <!-- JQuery -->
   <script src="{{ asset('js/jquery-3.6.4.min.js')}}"></script>
 
+  <!-- icon -->
+  <script src="https://unpkg.com/feather-icons"></script>
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,7 +52,7 @@
 
 <body>
   <div class="row mx-0">
-    <div class=" col-2 color1 min-vh-100">
+    <div class=" col-2 color1 min-vh-100 ">
       <nav class="text-light sticky-top">
         <a class="title" href="{{ url('/') }}">
           <p class="mx-3 my-5 h5 fw-bold">ternakConnect</p>
@@ -79,6 +82,66 @@
       @yield('content')
     </div>
   </div>
+
+  <!-- <div class="content">
+    <nav class="text-light sidebar ">
+      <div class="sidebar-menu">
+        <div class="mt-3 text-end pe-3">
+          <i data-feather="x" id="x"></i>
+        </div>
+        <a class="title" href="{{ url('/') }}">
+          <p class="mx-3 mb-5 mt-3 h5 fw-bold">ternakConnect</p>
+        </a>
+        <ul class="text-capitalize">
+          <li class="my-4"><a class="text-light nav-link" href="{{ url('/dashboardAdmin') }}">Ringkasan</a></li>
+          <li class="my-4"><a class="text-light nav-link" href="{{ url('/penggunaAdmin') }}">Pengguna</a></li>
+          <li class="my-4"><a class="text-light nav-link" href="{{ url('/broadcastEmailAdmin') }}">Broadcast Email</a></li>
+          <li class="my-4"><a class="text-light nav-link" href="{{ url('/pesanAdmin') }}">Pesan</a></li>
+          <li><a class="my-4 text-light nav-link dropdown-toggle" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Deposit</a></li>
+          <div class="collapse" id="collapseExample"> 
+            <li class="my-4"><a class="text-light nav-link mx-3" href="{{ url('/depositTransaksiAdmin') }}">Transaksi</a></li>
+            <li class="my-4"><a class="text-light nav-link mx-3" href="{{ url('/depositPengaturanAdmin') }}">Pengaturan</a></li>
+          </div> 
+          <li><a class="my-4 text-light nav-link dropdown-toggle" data-bs-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample">Penarikan</a></li>
+          <div class="collapse" id="collapseExample2"> 
+            <li class="my-4"><a class="text-light nav-link mx-3" href="{{ url('/penarikanTransaksiAdmin') }}">Transaksi</a></li>
+            <li class="my-4"><a class="text-light nav-link mx-3" href="{{ url('/penarikanPengaturanAdmin') }}">Pengaturan</a></li>
+          </div> 
+          <li class="my-4"><a class="text-light nav-link" href="{{ url('/listBisnisAdmin') }}">List Bisnis</a></li>
+          <li class="my-4"><a class="text-light nav-link" href="{{ url('/blogAdmin') }}">Blog</a></li>
+          <li class="my-4"><a class="text-light nav-link" href="">keluar</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="pt-3 container btn-menu ps-5 fw-bold" id="humberger">
+      <i data-feather="menu" id="humberger"></i>
+    </div>
+      @yield('content')
+    </div>
+  </div>
+
+  <script>
+      feather.replace()
+  </script>
+
+  <script>
+    const burger = document.querySelector('#humberger');
+    const x = document.querySelector('#x');
+    const sidebar = document.querySelector('.sidebar');
+
+    burger.onclick = ()=>{
+      sidebar.classList.toggle('active')
+      burger.style.display = 'none'
+    }
+
+    document.addEventListener('click', (e)=>{
+      if(!sidebar.contains(e.target) && !burger.contains(e.target) || x.contains(e.target)) {
+        sidebar.classList.remove('active')
+        burger.style.display = 'block'
+      }
+    })
+  </script> -->
 </body>
 
 </html>

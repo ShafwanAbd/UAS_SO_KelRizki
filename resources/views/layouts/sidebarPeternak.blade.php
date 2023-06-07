@@ -50,18 +50,18 @@
 <body>
   <div class="content">
     <nav class="text-light sidebar ">
-      <div class="sidebar-menu">
-        <div class="mt-3 text-end pe-3">
+      <div class="sidebar-menu mt-5">
+        <!-- <div class="mt-3 text-end pe-3">
           <i data-feather="x" id="x"></i>
-        </div>
+        </div> -->
         <a class="title" href="{{ url('/') }}">
           <p class="mx-3 mb-5 mt-3 h5 fw-bold">ternakConnect</p>
         </a>
         <ul class="text-capitalize">
-          <li class="my-5"><a class="text-light nav-link" href="{{ url('/dashboardPeternak') }}">ringkasan</a></li>
-          <li class="my-5"><a class="text-light nav-link" href="{{ url('/pengajuan') }}">pengajuan</a></li>
-          <li class="my-5"><a class="text-light nav-link" href="{{ url('/penarikan') }}">penarikan</a></li>
-          <li class="my-5"><a class="text-light nav-link" href="">keluar</a></li>
+          <li class="my-5"><a class="text-light nav-link" href="{{ url('/dashboardPeternak') }}"><i class="bi bi-file-earmark-spreadsheet pe-3"></i> ringkasan</a></li>
+          <li class="my-5"><a class="text-light nav-link" href="{{ url('/pengajuan') }}"><i class="bi bi-file-earmark-plus pe-3"></i>pengajuan</a></li>
+          <li class="my-5"><a class="text-light nav-link" href="{{ url('/penarikan') }}"><i class="bi bi-wallet2 pe-3"></i> penarikan</a></li>
+          <li class="my-5"><a class="text-light nav-link" href=""><i class="bi bi-box-arrow-in-right pe-3"></i> keluar</a></li>
         </ul>
       </div>
     </nav>

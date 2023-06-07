@@ -50,20 +50,20 @@
 <body>
   <div class="content">
     <nav class="text-light sidebar ">
-      <div class="sidebar-menu">
-        <div class="mt-3 text-end pe-3">
+      <div class="sidebar-menu mt-5">
+        <!-- <div class="mt-5 text-end pe-3">
           <i data-feather="x" id="x"></i>
-        </div>
+        </div> -->
         <a class="title" href="{{ url('/') }}">
           <p class="mx-3 mb-5 mt-3 h5 fw-bold">ternakConnect</p>
         </a>
         <ul class="text-capitalize"> 
-          <li class="my-5"><a class="text-light nav-link" href="{{ url('/dashboard') }}">ringkasan</a></li>
-          <li class="my-5"><a class="text-light nav-link" href="{{ url('/penarikan') }}">penarikan</a></li>
+          <li class="my-5"><a class="text-light nav-link" href="{{ url('/dashboard') }}"><i class="bi bi-file-earmark-spreadsheet pe-3"></i>ringkasan</a></li>
+          <li class="my-5"><a class="text-light nav-link" href="{{ url('/penarikan') }}"><i class="bi bi-wallet2 pe-3"></i>penarikan</a></li>
           <li class="my-5">
             <div class="dropdown">
               <a class="dropdown-toggle text-light nav-link" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                Investasi
+              <i class="bi bi-buildings pe-3"></i>Investasi
               </a>
 
               <ul class="collapse color1" id="collapseExample">
@@ -72,11 +72,11 @@
               </ul>
             </div>
           </li>
-          <li class="my-5"><a class="text-light nav-link" href="{{ url('/pertanyaan') }}">Pertanyaan</a></li>
+          <li class="my-5"><a class="text-light nav-link" href="{{ url('/pertanyaan') }}"><i class="bi bi-question-circle pe-3"></i>Pertanyaan</a></li>
           <li class="my-5">
             <div class="dropdown">
               <a class="dropdown-toggle text-light nav-link" data-bs-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2">
-                Pengaturan
+              <i class="bi bi-gear pe-3"></i>Pengaturan
               </a>
 
               <ul class="collapse color1" id="collapseExample2">
@@ -87,12 +87,12 @@
               </ul>
             </div>
           </li>
-          <li class="my-5"><a class="text-light nav-link" href="">keluar</a></li>
+          <li class="my-5"><a class="text-light nav-link" href=""><i class="bi bi-box-arrow-in-right pe-3"></i>keluar</a></li>
         </ul>
       </div>
     </nav>
 
-    <div class="pt-3 container btn-menu" id="humberger">
+    <div class="pt-3 container btn-menu ps-5 fw-bold" id="humberger">
       <i data-feather="menu" id="humberger"></i>
     </div>
       @yield('content')
