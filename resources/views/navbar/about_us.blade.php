@@ -4,7 +4,7 @@
     <div class="container">
         <div class="d-flex flex-row align-items-center">
             <div class="profile-image">          
-                <img class="rounded-circle m-2" src="{{asset('img/profile-icon.jpg')}}" alt="" height="120px" width="120px">
+                <img class="rounded-circle m-2" src="{{asset('img/logo.png')}}" alt="" height="120px" width="120px">
             </div>
             <div class="profile-name pt-2 px-2">
                 <h3 class="fw-bold">TernakConnect</h3>

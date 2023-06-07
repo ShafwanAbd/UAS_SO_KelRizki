@@ -1,7 +1,7 @@
 @extends('layouts.sidebarAdmin')
 
 @section('content') 
-    <div class="container_penggunaAdmin">
+    <div class="container_penggunaAdmin container">
         <div class="container_isi">
             <h2 class="mb-5">Pengguna</h2>
             <table class="table table-hover">

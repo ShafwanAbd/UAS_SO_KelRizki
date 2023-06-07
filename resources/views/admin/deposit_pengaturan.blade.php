@@ -1,6 +1,6 @@
 @extends('layouts.sidebarAdmin')
 @section('content') 
-    <div class="container_penggunaAdmin container_depositPengaturan">
+    <div class="container_penggunaAdmin container_depositPengaturan container">
         <div class="container_isi">
             <h2>Bank Transfer Details</h2>
             <div class="container_form">
