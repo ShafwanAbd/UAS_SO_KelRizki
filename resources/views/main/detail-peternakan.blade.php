@@ -46,7 +46,7 @@
         <p style="text-align: end;">Target: {{ @money($datas1->harga * $datas1->lembar) }}</p>
         <div class="d-flex d-row align-items-center justify-content-center">
           @if ($isOwner == '1')          
-          <a class="btn shadow py-2 px-4 " style="background: #769FCD; color:aliceblue" data-bs-toggle="modal" data-bs-target="#ambilSaldoModal">Ambil Saldo</a>
+          <a class="btn shadow py-2 px-4" style="background: #769FCD; color:aliceblue" data-bs-toggle="modal" data-bs-target="#ambilSaldoModal">Ambil Saldo</a>
 
           <div class="modal fade" id="ambilSaldoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
@@ -74,7 +74,7 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button id="submitButton" type="submit" class="btn btn-primary">Ambil</button>
+                  <button id="submitButton" type="submit" class="btn btn-primary" style="background: #769FCD; color:aliceblue" >Ambil</button>
                 </div> 
                 </form>
               </div>
@@ -267,7 +267,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Pesan Saham</button>
+          <button type="submit" class="btn btn-primary" style="background: #769FCD; color:aliceblue" >Pesan Saham</button>
         </div>
       </div>
 
