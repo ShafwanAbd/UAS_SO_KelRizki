@@ -1,8 +1,8 @@
 @extends('layouts.sidebarAdmin')
 
 @section('content')
-<div>
-    <div class="my-5">
+<div class="container">
+    <div class="my-5 ">
         <p class="fw-bold mb-5 h5">Dashboard Prototipe</p>
         <div class="row">
             <div class="col-9">
