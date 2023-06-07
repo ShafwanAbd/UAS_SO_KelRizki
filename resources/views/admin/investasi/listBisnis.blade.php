@@ -1,7 +1,7 @@
 @extends('layouts.sidebarAdmin')
 
 @section('content') 
-<div class="my-4 p-4"> 
+<div class="my-4 p-4 container"> 
   <div class="card shadow my-4">
     @if($datas1->count() > 0)
     <table class="table table-hover">

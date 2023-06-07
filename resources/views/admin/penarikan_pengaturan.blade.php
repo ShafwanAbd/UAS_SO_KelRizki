@@ -1,7 +1,7 @@
 @extends('layouts.sidebarAdmin')
 
 @section('content') 
-    <div class="container_penggunaAdmin depositTransaksi">
+    <div class="container_penggunaAdmin depositTransaksi container">
         <div class="container_isi">
             <h2>Transaksi Penarikan</h2>
             <table class="table table-hover">
