@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('harga');
             $table->string('lembar');
             $table->string('lembar_terjual')->nullable();
+            $table->string('profit')->nullable();
             $table->string('start_date'); 
             $table->string('expiring_date'); 
             $table->string('location');

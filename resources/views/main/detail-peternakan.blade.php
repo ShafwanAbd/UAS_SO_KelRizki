@@ -55,6 +55,8 @@
                   <h1 class="modal-title fs-5" id="exampleModalLabel">Ambil Saldo</h1>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
+                <form method="POST" action="{{ url('/detail-peternakan/ambil_owner/'.$datas1->id) }}">
+                @csrf
                 <div class="modal-body">
 
                   <div class="mb-3">
@@ -62,23 +64,35 @@
                     <input name="lembar" type="number" min="1" class="form-control" id="berapalembar" placeholder="0" required>
                   </div>  
 
+                  <div id="helper_saldo_admin" class="hidden alert alert-danger p-2"> 
+                    <label>Pengambilan Saldo Melebihi Total Saldo</label>
+                  </div>
+
                   <label id="perkalianlembar">0 Lembar: Rp 0</label><br>
-                  <label id="tersedia">Tersedia: Rp {{ @money($datas1->harga * $datas1->lembar_terjual) }}</label>
+                  <label id="tersedia">Tersedia: {{ @money($datas1->harga * $datas1->lembar_terjual) }}</label>
 
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="submit" class="btn btn-primary">Ambil</button>
-                </div>
+                  <button id="submitButton" type="submit" class="btn btn-primary">Ambil</button>
+                </div> 
+                </form>
               </div>
 
               <script>
                 $(document).ready(function() {
                   $('#berapalembar').on('input', function() {
                     const berapalembarVal = $('#berapalembar').val();
-                    $('#perkalianlembar').html(berapalembarVal + ' Lembar: Rp ' + (berapalembarVal *
-                      '{{ $datas1->harga }}'));
-                  });
+                    $('#perkalianlembar').html(berapalembarVal + ' Lembar: Rp ' + (berapalembarVal * '{{ $datas1->harga }}'));
+ 
+                    if ('{{ $datas1->harga * $datas1->lembar_terjual }}' < (berapalembarVal * '{{ $datas1->harga }}')){
+                      $('#helper_saldo_admin').removeClass('hidden');
+                      $('#submitButton').prop('disabled', true);
+                    } else {
+                      $('#helper_saldo_admin').addClass('hidden');
+                      $('#submitButton').prop('disabled', false);
+                    }
+                  }); 
                 })
               </script>
             </div>

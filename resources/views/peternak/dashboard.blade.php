@@ -27,35 +27,33 @@
     </div>
   </div>
 
-  <div class="row pt-3">
+  <div class="row pt-3"> 
+
     <div class="col-md-3 pt-3">
       <div class="card pt-3 px-3 border-0 bg-white shadow">
-        <h6 class="bold">Saldo</h6>
-        <p>{{ @money(Auth::user()->balance) }}</p>
-      </div>
-    </div>
-    <div class="col-md-3 pt-3">
-      <div class="card pt-3 px-3 border-0 bg-white shadow">
-        <h6 class="bold">Saldo pada Saham</h6>
-        <p>{{ @money($datas['saldoSaham']) }}</p>
-      </div>
-    </div>
-    <div class="col-md-3 pt-3">
-      <div class="card pt-3 px-3 border-0 bg-white shadow">
-        <h6 class="bold">Profit</h6>
+        <h6 class="bold">Jumlah Dana Terkumpul</h6>
         <p>{{ @money(Auth::user()->profit) }}</p>
       </div>
     </div>
+
+    <div class="col-md-3 pt-3">
+      <div class="card pt-3 px-3 border-0 bg-white shadow">
+        <h6 class="bold">Jumlah Investor</h6>
+        <p>{{ $datas['jmlhInvestasi'] }}</p>
+      </div>
+    </div>
+
     <div class="col-md-3 pt-3">
       <div class="card pt-3 px-3 border-0 bg-white shadow">
         <h6 class="bold">Jumlah Peternakan</h6>
         <p>{{ $datas['jmlpeternakan'] }}</p>
       </div>
     </div>
+
   </div>
   <!-- Alokasi Dana Investasi -->
   <div class="row pt-5">
-    <h5><i class="bi bi-cash-stack"></i> Alokasi Dana Investasi Kamu:</h5>
+    <h5><i class="bi bi-cash-stack"></i> Peternakan Kamu:</h5>
     @if ($datas1->count() > 0)
     @foreach($datas1 as $key=>$val)
     <div class="col-md-4 pt-3 px-3">

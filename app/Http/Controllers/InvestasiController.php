@@ -70,16 +70,28 @@ class InvestasiController extends Controller
 
     public function beli_investasi(Request $request, string $id){
 
-        $model1 = new BeliInvestasi();
         $model2 = Investasi::find($id);
         $model3 = User::find(Auth::user()->id); 
 
-        $model1->id_user = Auth::user()->id;
-        $model1->id_investasi = $id;
-        $model1->lembar = $request->lembar;
-        $model1->pembayaran_from = $request->pembayaran_from;
-        $model1->amount = $request->lembar * $model2->harga;
-        $model1->status = 0;
+        if (BeliInvestasi::where('id_user', Auth::user()->id)->count() != 0){
+            $model1 = BeliInvestasi::where('id_user', Auth::user()->id)->first();
+
+            BeliInvestasi::where('id_user', Auth::user()->id)->update([
+                'lembar' => $model1->lembar + $request->lembar,
+                'amount' => $model1->amount + ($request->lembar * $model2->harga),
+                'pembayaran_from' => $request->pembayaran_from,
+            ]); 
+        } else {
+            $model1 = new BeliInvestasi();
+
+            $model1->id_user = Auth::user()->id;
+            $model1->id_investasi = $id;
+            $model1->lembar = $request->lembar;
+            $model1->pembayaran_from = $request->pembayaran_from;
+            $model1->amount = $request->lembar * $model2->harga;
+            $model1->status = 0;
+        }
+        $model1->save();
 
         $model2->lembar_terjual += $request->lembar;  
         if ($model2->lembar_terjual > $model2->lembar){

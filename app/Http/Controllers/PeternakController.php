@@ -17,12 +17,13 @@ class PeternakController extends Controller
         $datas['jmlpeternakan'] = Investasi::where('id_user', Auth::user()->id)->count();  
         $datas1 = Investasi::where('id_user', Auth::user()->id)->get();
 
-        $model1 = Investasi::where('id_user', Auth::user()->id)->get();
-        $datas['saldoSaham'] = 0;
-        foreach ($model1 as $key=>$val){
-            $datas['saldoSaham'] += $val->lembar_terjual * $val->harga;
-        }
-
+        $userId = Auth::user()->id;
+        $investasiIds = Investasi::where('id_user', $userId)->pluck('id');
+        
+        $jmlhInvestasi = BeliInvestasi::whereIn('id_investasi', $investasiIds)->count();
+        
+        $datas['jmlhInvestasi'] = $jmlhInvestasi;
+        
         return view('peternak.dashboard', compact(
             'datas', 'datas1'
         ));
@@ -61,5 +62,25 @@ class PeternakController extends Controller
         $model1->save();
         
         return redirect('/dashboardPeternak')->with('success', 'Berhasil Membuat Peternakan!');
-    } 
+    }  
+
+    public function detail_peternakan_ambil_owner(string $id_inves, Request $request){
+        $datas1 = Investasi::find($id_inves); 
+
+        $totalAmbil = $request->lembar * $datas1->harga;
+        $totalSaldo = $datas1->lembar_terjual * $datas1->harga;
+ 
+        $totalSisa = $totalSaldo - $totalAmbil;
+ 
+        $datas1->profit += $totalAmbil;
+        $datas1->lembar_terjual = $totalSisa / $datas1->harga;
+
+        $datas1->save();
+
+        User::where('id', Auth::user()->id)->update([
+            'profit' => $datas1->profit
+        ]);
+
+        return back()->with('success', 'Berhasil Mengambil Saldo pada Saham!');
+    }
 }

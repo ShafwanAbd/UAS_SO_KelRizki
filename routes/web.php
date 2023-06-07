@@ -70,20 +70,21 @@ Route::middleware(['auth', 'verified', 'aktif'])->group(function () {
     Route::get('/profil',               [ProfilController::class, 'profil_index']);         
     Route::post('/profil/update/{id}',  [ProfilController::class, 'profil_update']);     
     Route::post('/profil/update/photo/{id}',  [ProfilController::class, 'profil_update_photo']);      
-    Route::get('/profil/delete/{id}',   [ProfilController::class, 'profil_delete'])->name('sidebar.profil.delete');         
+    Route::get('/profil/delete/{id}',   [ProfilController::class, 'profil_delete']);         
 
-    Route::get('/log_audit',            [CommonController::class, 'log_audit_index'])->name('sidebar.log_audit');       
+    Route::get('/log_audit',            [CommonController::class, 'log_audit_index']);       
 
-    Route::get('/kata_sandi',           [KataSandiController::class, 'kata_sandi_index'])->name('sidebar.kata_sandi');  
-    Route::post('/kata_sandi/update',    [KataSandiController::class, 'kata_sandi_update'])->name('sidebar.kata_sandi.update');         
+    Route::get('/kata_sandi',           [KataSandiController::class, 'kata_sandi_index']);  
+    Route::post('/kata_sandi/update',    [KataSandiController::class, 'kata_sandi_update']);         
 
-    Route::get('/verifikasi_identitas', [CommonController::class, 'verifikasi_identitas_index'])->name('sidebar.verifikasi_identitas'); 
+    Route::get('/verifikasi_identitas', [CommonController::class, 'verifikasi_identitas_index']); 
 
 
 // PETERNAK ACCESS
     Route::get('/dashboardPeternak', [PeternakController::class, 'dashboard']); 
     Route::get('/pengajuan', [PeternakController::class, 'pengajuan']); 
     Route::post('/add_bisnis', [PeternakController::class, 'add_bisnis']); 
+    Route::post('/detail-peternakan/ambil_owner/{id_inves}',    [PeternakController::class, 'detail_peternakan_ambil_owner']);
 });
 
 // ADMIN ========================================= <>
