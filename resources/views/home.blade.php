@@ -29,20 +29,28 @@
         nikmati profit bisnis atau imbal hasil secara berkala.</p>
     </div>
     <div class="row mx-0">
-      <div class="col-3">
-        <img src="{{ asset('./img/1.jpg')}}" class="rounded img-fluid" alt="ini gambar" style="max-height: 300px;">
-        <p class="mt-4">Waktu Pendanaan Tercepat</p>
+      <div class="col-3"> 
+        <div class="rounded p-5 shadow border-1 border" >
+          <h4>1 Day</h4>
+        </div> 
+        <p class="mt-2">Waktu Pendanaan Tercepat</p>
       </div>
       <div class="col-3">
-        <img src="{{ asset('./img/2.jpg')}}" class="rounded img-fluid" alt="ini gambar" style="max-height: 300px;">
+        <div class="rounded p-5 shadow border-1 border" >
+          <h4>{{ @money($datas['totalInvestasi']) }}</h4>
+        </div>  
         <p class="mt-4">Total Investasi</p>
       </div>
       <div class="col-3">
-        <img src="{{ asset('./img/3.jpg')}}" class="rounded img-fluid" alt="ini gambar" style="max-height: 300px;">
+        <div class="rounded p-5 shadow border-1 border" >
+          <h4>{{ $datas['totalInvestor'] }} Investor</h4>
+        </div> 
         <p class="mt-4">Investor Terdaftar</p>
       </div>
       <div class="col-3">
-        <img src="{{ asset('./img/4.jpg')}}" class="rounded img-fluid " alt="ini gambar" style="max-height: 300px;">
+        <div class="rounded p-5 shadow border-1 border" >
+          <h4>{{ $datas['totalPenerbit'] }} Penerbit</h4>
+        </div> 
         <p class="mt-4">Total Jumlah Penerbit</p>
       </div>
     </div>

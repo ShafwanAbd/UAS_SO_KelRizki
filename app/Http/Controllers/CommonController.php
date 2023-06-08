@@ -15,7 +15,13 @@ class CommonController extends Controller
 
     public function home_index()
     {
-        return view('home');
+        $datas['totalInvestasi'] = BeliInvestasi::all()->sum('amount');
+        $datas['totalInvestor'] = BeliInvestasi::all()->count();
+        $datas['totalPenerbit'] = Investasi::where('status', 1)->count();
+
+        return view('home', compact([
+            'datas'
+        ]));
     }
 
     public function about_us_index()
