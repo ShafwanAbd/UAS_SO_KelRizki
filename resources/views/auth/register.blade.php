@@ -57,26 +57,30 @@
                         <label for="password-confirm" class="col-form-label text-md-end">{{ __('Confirm Password') }}</label>
                             <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                     </div>
-                    <div class="mb-2">
+                    <div class="mb-2 ">
                         <label for="radio" class="col-form-label text-md-end">Role</label>
-                        <div class="form-check">
-                            <input value="peternak" class="form-check-input" type="radio" name="role" id="flexRadioDefault1" required>
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                Peternak
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input value="investor" class="form-check-input" type="radio" name="role" id="flexRadioDefault2" required>
-                            <label class="form-check-label" for="flexRadioDefault2">
-                                Investor
-                            </label>
+                        <div  class="d-flex justify-content-around">
+                            <div class="form-check">
+                                <input value="peternak" class="form-check-input" type="radio" name="role" id="flexRadioDefault1" required>
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Peternak
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input value="investor" class="form-check-input" type="radio" name="role" id="flexRadioDefault2" required>
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                    Investor
+                                </label>
+                            </div>
                         </div>
                     </div>
-                    <div class="my-3">
+                    <div class="my-4">
                             <button type="submit" class="py-2 button1 w-100 rounded-pill">
                                 {{ __('Register') }}
                             </button>
                     </div>
+
+                    <p class="my-4 font-bold text-center fw-bold">Sudah punya akun ? <span ><a class="text-decoration-none fw-normal fontColor1" href="{{ route('login') }}">Login</a></span> </p>
                 </form>
                 </div>
     </div>

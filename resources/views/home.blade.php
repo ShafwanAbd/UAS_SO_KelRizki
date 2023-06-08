@@ -30,19 +30,19 @@
     </div>
     <div class="row mx-0">
       <div class="col-3">
-        <img src="{{ asset('./image/img1.jpg')}}" class="rounded-circle img-fluid" alt="ini gambar">
+        <img src="{{ asset('./img/1.jpg')}}" class="rounded img-fluid" alt="ini gambar" style="max-height: 300px;">
         <p class="mt-4">Waktu Pendanaan Tercepat</p>
       </div>
       <div class="col-3">
-        <img src="{{ asset('./image/img1.jpg')}}" class="rounded-circle img-fluid" alt="ini gambar">
+        <img src="{{ asset('./img/2.jpg')}}" class="rounded img-fluid" alt="ini gambar" style="max-height: 300px;">
         <p class="mt-4">Total Investasi</p>
       </div>
       <div class="col-3">
-        <img src="{{ asset('./image/img1.jpg')}}" class="rounded-circle img-fluid" alt="ini gambar">
+        <img src="{{ asset('./img/3.jpg')}}" class="rounded img-fluid" alt="ini gambar" style="max-height: 300px;">
         <p class="mt-4">Investor Terdaftar</p>
       </div>
       <div class="col-3">
-        <img src="{{ asset('./image/img1.jpg')}}" class="rounded-circle img-fluid" alt="ini gambar">
+        <img src="{{ asset('./img/4.jpg')}}" class="rounded img-fluid " alt="ini gambar" style="max-height: 300px;">
         <p class="mt-4">Total Jumlah Penerbit</p>
       </div>
     </div>
@@ -58,7 +58,7 @@
     </div>
   </div>
   <div class="col color1 d-flex align-items-center">
-    <img class="img-fluid img-thumbnail align-middle" src="{{ asset('./image/img1.jpg')}}" alt="isi foto">
+    <img class="img-fluid img-thumbnail rounded align-middle" src="{{ asset('./img/genggaman (2).jpg')}}" alt="isi foto">
   </div>
 </div>
 
