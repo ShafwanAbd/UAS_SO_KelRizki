@@ -38,7 +38,6 @@ Route::get('/blog',     [CommonController::class, 'blog_index'])->name('home.blo
 // MAIN ========================================= <>  
 
 // ALL ACCESS
-Route::get('/detail-peternakan/{id}',    [CommonController::class, 'detail_peternakan_index']);
 
 // UMUM ACCESS
 Route::middleware(['auth', 'verified', 'aktif'])->group(function () {
@@ -50,6 +49,7 @@ Route::middleware(['auth', 'verified', 'aktif'])->group(function () {
     Route::get('/penarikan',            [PenarikanController::class, 'penarikan_index']);
     Route::post('/penarikan/create',    [PenarikanController::class, 'create']);
 
+    Route::get('/detail-peternakan/{id}',    [CommonController::class, 'detail_peternakan_index']);
 
     Route::get('/investasi-detail/{id}', [InvestasiController::class, 'investasi_detail_index']);    
     Route::post('/beli_investasi/{id}', [InvestasiController::class, 'beli_investasi']);    
@@ -82,9 +82,11 @@ Route::middleware(['auth', 'verified', 'aktif'])->group(function () {
 
 // PETERNAK ACCESS
     Route::get('/dashboardPeternak', [PeternakController::class, 'dashboard']); 
+    Route::get('/detailBisnis', [PeternakController::class, 'detailBisnis']); 
     Route::get('/pengajuan', [PeternakController::class, 'pengajuan']); 
     Route::post('/add_bisnis', [PeternakController::class, 'add_bisnis']); 
     Route::post('/detail-peternakan/ambil_owner/{id_inves}',    [PeternakController::class, 'detail_peternakan_ambil_owner']);
+    Route::post('/upload_laporan_bulanan', [PeternakController::class, 'upload_laporan_bulanan']); 
 });
 
 // ADMIN ========================================= <>

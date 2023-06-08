@@ -3,6 +3,13 @@
 @section('content')
 
 <div class="container py-5">
+  
+  @if(Session::has('success'))
+      <p class="alert alert-success fixed-top w-75 mx-auto my-5 text-center" id="sixSeconds">{{ Session::get('success') }}</p>
+  @elseif(Session::has('failed'))
+      <p class="alert alert-warning fixed-top w-75 mx-auto my-5 text-center" id="sixSeconds">{{ Session::get('failed') }}</p>
+  @endif 
+
   <div class="d-flex flex-row ">
     <div class="d-flex flex-row ">
       <div class="profile-image">
@@ -17,17 +24,47 @@
         <p>Halo Peternak Handal, Selamat Datang di Dashboard Kamu.</p>
       </div>
     </div>
-    <div class="d-inline pt-2 ms-auto">
-      <button class="btn btn-primary">Detail Bisnis Kamu</button>  
-      @if ($datas['jmlpeternakan'] > 0)
-      <a href="{{ url('/pengajuan') }}" class="btn btn-success">Upload Laporan Bulanan</a>
+    <div class="d-inline pt-2 ms-auto">    
+
+      @if ($datas['jmlpeternakan'] > 0) 
+      
+      <a href="{{ url('/detailBisnis') }}" class="btn btn-primary">Detail Bisnis Kamu</a>
+
+      <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#laporanBulananModal">
+        Upload Laporan Bulanan
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="laporanBulananModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <form method="POST" action="{{ url('upload_laporan_bulanan') }}" enctype="multipart/form-data">
+            @csrf
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Upload Laporan Bulanan</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+              <input name="laporan" type="file">
+              <p class="mt-3 form-text">Silahkan untuk mengirim laporan bulanan terhadap perkembangan bisnis peternakan Anda.</p>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">submit</button>
+            </div>
+            </form>
+          </div>
+        </div>
+      </div>
       @elseif ($datas['jmlpeternakan'] < 1)
       <a href="{{ url('/pengajuan') }}" class="btn btn-primary">Ajukan Bisnis</a> 
       @endif
     </div>
   </div>
 
-  <div class="row pt-3"> 
+  <div class="d-flex justify-content-between pt-3"> 
 
     <div class="col-md-3 pt-3">
       <div class="card pt-3 px-3 border-0 bg-white shadow">

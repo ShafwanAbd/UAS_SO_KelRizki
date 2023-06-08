@@ -87,7 +87,12 @@
               </ul>
             </div>
           </li>
-          <li class="my-5"><a class="text-light nav-link" href=""><i class="bi bi-box-arrow-in-right pe-3"></i>keluar</a></li>
+          <li class="my-5"><a class="text-light nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
+            document.getElementById('logout-form').submit();"><i class="bi bi-box-arrow-in-right pe-3"></i> keluar</a></li>
+
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+              @csrf
+          </form>
         </ul>
       </div>
     </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\UploadLaporanBulanan;
 use App\Models\BeliInvestasi;
 use App\Models\Investasi;
 use App\Models\LogAudit;
@@ -9,6 +10,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class PeternakController extends Controller
 {
@@ -26,6 +28,17 @@ class PeternakController extends Controller
         
         return view('peternak.dashboard', compact(
             'datas', 'datas1'
+        ));
+    }
+
+    public function detailBisnis()
+    {
+        $datas['myInvest'] = Investasi::where('id_user', Auth::user()->id)->first();
+        $datas['investor'] = BeliInvestasi::where('id_investasi', $datas['myInvest']->id)->get();
+        $datas['userInvestor'] = User::all();
+        
+        return view('peternak.detailBisnis', compact(
+            'datas'
         ));
     }
 
@@ -82,5 +95,21 @@ class PeternakController extends Controller
         ]);
 
         return back()->with('success', 'Berhasil Mengambil Saldo pada Saham!');
+    }  
+
+    public function upload_laporan_bulanan(Request $request){
+        $file = $request->file('laporan'); // Get the uploaded file
+        // Process the file and any other necessary logic
+         
+        $myInvestasi = Investasi::where('id_user', Auth::user()->id)->first();
+        $beliInvestasi = BeliInvestasi::where('id_investasi', $myInvestasi->id)->get();   
+
+        // Send email with the file as an attachment
+        foreach($beliInvestasi as $key=>$val){
+            $user = User::where('id', $val->id_user)->first();
+            Mail::to($user->email)->send(new UploadLaporanBulanan($file));
+        } 
+
+        return back()->with('success', 'Berhasil Mengupload Laporan Bulanan!');
     }
 }
