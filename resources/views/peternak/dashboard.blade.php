@@ -24,10 +24,11 @@
         <p>Halo Peternak Handal, Selamat Datang di Dashboard Kamu.</p>
       </div>
     </div>
-    <div class="d-inline pt-2 ms-auto">   
-      <a href="{{ url('/detailBisnis') }}" class="btn btn-primary">Detail Bisnis Kamu</a>
+    <div class="d-inline pt-2 ms-auto">    
 
-      @if ($datas['jmlpeternakan'] > 0)
+      @if ($datas['jmlpeternakan'] > 0) 
+      
+      <a href="{{ url('/detailBisnis') }}" class="btn btn-primary">Detail Bisnis Kamu</a>
 
       <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#laporanBulananModal">
         Upload Laporan Bulanan
