@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col-12 my-5 text-center">
             <div class="card">
-                <img src="" class="card-img-top" alt="isi fotonya">
+                <img src="{{ asset('./img/2.jpg')}}" class="img-fluid" alt="isi fotonya" style="max-height: 400px;">
                 <div class="card-body">
                     <h5 class="card-title judulBlog "><a class="text-decoration-none fw-bold" href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a></h5>
                     <p class="card-text ">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -19,7 +19,7 @@
         </div>
         <div class="col">
             <div class="card">
-                <img src="{{ asset('./img/profile-icon.jpg')}}" class="card-img-top" alt="...">
+                <img src="{{ asset('./img/4.jpg')}}" class="card-img-top img-fluid" alt="...">
                 <div class="card-body">
                     <h5 class="card-title judulBlog"><a class="text-decoration-none fw-bold " href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a></h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -29,7 +29,7 @@
         </div>
         <div class="col">
             <div class="card">
-                <img src="{{ asset('./img/profile-icon.jpg')}}" class="card-img-top" alt="...">
+                <img src="{{ asset('./img/2.jpg')}}" class="card-img-top img-fluid" alt="...">
                 <div class="card-body">
                     <h5 class="card-title judulBlog"><a class="text-decoration-none fw-bold " href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a></h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -39,7 +39,7 @@
         </div>
         <div class="col">
             <div class="card">
-                <img src="{{ asset('./img/profile-icon.jpg')}}" class="card-img-top img-fluid" alt="...">
+                <img src="{{ asset('./img/1.jpg')}}" class="card-img-top img-fluid" alt="...">
                 <div class="card-body">
                     <h5 class="card-title judulBlog"><a class="text-decoration-none fw-bold " href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a></h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
